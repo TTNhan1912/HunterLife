@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FLO : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class FLO : MonoBehaviour
 
     private Color originalColor;
     public Color highlightColor = Color.red;
+
+    public GameObject harvestSymbolPrefab; // Prefab của kí hiệu thu hoạch
+    private GameObject harvestSymbolInstance; // Instance của kí hiệu thu hoạch
 
     private void Start()
     {
@@ -35,9 +39,21 @@ public class FLO : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject == gameObject) 
                 {
                     Destroy(gameObject);
+                    Destroy(harvestSymbolInstance);
                 }
             }
         }
+
+
+        if (isCollect)
+        {
+            if (harvestSymbolInstance == null)
+            {
+                Vector3 symbolPosition = transform.position + Vector3.up * 1f; // Điều chỉnh vị trí kí hiệu
+                harvestSymbolInstance = Instantiate(harvestSymbolPrefab, symbolPosition, Quaternion.identity);
+            }
+        }
+        
 
     }
 
@@ -65,6 +81,7 @@ public class FLO : MonoBehaviour
         spriteRenderer.sprite = newSprite6; 
 
         isCollect = true;
+        
 
     }
     private void OnMouseEnter()

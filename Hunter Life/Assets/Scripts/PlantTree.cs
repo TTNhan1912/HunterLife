@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlantTree : MonoBehaviour
 {
     public GameObject treePrefab;
+
+    private bool isMoving = false; // di chuyển
+    private Vector3 targetPosition;  // lấy vị trí của mục tiêu đó
     void Start()
     {
         
