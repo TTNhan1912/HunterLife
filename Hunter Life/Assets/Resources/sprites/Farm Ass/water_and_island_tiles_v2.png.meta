@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -9312,8 +9312,8 @@ TextureImporter:
       water_and_island_tiles_v2_266: 1127715236
       water_and_island_tiles_v2_207: 675637024
       water_and_island_tiles_v2_30: -340293367
-      water_and_island_tiles_v2_310: 1337731068
       water_and_island_tiles_v2_381: -945973925
+      water_and_island_tiles_v2_310: 1337731068
       water_and_island_tiles_v2_189: 402856152
       water_and_island_tiles_v2_292: -1841574498
       water_and_island_tiles_v2_426: -1993611402
