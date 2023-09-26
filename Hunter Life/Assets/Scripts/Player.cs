@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,24 +59,5 @@ public class Player : MonoBehaviour
         transform.Translate(velocity * speedRun * Time.deltaTime);
 
 
-    }
-
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (Input.GetKeyDown(KeyCode.Z) && collision.gameObject.CompareTag("ArableLand"))
-        {
-            var x = transform.position.x;
-            var y = transform.position.y;
-            var z = transform.position.z;
-
-            // chuyển isright ben bullet qua bên đây
-            GameObject gameObject = (GameObject)Instantiate(Resources.Load("Prefabs/FLBlue"),
-            new Vector3(x, y, z),
-            Quaternion.identity);
-        };
-    }*/
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
     }
 }
