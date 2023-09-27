@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        movement.Normalize();
         ani.SetFloat("Horizontal", movement.x);
         ani.SetFloat("Vertical", movement.y);
         ani.SetFloat("Speed", movement.sqrMagnitude );
