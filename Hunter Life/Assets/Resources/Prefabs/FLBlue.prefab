@@ -131,5 +131,5 @@ MonoBehaviour:
   newSprite4: {fileID: 648507986, guid: 512511764cabc9647b3204e75936920d, type: 3}
   newSprite5: {fileID: -1528578818, guid: 512511764cabc9647b3204e75936920d, type: 3}
   newSprite6: {fileID: -1653348500, guid: 512511764cabc9647b3204e75936920d, type: 3}
-  highlightColor: {r: 0.735849, g: 0.7184941, b: 0.7184941, a: 1}
+  highlightColor: {r: 0.8018868, g: 0.049172327, b: 0.09573064, a: 1}
   harvestSymbolPrefab: {fileID: 4195672170272160808, guid: 1bae36a5b1b8a0e4bbd828683496a9f4, type: 3}
