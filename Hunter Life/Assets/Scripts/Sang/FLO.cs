@@ -49,7 +49,7 @@ public class FLO : MonoBehaviour
         {
             if (harvestSymbolInstance == null)
             {
-                Vector3 symbolPosition = transform.position + Vector3.up * 1f; // Điều chỉnh vị trí kí hiệu
+                Vector3 symbolPosition = transform.position + Vector3.up * 0.5f; // Điều chỉnh vị trí kí hiệu
                 harvestSymbolInstance = Instantiate(harvestSymbolPrefab, symbolPosition, Quaternion.identity);
             }
         }
