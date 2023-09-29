@@ -48,7 +48,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68d05fc454e09f40b1b92643d3e7643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messegerCloud: {fileID: 7025194985920165457, guid: c7839c324c322f745882d4e13fcf95b0, type: 3}
+  Panel: {fileID: 0}
+  contentLabel: {fileID: 0}
+  content:
+  - "Ch\xE0o m\u1EEBng b\u1EA1n \u0111\u1EBFn v\u1EDBi th\u1EBF gi\u1EDBi c\u1EE7a
+    Hunter Life"
+  - "T\xF4i l\xE0 Sarah"
+  - "B\u1EA1n l\xE0 ng\u01B0\u1EDDi m\u1EDBi \u1EDF \u0111\xE2y ph\u1EA3i kh\xF4ng?
+    T\xF4i c\xF3 th\u1EC3 cho b\u1EA1n m\u1ED9t s\u1ED1 th\xF4ng tin."
+  - "H\xE3y c\u1EA9n th\u1EADn, th\u1EBF gi\u1EDBi n\xE0y c\xF3 th\u1EC3 nguy hi\u1EC3m."
+  - "Ch\xFAc b\u1EA1n may m\u1EAFn trong cu\u1ED9c h\xE0nh tr\xECnh c\u1EE7a m\xECnh."
+  button: {fileID: 0}
+  wordSpeed: 0
+  moveSpeed: 0
+  width: 5
+  height: 3
 --- !u!212 &8949226909709683675
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,9 +101,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: 304961483
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1012868074, guid: 54c84162250f3a34c969800133155736, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

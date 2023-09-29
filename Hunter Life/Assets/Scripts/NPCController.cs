@@ -27,7 +27,7 @@ namespace CharAndNPC
         private Vector2 targetPosition;
         private Animator animator;
         private BoxCollider2D npcBox;
-        private Player playerInstance;
+        private PlayerInteraction playerInstance;
         private bool isAfterTouchChar;
 
 
@@ -51,7 +51,7 @@ namespace CharAndNPC
             UpdateAnimator(Direction.Down); // Bắt đầu với Animator "Right"
             checkBtnClick2Time = 0;
             // Truy cập biến của Player.cs 
-            playerInstance = FindObjectOfType<Player>();
+            playerInstance = FindObjectOfType<PlayerInteraction>();
             if (playerInstance != null)
             {
 
@@ -189,7 +189,7 @@ namespace CharAndNPC
         // thao tác với panel 
         private void PanelHandler()
         {
-            playerInstance.setSpeedRun(0f);
+           // playerInstance.setSpeedRun(0f);
             playerInstance.isAfterTouchNPC = false;
             Debug.Log("đang đứng");
 
@@ -226,7 +226,7 @@ namespace CharAndNPC
             {
                 //isClickBtnContinue = true;
                 Debug.Log("đã click");
-                playerInstance.setSpeedRun(1f);
+              //  playerInstance.setSpeedRun(1f);
                 playerInstance.isClickBtn = true;
                 Debug.Log("đang chạy");
                 Panel.SetActive(false);
