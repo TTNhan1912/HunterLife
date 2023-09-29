@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949226909709683676}
-  - component: {fileID: 1253141505579944718}
+  - component: {fileID: -6690143771021413683}
   - component: {fileID: 8949226909709683675}
   - component: {fileID: 8949226909709683674}
   - component: {fileID: 8949226909709683673}
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1253141505579944718
+--- !u!114 &-6690143771021413683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,24 +45,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8949226909709683672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f68d05fc454e09f40b1b92643d3e7643, type: 3}
+  m_Script: {fileID: 11500000, guid: c59c8b7781578594295994102856f8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 0}
   contentLabel: {fileID: 0}
-  content:
-  - "Ch\xE0o m\u1EEBng b\u1EA1n \u0111\u1EBFn v\u1EDBi th\u1EBF gi\u1EDBi c\u1EE7a
-    Hunter Life"
-  - "T\xF4i l\xE0 Sarah"
-  - "B\u1EA1n l\xE0 ng\u01B0\u1EDDi m\u1EDBi \u1EDF \u0111\xE2y ph\u1EA3i kh\xF4ng?
-    T\xF4i c\xF3 th\u1EC3 cho b\u1EA1n m\u1ED9t s\u1ED1 th\xF4ng tin."
-  - "H\xE3y c\u1EA9n th\u1EADn, th\u1EBF gi\u1EDBi n\xE0y c\xF3 th\u1EC3 nguy hi\u1EC3m."
-  - "Ch\xFAc b\u1EA1n may m\u1EAFn trong cu\u1ED9c h\xE0nh tr\xECnh c\u1EE7a m\xECnh."
+  content: []
   button: {fileID: 0}
   wordSpeed: 0
-  moveSpeed: 0
-  width: 5
-  height: 3
 --- !u!212 &8949226909709683675
 SpriteRenderer:
   m_ObjectHideFlags: 0
