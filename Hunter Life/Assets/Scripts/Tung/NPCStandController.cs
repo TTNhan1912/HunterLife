@@ -117,9 +117,9 @@ namespace CharAndNPC
                 Panel.SetActive(false);
                 isAfterTouchChar = true;
                 //npc đi xuyên qua char
-                npcBox.isTrigger = true;
+             //   npcBox.isTrigger = true;
                 // xóa npc sau 3s
-                Destroy(gameObject, 3);
+              //  Destroy(gameObject, 3);
             }
         }
     }
