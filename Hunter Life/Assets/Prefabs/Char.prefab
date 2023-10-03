@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4787253834563635876}
+  - component: {fileID: 1437957072748132432}
   - component: {fileID: 4787253834563635877}
   - component: {fileID: 4787253834563635874}
-  - component: {fileID: 4787253834563635875}
   - component: {fileID: 4787253834563635872}
   - component: {fileID: 4787253834563635873}
   m_Layer: 0
@@ -36,6 +36,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1437957072748132432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787253834563635934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a36edf1e7e48434b8095101343aaa93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rigidbody2D: {fileID: 0}
+  ani: {fileID: 0}
 --- !u!212 &4787253834563635877
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108,22 +123,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &4787253834563635875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4787253834563635934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca67da93cc24f5d49960e62e0867997c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedRun: 1
-  npc: {fileID: 0}
-  isAfterTouchNPC: 0
-  isClickBtn: 1
 --- !u!61 &4787253834563635872
 BoxCollider2D:
   m_ObjectHideFlags: 0

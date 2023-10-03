@@ -8,6 +8,11 @@ TagManager:
   - ArableLand
   - FLBlue
   - Dig
+  - npc
+  - npc1
+  - enemy1
+  - enemy2
+  - enemy3
   layers:
   - Default
   - TransparentFX
