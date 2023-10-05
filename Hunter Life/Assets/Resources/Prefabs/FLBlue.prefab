@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3436273080189149695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.2067, y: 17.917955, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0196895, y: -0.10582924}
@@ -127,9 +127,9 @@ MonoBehaviour:
   newSprite: {fileID: -1230451100, guid: 512511764cabc9647b3204e75936920d, type: 3}
   newSprite1: {fileID: -1178917195, guid: 512511764cabc9647b3204e75936920d, type: 3}
   newSprite2: {fileID: 1051035538, guid: 512511764cabc9647b3204e75936920d, type: 3}
-  newSprite3: {fileID: -433069072, guid: 512511764cabc9647b3204e75936920d, type: 3}
-  newSprite4: {fileID: 648507986, guid: 512511764cabc9647b3204e75936920d, type: 3}
+  newSprite3: {fileID: 648507986, guid: 512511764cabc9647b3204e75936920d, type: 3}
+  newSprite4: {fileID: -1653348500, guid: 512511764cabc9647b3204e75936920d, type: 3}
   newSprite5: {fileID: -1528578818, guid: 512511764cabc9647b3204e75936920d, type: 3}
-  newSprite6: {fileID: -1653348500, guid: 512511764cabc9647b3204e75936920d, type: 3}
+  newSprite6: {fileID: -433069072, guid: 512511764cabc9647b3204e75936920d, type: 3}
   highlightColor: {r: 0.8018868, g: 0.049172327, b: 0.09573064, a: 1}
   harvestSymbolPrefab: {fileID: 4195672170272160808, guid: 1bae36a5b1b8a0e4bbd828683496a9f4, type: 3}
