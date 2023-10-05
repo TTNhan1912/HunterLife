@@ -13,6 +13,7 @@ TagManager:
   - enemy1
   - enemy2
   - enemy3
+  - boom
   layers:
   - Default
   - TransparentFX
