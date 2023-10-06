@@ -54,6 +54,7 @@ public class Plant : MonoBehaviour
             }
         }
 
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -101,14 +102,11 @@ public class Plant : MonoBehaviour
             if (index != -1 && dugTiles[index] && !plantedTrees[index])
             {
                 // Kiểm tra ô đã trồng cây chưa
-                if (!IsTilePlanted(cellPosition))
+                if (!IsTilePlanted(cellPosition) && !TreeExistsAtCell(cellPosition))
                 {
                     // Trồng cây tại ô đã đào
-                    GameObject treeInstance = Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
-                    // Đánh dấu ô đã trồng cây
-                    SetTilePlanted(cellPosition, true);
-                    StartCoroutine(ChangeSpriteAfterDelay());
-
+                    Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
+                    
                 }
             }
         }
@@ -136,22 +134,17 @@ public class Plant : MonoBehaviour
         return index != -1 && plantedTrees[index];
     }
 
-    // Đánh dấu ô đã trồng cây
-    private void SetTilePlanted(Vector3Int cellPosition, bool planted)
+    private bool TreeExistsAtCell(Vector3Int cellPosition)
     {
-        int index = GetTileIndex(cellPosition);
-        if (index != -1)
+        Collider2D[] colliders = Physics2D.OverlapPointAll(tilemap.GetCellCenterWorld(cellPosition));
+        foreach (var collider in colliders)
         {
-            plantedTrees[index] = planted;
+            if (collider.CompareTag("FLBlue"))
+            {
+                return true;
+            }
         }
+        return false;
     }
 
-    private IEnumerator ChangeSpriteAfterDelay()
-    {
-        yield return new WaitForSeconds(24);
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
-        SetTilePlanted(cellPosition, false);
-
-    }
 }
