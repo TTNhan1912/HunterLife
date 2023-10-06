@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168556564578860936}
   - component: {fileID: 6145662885509108867}
+  - component: {fileID: 2068412489238767267}
   m_Layer: 0
   m_Name: GiantTree
   m_TagString: Untagged
@@ -84,3 +85,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &2068412489238767267
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123302695749670760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.1982002, y: -3.05877}
+  - {x: -0.6528435, y: -3.159321}
+  - {x: -0.32292557, y: -3.1344576}
+  - {x: 0.045822144, y: -3.131719}
+  - {x: 0.8276901, y: -3.1316118}
+  - {x: 0.95087814, y: -3.1005235}
+  - {x: 1.0912209, y: -3.0471742}
+  - {x: 0.68043137, y: -2.6710393}
+  - {x: 0.61691666, y: -1.6049826}
+  - {x: -0.72182083, y: -1.6073284}
+  - {x: -0.75320816, y: -2.457702}
+  - {x: -1.1944351, y: -3.0607207}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
