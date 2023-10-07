@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 835302750120629969}
   - component: {fileID: 2686789455989693558}
+  - component: {fileID: 8953386081528974672}
+  - component: {fileID: 91133640037605545}
   m_Layer: 0
   m_Name: bridge
   m_TagString: Untagged
@@ -84,3 +86,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &8953386081528974672
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685231001680765368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.1819, y: 0.93107986}
+  - {x: -1.1864548, y: 0.07047653}
+  - {x: -1.1777649, y: 1.553978}
+  - {x: -1.253212, y: 1.5567818}
+  - {x: -1.256073, y: -1.5510101}
+  - {x: -1.184288, y: -1.5510216}
+  - {x: -1.1881943, y: 0.07304764}
+  - {x: -1.1861115, y: -1.2332726}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &91133640037605545
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685231001680765368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 1.1750259, y: 0.12953568}
+  - {x: 1.1811981, y: -1.5577316}
+  - {x: 1.2506981, y: -1.5536995}
+  - {x: 1.2530098, y: 1.5487556}
+  - {x: 1.1826515, y: 1.5475616}
+  - {x: 1.1750565, y: 0.10681915}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
