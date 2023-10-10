@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             GameObject quaboom = Instantiate(boom,viTriDatBoom.position, viTriDatBoom.rotation);
         }
     }
+    
 
 
 

@@ -16,6 +16,7 @@ TagManager:
   - boom
   - axe
   - Tree_Snow
+  - wood
   layers:
   - Default
   - TransparentFX
