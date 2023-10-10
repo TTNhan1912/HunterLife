@@ -14,6 +14,8 @@ TagManager:
   - enemy2
   - enemy3
   - boom
+  - axe
+  - Tree_Snow
   layers:
   - Default
   - TransparentFX
