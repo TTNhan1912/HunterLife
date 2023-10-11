@@ -21,12 +21,12 @@ public class InventoryController : MonoBehaviour
             if(inventoryUI.isActiveAndEnabled == false)
             {
                 inventoryUI.Show();
-                Time.timeScale = 0;
+               // Time.timeScale = 0;
             }
             else
             {
                 inventoryUI.Hide();
-                Time.timeScale = 1;
+               // Time.timeScale = 1;
             }
         }
 

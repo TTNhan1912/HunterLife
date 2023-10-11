@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -20,10 +21,36 @@ public class UIInventory : MonoBehaviour
            
             uiItem.transform.SetParent(contenPanel);
             ListOfUIItem.Add(uiItem);
-            
+            uiItem.OnItemclick += HandleItemSelection;
+            uiItem.OnItemclick += HandleBeginDrag;
+            uiItem.OnItemclick += HandleSwap;
+            uiItem.OnItemclick += HandleEndDrag;
+            uiItem.OnItemclick += HandleShowItemActio;
 
         }
     }
+
+    private void HandleShowItemActio(UIInventoryItem obj)
+    {
+    }
+
+    private void HandleEndDrag(UIInventoryItem obj)
+    {
+    }
+
+    private void HandleSwap(UIInventoryItem obj)
+    {
+    }
+
+    private void HandleBeginDrag(UIInventoryItem obj)
+    {
+    }
+
+    private void HandleItemSelection(UIInventoryItem obj)
+    {
+        Debug.Log(obj.name);
+    }
+
     public void Show()
     {
         gameObject.SetActive(true);
