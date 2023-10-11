@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -22,6 +23,7 @@ public class Plant : MonoBehaviour
     private bool[] dugTiles;
     private bool[] plantedTrees;
 
+    private Animator animation;
 
     private void Start()
     {
@@ -29,14 +31,20 @@ public class Plant : MonoBehaviour
         dugTiles = new bool[tilemap.cellBounds.size.x * tilemap.cellBounds.size.y];
         plantedTrees = new bool[tilemap.cellBounds.size.x * tilemap.cellBounds.size.y];
 
+        animation = GetComponent<Animator>();
+
+        // bắt sự kiện phá hủy cây bên FLO
+        FLO.OnDestroyed += PlayDestructionAnimation;
     }
 
+    
     private void Update()
     {
         // đào đất
         if (Input.GetMouseButtonDown(0) && canDig)
         {
             Dig();
+            animation.Play("Player_DigGround");
         }
 
         // trồng cây
@@ -50,11 +58,12 @@ public class Plant : MonoBehaviour
                 if (!IsTilePlanted(cellPosition))
                 {
                     PlantFL();
+                    animation.Play("Player_Plant");
                 }
             }
         }
 
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -106,7 +115,7 @@ public class Plant : MonoBehaviour
                 {
                     // Trồng cây tại ô đã đào
                     Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
-                    
+
                 }
             }
         }
@@ -147,4 +156,11 @@ public class Plant : MonoBehaviour
         return false;
     }
 
+    // thực hiện animation thu hoạch
+    private void PlayDestructionAnimation()
+    {
+        animation.Play("Player_Harvest");
+    }
+
 }
+

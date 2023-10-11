@@ -18,6 +18,9 @@ public class FLO : MonoBehaviour
     public GameObject harvestSymbolPrefab; // Prefab của kí hiệu thu hoạch
     private GameObject harvestSymbolInstance; // Instance của kí hiệu thu hoạch
 
+    public delegate void OnDestroyedEventHandler();
+    public static event OnDestroyedEventHandler OnDestroyed;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,8 +39,12 @@ public class FLO : MonoBehaviour
             {
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-                if (hit.collider != null && hit.collider.gameObject == gameObject) 
+                if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
+                    if (OnDestroyed != null)
+                    {
+                        OnDestroyed();
+                    }
                     Destroy(gameObject);
                     Destroy(harvestSymbolInstance);
                 }
@@ -53,35 +60,35 @@ public class FLO : MonoBehaviour
                 harvestSymbolInstance = Instantiate(harvestSymbolPrefab, symbolPosition, Quaternion.identity);
             }
         }
-        
+
 
     }
 
     private IEnumerator ChangeSpriteAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(delay); 
-        spriteRenderer.sprite = newSprite; 
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.sprite = newSprite;
 
-        yield return new WaitForSeconds(delay); 
-        spriteRenderer.sprite = newSprite1; 
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.sprite = newSprite1;
 
-        yield return new WaitForSeconds(delay); 
+        yield return new WaitForSeconds(delay);
         spriteRenderer.sprite = newSprite2;
 
-        yield return new WaitForSeconds(delay); 
-        spriteRenderer.sprite = newSprite3; 
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.sprite = newSprite3;
 
-        yield return new WaitForSeconds(delay); 
-        spriteRenderer.sprite = newSprite4; 
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.sprite = newSprite4;
 
-        yield return new WaitForSeconds(delay); 
-        spriteRenderer.sprite = newSprite5; 
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.sprite = newSprite5;
 
-        yield return new WaitForSeconds(delay); 
-        spriteRenderer.sprite = newSprite6; 
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.sprite = newSprite6;
 
         isCollect = true;
-        
+
 
     }
     private void OnMouseEnter()
@@ -89,9 +96,9 @@ public class FLO : MonoBehaviour
         if (isCollect)
         {
             GetComponent<Renderer>().material.color = highlightColor;
-            
+
         }
-        
+
     }
 
     private void OnMouseExit()
@@ -99,5 +106,5 @@ public class FLO : MonoBehaviour
         GetComponent<Renderer>().material.color = originalColor; // Khôi phục màu khi chuột rời khỏi
     }
 
-    
+
 }
