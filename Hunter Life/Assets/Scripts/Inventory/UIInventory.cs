@@ -22,10 +22,10 @@ public class UIInventory : MonoBehaviour
             uiItem.transform.SetParent(contenPanel);
             ListOfUIItem.Add(uiItem);
             uiItem.OnItemclick += HandleItemSelection;
-            uiItem.OnItemclick += HandleBeginDrag;
-            uiItem.OnItemclick += HandleSwap;
-            uiItem.OnItemclick += HandleEndDrag;
-            uiItem.OnItemclick += HandleShowItemActio;
+            uiItem.OnItemBeginDrag += HandleBeginDrag;
+            uiItem.OnItemDroppedOn += HandleSwap;
+            uiItem.OnItemEndDrag += HandleEndDrag;
+            uiItem.OnRightMouseButtonClick += HandleShowItemActio;
 
         }
     }
@@ -48,6 +48,7 @@ public class UIInventory : MonoBehaviour
 
     private void HandleItemSelection(UIInventoryItem obj)
     {
+        Debug.Log("Test >>>>>>>>>>");
         Debug.Log(obj.name);
     }
 
