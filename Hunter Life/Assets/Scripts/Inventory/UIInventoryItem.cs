@@ -51,10 +51,8 @@ public class UIInventoryItem : MonoBehaviour
     public void OnBeginDrag()
     {
         if (emty)
-        {
-            return;
-            OnItemBeginDrag?.Invoke(this);
-        }
+          return;
+        OnItemBeginDrag?.Invoke(this);
     }
 
     public void OnDrop()
@@ -78,7 +76,8 @@ public class UIInventoryItem : MonoBehaviour
         }
         else
         {
-            OnItemclick?.Invoke(this);  
+            OnItemclick?.Invoke(this);
+            Debug.Log("bla bla bla");
         }
 
 

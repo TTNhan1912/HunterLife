@@ -3,15 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-
+    
 public class UIInventory : MonoBehaviour
 {
     [SerializeField] UIInventoryItem itemPrefabs;
 
     [SerializeField] RectTransform contenPanel;
 
+    [SerializeField]
+    private UIInventoryDescription itemDescription;
+
+    [SerializeField]
+    private MouseFollower mouseFollower;
+
     List<UIInventoryItem> ListOfUIItem = new List<UIInventoryItem>();
 
+    public Sprite image;
+    public int quantity;
+    public string title,description;
+
+
+    private void Awake()
+    {
+        Hide();
+        mouseFollower.Toggle(false);
+        itemDescription.ResetDiscription();
+    }
 
     public void InitInventory(int inventorysize)
     {
@@ -36,6 +53,8 @@ public class UIInventory : MonoBehaviour
 
     private void HandleEndDrag(UIInventoryItem obj)
     {
+        mouseFollower.Toggle(false);
+        Debug.Log(" tha Click >>>>>>");
     }
 
     private void HandleSwap(UIInventoryItem obj)
@@ -44,17 +63,24 @@ public class UIInventory : MonoBehaviour
 
     private void HandleBeginDrag(UIInventoryItem obj)
     {
+        mouseFollower.Toggle(true);
+        mouseFollower.SetData(image, quantity);
+        Debug.Log("Dang keo >>>>>>");
     }
 
     private void HandleItemSelection(UIInventoryItem obj)
     {
-        Debug.Log("Test >>>>>>>>>>");
-        Debug.Log(obj.name);
+        itemDescription.SetDescription(image,title,description);
+        ListOfUIItem[0].Select();
+
     }
 
     public void Show()
     {
         gameObject.SetActive(true);
+        itemDescription.ResetDiscription();
+
+        ListOfUIItem[0].SetData(image,quantity);
     }
     public void Hide()
     {
