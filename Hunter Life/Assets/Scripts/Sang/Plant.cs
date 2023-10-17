@@ -15,6 +15,11 @@ public class Plant : MonoBehaviour
     // tạo cây
     public GameObject treePrefab;
 
+    // tạo hình cây rìu khi thu hoạch
+    public GameObject riuPrefab;
+    // tốc độ rìu bay
+    private float riuMoveDuration = 1f;
+
     // đóng or mở ô có thể đào và trồng
     private bool canDig = false;
     private bool canPlant = false;
@@ -24,6 +29,7 @@ public class Plant : MonoBehaviour
     private bool[] plantedTrees;
 
     private Animator animation;
+
 
     private void Start()
     {
@@ -43,8 +49,9 @@ public class Plant : MonoBehaviour
         // đào đất
         if (Input.GetMouseButtonDown(0) && canDig)
         {
-            Dig();
-            animation.Play("Player_DigGround");
+            StartCoroutine(WaitAndDig());
+            StartCoroutine(MoveRiu());
+
         }
 
         // trồng cây
@@ -58,7 +65,7 @@ public class Plant : MonoBehaviour
                 if (!IsTilePlanted(cellPosition))
                 {
                     PlantFL();
-                    animation.Play("Player_Plant");
+                    
                 }
             }
         }
@@ -82,16 +89,17 @@ public class Plant : MonoBehaviour
         }
     }
 
-    // hàm đào đất
-    private void Dig()
+    /// hàm chờ và đào đất
+    private IEnumerator WaitAndDig()
     {
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPosition = tilemap.WorldToCell(mousePosition);
-
         int index = GetTileIndex(cellPosition);
-
+        yield return new WaitForSeconds(0.7f);
         if (index != -1 && !dugTiles[index])
         {
+            animation.Play("Player_DigGround");
             tilemap.SetTile(cellPosition, newTile);
             dugTiles[index] = true;
             canPlant = true;
@@ -115,6 +123,7 @@ public class Plant : MonoBehaviour
                 {
                     // Trồng cây tại ô đã đào
                     Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
+                    animation.Play("Player_Plant");
 
                 }
             }
@@ -161,6 +170,52 @@ public class Plant : MonoBehaviour
     {
         animation.Play("Player_Harvest");
     }
+
+    // tạo cây cuốc khi đào đất
+    private IEnumerator MoveRiu()
+    {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
+        int index = GetTileIndex(cellPosition);
+        if (index != -1 && !dugTiles[index])
+        {
+            // Tạo cây rìu trực tiếp tại vị trí trên ô đất cần đào
+            /*Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);*/
+            Vector3 riuStartPosition = tilemap.GetCellCenterWorld(cellPosition) + new Vector3(-0.3f, 0f, 0f);
+
+            // Tạo cây rìu
+            GameObject riuInstance = Instantiate(riuPrefab, riuStartPosition, Quaternion.identity);
+
+            // Vị trí đích của cây rìu (rơi xuống)
+            Vector3 targetPosition = new Vector3(riuInstance.transform.position.x, riuInstance.transform.position.y, riuInstance.transform.position.z);
+
+            Quaternion targetRotation = Quaternion.Euler(0f, 0f, -90f);
+
+            // Di chuyển cây rìu từ trên xuống và xoay 90 độ
+            float elapsedTime = 0.6f;
+            while (elapsedTime < riuMoveDuration)
+            {
+                float t = elapsedTime / riuMoveDuration;
+                riuInstance.transform.position = Vector3.Lerp(riuInstance.transform.position, targetPosition, t);
+
+
+                // Thay đổi trục Z
+                float newZ = Mathf.Lerp(riuInstance.transform.position.z, targetPosition.z, t);
+                riuInstance.transform.position = new Vector3(riuInstance.transform.position.x, riuInstance.transform.position.y, newZ);
+
+                // Xoay cây rìu
+                riuInstance.transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, t);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            // Hủy cây rìu sau khi hoàn thành
+            Destroy(riuInstance);
+        }
+    }
+
+    
 
 }
 

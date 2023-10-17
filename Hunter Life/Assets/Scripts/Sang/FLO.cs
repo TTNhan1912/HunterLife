@@ -9,17 +9,23 @@ public class FLO : MonoBehaviour
     public Sprite newSprite, newSprite1, newSprite2, newSprite3, newSprite4, newSprite5, newSprite6; // Hình ảnh mới cần thay đổi
 
     private SpriteRenderer spriteRenderer;
-
+    // thu hoạch đc chưa
     private bool isCollect;
-
+    // màu khi rê chuột vào
     private Color originalColor;
     public Color highlightColor = Color.red;
 
     public GameObject harvestSymbolPrefab; // Prefab của kí hiệu thu hoạch
     private GameObject harvestSymbolInstance; // Instance của kí hiệu thu hoạch
 
+    // gọi sự kiện cho scipts khác sử dụng 
     public delegate void OnDestroyedEventHandler();
     public static event OnDestroyedEventHandler OnDestroyed;
+
+    // tạo hình cây rìu khi thu hoạch
+    public GameObject riuPrefab;
+    // tốc độ rìu bay
+    private float riuMoveDuration = 0.4f;
 
     private void Start()
     {
@@ -45,8 +51,8 @@ public class FLO : MonoBehaviour
                     {
                         OnDestroyed();
                     }
-                    Destroy(gameObject);
-                    Destroy(harvestSymbolInstance);
+                    StartCoroutine(MoveRiuAndDig());
+                    
                 }
             }
         }
@@ -104,6 +110,40 @@ public class FLO : MonoBehaviour
     private void OnMouseExit()
     {
         GetComponent<Renderer>().material.color = originalColor; // Khôi phục màu khi chuột rời khỏi
+    }
+
+    private IEnumerator MoveRiuAndDig()
+    {
+        // Tạo cây rìu
+        GameObject riuInstance = Instantiate(riuPrefab, new Vector3(transform.position.x - 1f, transform.position.y), Quaternion.identity);
+
+        // Lật ngược cây rìu 260 độ
+        riuInstance.transform.rotation = Quaternion.Euler(-1, -178, -255);
+
+        // Tính vị trí đích của cây rìu theo hình vòng cung từ tay trái sang tay phải
+        float startX = transform.position.x - 0.7f;
+        float startY = transform.position.y - 0.5f;
+        float targetX = startX + 1.5f; // Điều chỉnh khoảng cách cây rìu di chuyển
+
+        float elapsedTime = 0f;
+        while (elapsedTime < riuMoveDuration)
+        {
+            // Tính toán vị trí theo hình vòng cung
+            float t = elapsedTime / riuMoveDuration;
+            float currentX = Mathf.Lerp(startX, targetX, t);
+            float currentY = startY - Mathf.Sin(t * Mathf.PI) * 0.1f; // Điều chỉnh độ cao của hình vòng cung
+
+            riuInstance.transform.position = new Vector3(currentX, currentY, transform.position.z);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(gameObject);
+        Destroy(harvestSymbolInstance);
+
+        // Hủy cây rìu sau khi hoàn thành
+        Destroy(riuInstance);
     }
 
 
