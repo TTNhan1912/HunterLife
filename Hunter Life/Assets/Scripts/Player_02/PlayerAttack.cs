@@ -44,10 +44,10 @@ public class PlayerAttack    : MonoBehaviour
             {
                 time = 0f;
                 attacking= false;
-                attacking2=true;
+              //  attacking2=true;
 
                 attackArea.SetActive(attacking);
-                 AXe.SetActive(attacking2);
+               //  AXe.SetActive(attacking2);
             }
         }
 
@@ -58,10 +58,10 @@ public class PlayerAttack    : MonoBehaviour
         /*ani.Play("Char_Attack_LR");*/
 
         attacking = true;
-        attacking2 = false;
+     //   attacking2 = false;
 
         attackArea.SetActive(attacking);
-        AXe.SetActive(attacking2);
+      //  AXe.SetActive(attacking2);
               
         ;
       
