@@ -6,13 +6,15 @@ public class Tree : MonoBehaviour
 {
 
   private Animator anim;
- 
+
   public AudioSource CutTreeSound;
-  
+
   public GameObject wood = default;
+   public GameObject roots = default;
   private int lifeTree_Snow = 5;
 
-  [SerializeField] private Transform viTri;
+  [SerializeField] private Transform viTriwoood;
+  [SerializeField] private Transform viTriroots;
   // Start is called before the first frame update
   void Start()
   {
@@ -27,13 +29,15 @@ public class Tree : MonoBehaviour
     if (collision.gameObject.CompareTag("axe"))
     {
       lifeTree_Snow = lifeTree_Snow - 1;
-     
+
       CutTreeSound.Play();
       StartCoroutine(ShakeOnce(0.2f, 0.012f));
       if (lifeTree_Snow == 0)
       {
-        TreeToWood();
-        Destroy(gameObject);
+          TreeToRoots();
+        StartCoroutine(RotateMe(Vector3.back * 90, 0.9f));
+        Destroy(gameObject, 1.2f);
+       // TreeToWood();
         lifeTree_Snow = 5;
 
       }
@@ -47,9 +51,13 @@ public class Tree : MonoBehaviour
   {
     /*ani.Play("Char_Attack_LR");*/
 
-    GameObject woodfall = Instantiate(wood, viTri.position, viTri.rotation);
+    GameObject woodfall = Instantiate(wood, viTriwoood.position, viTriwoood.rotation);
 
 
+  }
+  private void TreeToRoots (){
+
+      GameObject rootsfall = Instantiate(roots, viTriroots.position, viTriroots.rotation);
   }
   public IEnumerator ShakeOnce(float time, float magnitude)
   {
@@ -63,16 +71,33 @@ public class Tree : MonoBehaviour
       float y = Random.Range(-1, 1) * magnitude;
       float z = Random.Range(-1, 1) * magnitude;
 
-      transform.position += new Vector3(x, y, z);
+      transform.position += new Vector3(x, 0, z);
 
       yield return null;
-
     }
 
     transform.position = originPosotion;
 
 
   }
+  public IEnumerator RotateMe(Vector3 byAngles, float inTime)
+  {
+    var fromAngle = transform.rotation;
+    var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+    float totalTime = 0f;
+
+    for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+    {
+      transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+       yield return null;
+    }
+    TreeToWood();
+
+   
+
+
+  }
+
 
 
 }
