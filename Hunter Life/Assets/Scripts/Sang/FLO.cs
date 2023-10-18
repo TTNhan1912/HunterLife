@@ -26,6 +26,8 @@ public class FLO : MonoBehaviour
     public GameObject riuPrefab;
     // tốc độ rìu bay
     private float riuMoveDuration = 0.4f;
+    private bool hasHarvested = false;
+
 
     private void Start()
     {
@@ -39,7 +41,7 @@ public class FLO : MonoBehaviour
 
     private void Update()
     {
-        if (isCollect)
+        if (isCollect && !hasHarvested)
         {
             if (Input.GetMouseButtonDown(1))
             {
@@ -50,8 +52,10 @@ public class FLO : MonoBehaviour
                     if (OnDestroyed != null)
                     {
                         OnDestroyed();
+                        StartCoroutine(MoveRiuAndHarvest());
+                        hasHarvested = true;
                     }
-                    StartCoroutine(MoveRiuAndDig());
+                    
                     
                 }
             }
@@ -112,7 +116,7 @@ public class FLO : MonoBehaviour
         GetComponent<Renderer>().material.color = originalColor; // Khôi phục màu khi chuột rời khỏi
     }
 
-    private IEnumerator MoveRiuAndDig()
+    private IEnumerator MoveRiuAndHarvest()
     {
         // Tạo cây rìu
         GameObject riuInstance = Instantiate(riuPrefab, new Vector3(transform.position.x - 1f, transform.position.y), Quaternion.identity);

@@ -30,6 +30,11 @@ public class Plant : MonoBehaviour
 
     private Animator animation;
 
+    // làm hàm kiếm tra xem ô đó đã click chưa
+    private bool[] clickedTiles;
+
+    // kiểm tra xem có đang đào không
+    private bool isDigging = false;
 
     private void Start()
     {
@@ -41,17 +46,18 @@ public class Plant : MonoBehaviour
 
         // bắt sự kiện phá hủy cây bên FLO
         FLO.OnDestroyed += PlayDestructionAnimation;
+
+        clickedTiles = new bool[tilemap.cellBounds.size.x * tilemap.cellBounds.size.y];
     }
 
     
     private void Update()
     {
         // đào đất
-        if (Input.GetMouseButtonDown(0) && canDig)
+        if (Input.GetMouseButtonDown(0) && canDig && !isDigging)
         {
-            StartCoroutine(WaitAndDig());
             StartCoroutine(MoveRiu());
-
+            StartCoroutine(WaitAndDig());
         }
 
         // trồng cây
@@ -92,18 +98,23 @@ public class Plant : MonoBehaviour
     /// hàm chờ và đào đất
     private IEnumerator WaitAndDig()
     {
-
+        isDigging = true;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPosition = tilemap.WorldToCell(mousePosition);
         int index = GetTileIndex(cellPosition);
+        if (!clickedTiles[index])
+        {
+            animation.Play("Player_DigGround");
+        }
+        clickedTiles[index] = true;
         yield return new WaitForSeconds(0.7f);
         if (index != -1 && !dugTiles[index])
         {
-            animation.Play("Player_DigGround");
             tilemap.SetTile(cellPosition, newTile);
             dugTiles[index] = true;
             canPlant = true;
         }
+        isDigging = false;
     }
 
     // hàm trồng cây
@@ -129,7 +140,6 @@ public class Plant : MonoBehaviour
             }
         }
     }
-
 
     // xác định vị trí của ô trong tilemap
     private int GetTileIndex(Vector3Int cellPosition)
@@ -177,11 +187,9 @@ public class Plant : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
         int index = GetTileIndex(cellPosition);
-        if (index != -1 && !dugTiles[index])
+        if (index != -1 && !dugTiles[index] && !clickedTiles[index])
         {
             // Tạo cây rìu trực tiếp tại vị trí trên ô đất cần đào
-            /*Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);*/
             Vector3 riuStartPosition = tilemap.GetCellCenterWorld(cellPosition) + new Vector3(-0.3f, 0f, 0f);
 
             // Tạo cây rìu
