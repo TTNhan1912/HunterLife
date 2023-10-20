@@ -56,8 +56,11 @@ public class Plant : MonoBehaviour
         // đào đất
         if (Input.GetMouseButtonDown(0) && canDig && !isDigging)
         {
-            StartCoroutine(MoveRiu());
-            StartCoroutine(WaitAndDig());
+            if (!CanDigAtMousePosition())
+            {
+                StartCoroutine(MoveRiu());
+                StartCoroutine(WaitAndDig());
+            }
         }
 
         // trồng cây
@@ -68,7 +71,7 @@ public class Plant : MonoBehaviour
 
             if (tilemap.GetTile(cellPosition) == newTile)
             {
-                if (!IsTilePlanted(cellPosition))
+                if (!IsTilePlanted(cellPosition) && !CanDigAtMousePosition())
                 {
                     PlantFL();
                     
@@ -81,7 +84,7 @@ public class Plant : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Dig"))
+        if (other.CompareTag("Dig") )
         {
             canDig = true;
         }
@@ -102,6 +105,7 @@ public class Plant : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPosition = tilemap.WorldToCell(mousePosition);
         int index = GetTileIndex(cellPosition);
+
         if (!clickedTiles[index])
         {
             animation.Play("Player_DigGround");
@@ -115,6 +119,55 @@ public class Plant : MonoBehaviour
             canPlant = true;
         }
         isDigging = false;
+    }
+
+    // tạo cây cuốc khi đào đất
+    private IEnumerator MoveRiu()
+    {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
+        int index = GetTileIndex(cellPosition);
+        if (index != -1 && !dugTiles[index] && !clickedTiles[index])
+        {
+            // Tạo cây rìu trực tiếp tại vị trí trên ô đất cần đào
+            Vector3 riuStartPosition = tilemap.GetCellCenterWorld(cellPosition) + new Vector3(-0.1f, 0.3f, 0f);
+
+            // Tạo cây rìu
+            GameObject riuInstance = Instantiate(riuPrefab, riuStartPosition, Quaternion.identity);
+
+            // Vị trí đích của cây rìu (rơi xuống)
+            Vector3 targetPosition = new Vector3(riuInstance.transform.position.x, riuInstance.transform.position.y, riuInstance.transform.position.z);
+
+            Quaternion targetRotation = Quaternion.Euler(0f, 0f, -90f);
+
+            // Di chuyển cây rìu từ trên xuống và xoay 90 độ
+            float elapsedTime = 0.6f;
+            while (elapsedTime < riuMoveDuration)
+            {
+                float t = elapsedTime / riuMoveDuration;
+                riuInstance.transform.position = Vector3.Lerp(riuInstance.transform.position, targetPosition, t);
+
+
+                // Thay đổi trục Z
+                float newZ = Mathf.Lerp(riuInstance.transform.position.z, targetPosition.z, t);
+                riuInstance.transform.position = new Vector3(riuInstance.transform.position.x, riuInstance.transform.position.y, newZ);
+
+                // Xoay cây rìu
+                riuInstance.transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, t);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            // Hủy cây rìu sau khi hoàn thành
+            Destroy(riuInstance);
+        }
+    }
+
+    // Kiểm tra ô đã trồng cây chưa
+    private bool IsTilePlanted(Vector3Int cellPosition)
+    {
+        int index = GetTileIndex(cellPosition);
+        return index != -1 && plantedTrees[index];
     }
 
     // hàm trồng cây
@@ -155,13 +208,7 @@ public class Plant : MonoBehaviour
         return -1;
     }
 
-    // Kiểm tra ô đã trồng cây chưa
-    private bool IsTilePlanted(Vector3Int cellPosition)
-    {
-        int index = GetTileIndex(cellPosition);
-        return index != -1 && plantedTrees[index];
-    }
-
+    // kiểm tra xem cây có thu hoạch chưa
     private bool TreeExistsAtCell(Vector3Int cellPosition)
     {
         Collider2D[] colliders = Physics2D.OverlapPointAll(tilemap.GetCellCenterWorld(cellPosition));
@@ -181,49 +228,15 @@ public class Plant : MonoBehaviour
         animation.Play("Player_Harvest");
     }
 
-    // tạo cây cuốc khi đào đất
-    private IEnumerator MoveRiu()
+    private bool CanDigAtMousePosition()
     {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
-        int index = GetTileIndex(cellPosition);
-        if (index != -1 && !dugTiles[index] && !clickedTiles[index])
-        {
-            // Tạo cây rìu trực tiếp tại vị trí trên ô đất cần đào
-            Vector3 riuStartPosition = tilemap.GetCellCenterWorld(cellPosition) + new Vector3(-0.3f, 0f, 0f);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int cellPosition = tilemap.WorldToCell(mousePosition);
+        Vector3Int playerCellPosition = tilemap.WorldToCell(transform.position);
 
-            // Tạo cây rìu
-            GameObject riuInstance = Instantiate(riuPrefab, riuStartPosition, Quaternion.identity);
-
-            // Vị trí đích của cây rìu (rơi xuống)
-            Vector3 targetPosition = new Vector3(riuInstance.transform.position.x, riuInstance.transform.position.y, riuInstance.transform.position.z);
-
-            Quaternion targetRotation = Quaternion.Euler(0f, 0f, -90f);
-
-            // Di chuyển cây rìu từ trên xuống và xoay 90 độ
-            float elapsedTime = 0.6f;
-            while (elapsedTime < riuMoveDuration)
-            {
-                float t = elapsedTime / riuMoveDuration;
-                riuInstance.transform.position = Vector3.Lerp(riuInstance.transform.position, targetPosition, t);
-
-
-                // Thay đổi trục Z
-                float newZ = Mathf.Lerp(riuInstance.transform.position.z, targetPosition.z, t);
-                riuInstance.transform.position = new Vector3(riuInstance.transform.position.x, riuInstance.transform.position.y, newZ);
-
-                // Xoay cây rìu
-                riuInstance.transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, t);
-
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-            // Hủy cây rìu sau khi hoàn thành
-            Destroy(riuInstance);
-        }
+        // Kiểm tra xem ô đất được chọn có cách ít nhất 1 ô đất giữa nó và nhân vật không
+        return Mathf.Abs(cellPosition.x - playerCellPosition.x) > 1f || Mathf.Abs(cellPosition.y - playerCellPosition.y) > 1f ;
     }
-
-    
 
 }
 

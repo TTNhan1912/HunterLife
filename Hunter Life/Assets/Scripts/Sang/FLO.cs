@@ -125,9 +125,9 @@ public class FLO : MonoBehaviour
         riuInstance.transform.rotation = Quaternion.Euler(-1, -178, -255);
 
         // Tính vị trí đích của cây rìu theo hình vòng cung từ tay trái sang tay phải
-        float startX = transform.position.x - 0.7f;
-        float startY = transform.position.y - 0.5f;
-        float targetX = startX + 1.5f; // Điều chỉnh khoảng cách cây rìu di chuyển
+        float startX = transform.position.x - 0.3f;
+        float startY = transform.position.y - 0.3f;
+        float targetX = startX + 0.7f; // Điều chỉnh khoảng cách cây rìu di chuyển
 
         float elapsedTime = 0f;
         while (elapsedTime < riuMoveDuration)
