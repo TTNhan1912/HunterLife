@@ -8180,6 +8180,7 @@ GameObject:
   - component: {fileID: 867522594930255623}
   - component: {fileID: 867522594930255621}
   - component: {fileID: 867522594930255622}
+  - component: {fileID: 8197168014050791464}
   m_Layer: 0
   m_Name: Cliff
   m_TagString: Untagged
@@ -10615,6 +10616,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &8197168014050791464
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867522594930255624}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
 --- !u!1 &867522595978557915
 GameObject:
   m_ObjectHideFlags: 0
@@ -18672,7 +18689,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 62
-      m_TileSpriteIndex: 62
+      m_TileSpriteIndex: 74
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18742,7 +18759,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 63
-      m_TileSpriteIndex: 63
+      m_TileSpriteIndex: 73
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27832,7 +27849,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 32
+      m_TileSpriteIndex: 72
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32167,8 +32184,8 @@ Tilemap:
     m_Data: {fileID: 476182546, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 1631954295, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1057529874, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 13
     m_Data: {fileID: 2055054676, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
   - m_RefCount: 4
@@ -32227,32 +32244,32 @@ Tilemap:
     m_Data: {fileID: -2028787024, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
   - m_RefCount: 13
     m_Data: {fileID: 1431369940, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 770524122, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
+    m_Data: {fileID: -1057529874, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1880132134, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 770524122, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1631364374, guid: 158523d7b6446ba4c858e341353ae18d, type: 3}
   - m_RefCount: 3
@@ -32694,6 +32711,7 @@ GameObject:
   - component: {fileID: 3002069059799094956}
   - component: {fileID: 6928562247483429744}
   - component: {fileID: 5749554655128963932}
+  - component: {fileID: 3806301906476763598}
   m_Layer: 0
   m_Name: Fence
   m_TagString: Untagged
@@ -34323,6 +34341,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &3806301906476763598
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141822761853774186}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
 --- !u!1 &5996613873740889305
 GameObject:
   m_ObjectHideFlags: 0
@@ -37244,6 +37278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coop2
       objectReference: {fileID: 0}
+    - target: {fileID: 3086755755787509327, guid: 63ccaab53f8ea6d4dacc52d428b1eda9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6975553358496999936, guid: 63ccaab53f8ea6d4dacc52d428b1eda9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -37304,7 +37342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2948492659172842426, guid: bc40c76b18b395f4297a84bcf8b36661, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3657215820464133054, guid: bc40c76b18b395f4297a84bcf8b36661, type: 3}
       propertyPath: m_Name
@@ -37316,7 +37354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7543198312253245187, guid: bc40c76b18b395f4297a84bcf8b36661, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.86
+      value: 68.64
       objectReference: {fileID: 0}
     - target: {fileID: 7543198312253245187, guid: bc40c76b18b395f4297a84bcf8b36661, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37453,6 +37491,10 @@ PrefabInstance:
     - target: {fileID: 2684839722437861454, guid: a111bef9d57eaa345b0e3af449345e6d, type: 3}
       propertyPath: m_Name
       value: Barn3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881249509601017421, guid: a111bef9d57eaa345b0e3af449345e6d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6417661617238373291, guid: a111bef9d57eaa345b0e3af449345e6d, type: 3}
       propertyPath: m_RootOrder

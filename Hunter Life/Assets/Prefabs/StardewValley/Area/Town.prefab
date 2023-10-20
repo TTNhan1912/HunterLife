@@ -13121,6 +13121,7 @@ GameObject:
   - component: {fileID: 5161426854309840959}
   - component: {fileID: 5161426854309840945}
   - component: {fileID: 5161426854309840958}
+  - component: {fileID: 6533701837869741591}
   m_Layer: 0
   m_Name: Cliff
   m_TagString: Untagged
@@ -19082,6 +19083,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &6533701837869741591
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161426854309840956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
 --- !u!1 &5161426854318824388
 GameObject:
   m_ObjectHideFlags: 0
@@ -74218,6 +74235,7 @@ GameObject:
   - component: {fileID: 5158277100299357977}
   - component: {fileID: 3656481938132484636}
   - component: {fileID: 4824541042097578244}
+  - component: {fileID: 52391773167776065}
   m_Layer: 0
   m_Name: Decor-Box
   m_TagString: Untagged
@@ -74777,6 +74795,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &52391773167776065
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539253659335890976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
 --- !u!1 &6989265308543470280
 GameObject:
   m_ObjectHideFlags: 0
@@ -75040,6 +75074,7 @@ GameObject:
   - component: {fileID: 8450759389259949480}
   - component: {fileID: 60118232890037361}
   - component: {fileID: 1685252086277381942}
+  - component: {fileID: 4799446722847306863}
   m_Layer: 0
   m_Name: Fence
   m_TagString: Untagged
@@ -75539,6 +75574,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &4799446722847306863
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174259912422115453}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
 --- !u!1 &8274751876100328153
 GameObject:
   m_ObjectHideFlags: 0
