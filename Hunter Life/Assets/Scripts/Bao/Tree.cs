@@ -10,7 +10,7 @@ public class Tree : MonoBehaviour
   public AudioSource CutTreeSound;
 
   public GameObject wood = default;
-   public GameObject roots = default;
+  public GameObject roots = default;
   private int lifeTree_Snow = 5;
 
   [SerializeField] private Transform viTriwoood;
@@ -34,10 +34,10 @@ public class Tree : MonoBehaviour
       StartCoroutine(ShakeOnce(0.2f, 0.012f));
       if (lifeTree_Snow == 0)
       {
-          TreeToRoots();
+        TreeToRoots();
         StartCoroutine(RotateMe(Vector3.back * 90, 0.9f));
         Destroy(gameObject, 1.2f);
-       // TreeToWood();
+        // TreeToWood();
         lifeTree_Snow = 5;
 
       }
@@ -55,9 +55,10 @@ public class Tree : MonoBehaviour
 
 
   }
-  private void TreeToRoots (){
+  private void TreeToRoots()
+  {
 
-      GameObject rootsfall = Instantiate(roots, viTriroots.position, viTriroots.rotation);
+    GameObject rootsfall = Instantiate(roots, viTriroots.position, viTriroots.rotation);
   }
   public IEnumerator ShakeOnce(float time, float magnitude)
   {
@@ -89,11 +90,11 @@ public class Tree : MonoBehaviour
     for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
     {
       transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
-       yield return null;
+      yield return null;
     }
     TreeToWood();
 
-   
+
 
 
   }
