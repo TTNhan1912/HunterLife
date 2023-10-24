@@ -106,20 +106,23 @@ public class Plant : MonoBehaviour
         Vector3Int cellPosition = tilemap.WorldToCell(mousePosition);
         int index = GetTileIndex(cellPosition);
 
-        if (!clickedTiles[index])
+        if (index != -1 && index < clickedTiles.Length && !clickedTiles[index])
         {
             animation.Play("Player_DigGround");
+            clickedTiles[index] = true;
+            yield return new WaitForSeconds(0.7f);
+
+            if (index != -1 && index < dugTiles.Length && !dugTiles[index])
+            {
+                tilemap.SetTile(cellPosition, newTile);
+                dugTiles[index] = true;
+                canPlant = true;
+            }
         }
-        clickedTiles[index] = true;
-        yield return new WaitForSeconds(0.7f);
-        if (index != -1 && !dugTiles[index])
-        {
-            tilemap.SetTile(cellPosition, newTile);
-            dugTiles[index] = true;
-            canPlant = true;
-        }
+
         isDigging = false;
     }
+
 
     // tạo cây cuốc khi đào đất
     private IEnumerator MoveRiu()
