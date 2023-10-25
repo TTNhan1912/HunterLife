@@ -39,7 +39,7 @@ public class Boom : MonoBehaviour
         var name = collision.gameObject.tag;
 
         //khi enemies chạm vào
-        if (collision.gameObject.CompareTag("enemy3"))
+        if (collision.gameObject.CompareTag("enemy3")||collision.gameObject.CompareTag("enemy1") || collision.gameObject.CompareTag("enemy4"))
         {
             // nổ ngay
             isActive= true;

@@ -17,6 +17,7 @@ TagManager:
   - axe
   - Tree_Snow
   - wood
+  - enemy4
   layers:
   - Default
   - TransparentFX

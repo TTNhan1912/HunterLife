@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6834864924659469767}
-  - component: {fileID: 1963692455373412322}
+  - component: {fileID: 3333117962627267213}
   - component: {fileID: 6834864924659469766}
   - component: {fileID: 6834864924659469764}
+  - component: {fileID: -328960964269522429}
   - component: {fileID: 6834864924659469765}
   - component: {fileID: 6834864924659469786}
   - component: {fileID: 6834864924659469787}
-  - component: {fileID: -328960964269522429}
   m_Layer: 0
   m_Name: enemies 1
   m_TagString: enemy1
@@ -39,7 +39,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1963692455373412322
+--- !u!114 &3333117962627267213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,18 +48,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6834864924659469784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cfa754a714d804193813f272b43217, type: 3}
+  m_Script: {fileID: 11500000, guid: 2047e61d4473a1847aa2326ab21156c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roaming: 1
-  moveSpeed: 0
-  nextWPDistance: 0
-  characterSR: {fileID: 0}
-  seeker: {fileID: 0}
-  updateContinuesPath: 0
-  target: {fileID: 0}
-  positionSlime: {fileID: 0}
-  chaseRadius: 0
+  moveSpeed: 2
+  nextWPDistance: 0.2
+  characterSR: {fileID: 6834864924659469764}
+  seeker: {fileID: -328960964269522429}
+  updateContinuesPath: 1
+  target: {fileID: 4787253834563635876, guid: 9cc6a45300fd42348ae90e508b8e473c, type: 3}
+  positionEnemies: {fileID: 6834864924659469767}
+  chaseRadius: 4
 --- !u!114 &6834864924659469766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +126,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-328960964269522429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834864924659469784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!50 &6834864924659469765
 Rigidbody2D:
   serializedVersion: 4
@@ -193,34 +221,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-328960964269522429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834864924659469784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!1001 &1186965271108445842
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,17 +22,17 @@ public class PlayerInteraction : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        string Objectname = collision.attachedRigidbody.gameObject.name;
-        if (collision.gameObject.CompareTag("wood"))
-        {
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    string Objectname = collision.attachedRigidbody.gameObject.name;
+    //    if (collision.gameObject.CompareTag("wood"))
+    //    {
 
-            Destroy(GameObject.Find(Objectname));
-            //  Debug.Log(">>>>>>>>>>.>>>>>>>>>>>>>>.");
+    //        Destroy(GameObject.Find(Objectname));
+    //        //  Debug.Log(">>>>>>>>>>.>>>>>>>>>>>>>>.");
 
-        }
+    //    }
 
 
-    }
+    //}
 }
