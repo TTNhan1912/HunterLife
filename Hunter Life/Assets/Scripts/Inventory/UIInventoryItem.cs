@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -50,10 +51,8 @@ public class UIInventoryItem : MonoBehaviour
     public void OnBeginDrag()
     {
         if (emty)
-        {
-            return;
-            OnItemBeginDrag?.Invoke(this);
-        }
+          return;
+        OnItemBeginDrag?.Invoke(this);
     }
 
     public void OnDrop()
@@ -68,16 +67,17 @@ public class UIInventoryItem : MonoBehaviour
 
     public void OnPoinTerClick(BaseEventData data)
     {
-        if (emty) return;
+        //if (emty) return;
         PointerEventData pointerdata = (PointerEventData) data;
         if(pointerdata.button == PointerEventData.InputButton.Right)
         {
             OnRightMouseButtonClick?.Invoke(this);
-
+            Debug.Log(">>>>>");  
         }
         else
         {
-            OnRightMouseButtonClick?.Invoke(this);  
+            OnItemclick?.Invoke(this);
+            Debug.Log("bla bla bla");
         }
 
 
