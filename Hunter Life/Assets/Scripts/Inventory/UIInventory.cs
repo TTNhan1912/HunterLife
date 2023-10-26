@@ -18,10 +18,11 @@ public class UIInventory : MonoBehaviour
 
     List<UIInventoryItem> ListOfUIItem = new List<UIInventoryItem>();
 
-    public Sprite image;
+    public Sprite image, image2;
     public int quantity;
     public string title,description;
 
+    private int currentlyDraggedItemIndex = -1;
 
     private void Awake()
     {
@@ -47,28 +48,49 @@ public class UIInventory : MonoBehaviour
         }
     }
 
-    private void HandleShowItemActio(UIInventoryItem obj)
+    private void HandleShowItemActio(UIInventoryItem inventoryItemUI)
     {
     }
 
-    private void HandleEndDrag(UIInventoryItem obj)
+    private void HandleEndDrag(UIInventoryItem inventoryItemUI)
     {
+
         mouseFollower.Toggle(false);
         Debug.Log(" tha Click >>>>>>");
     }
 
-    private void HandleSwap(UIInventoryItem obj)
+    private void HandleSwap(UIInventoryItem inventoryItemUI)
     {
+        int index = ListOfUIItem.IndexOf(inventoryItemUI);
+        if (index == -1)
+        {
+            mouseFollower.Toggle(false);
+            currentlyDraggedItemIndex = -1;
+            return;
+        }
+        ListOfUIItem[currentlyDraggedItemIndex]
+            .SetData(index == 0 ? image : image2, quantity);
+        ListOfUIItem[index]
+            .SetData(currentlyDraggedItemIndex == 0 ? image : image2, quantity);
+        mouseFollower.Toggle(false);
+        currentlyDraggedItemIndex = -1;
+
+
+
     }
 
-    private void HandleBeginDrag(UIInventoryItem obj)
+    private void HandleBeginDrag(UIInventoryItem inventoryItemUI)
     {
+        int index = ListOfUIItem.IndexOf(inventoryItemUI);
+        if (index == -1) return;
+        currentlyDraggedItemIndex = index;
+
         mouseFollower.Toggle(true);
-        mouseFollower.SetData(image, quantity);
+        mouseFollower.SetData(index == 0 ? image : image2, quantity);
         Debug.Log("Dang keo >>>>>>");
     }
 
-    private void HandleItemSelection(UIInventoryItem obj)
+    private void HandleItemSelection(UIInventoryItem inventoryItemUI)
     {
         itemDescription.SetDescription(image,title,description);
         ListOfUIItem[0].Select();
@@ -81,6 +103,7 @@ public class UIInventory : MonoBehaviour
         itemDescription.ResetDiscription();
 
         ListOfUIItem[0].SetData(image,quantity);
+        ListOfUIItem[1].SetData(image2,quantity);
     }
     public void Hide()
     {
