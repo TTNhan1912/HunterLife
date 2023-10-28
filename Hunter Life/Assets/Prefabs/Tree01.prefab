@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4890074546478239182}
   - component: {fileID: 4890074546478239183}
+  - component: {fileID: 7008606531753416146}
+  - component: {fileID: 2641948344808846944}
   - component: {fileID: 4890074546478239180}
   - component: {fileID: 4890074546478239181}
   - component: {fileID: 4890074546478239177}
@@ -87,6 +89,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7008606531753416146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890074546478239170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3474ca602d01b40858fa5e4a8de1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: b627297ac8d272947a2a28a9136934bc, type: 2}
+  duration: 0.2
+--- !u!114 &2641948344808846944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890074546478239170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4803348764b0bf341929844eae209812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashEffect: {fileID: 7008606531753416146}
+  flashKey: 0
 --- !u!61 &4890074546478239180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -103,7 +133,7 @@ BoxCollider2D:
   m_Offset: {x: -0.26928288, y: -5.789609}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.47243983, y: 0.014070268}
     oldSize: {x: 16, y: 16}
     newSize: {x: 16, y: 16}
     adaptiveTilingThreshold: 0.5
@@ -147,4 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CutTreeSound: {fileID: 0}
-  viTri: {fileID: 0}
+  wood: {fileID: 0}
+  roots: {fileID: 0}
+  flashEffect: {fileID: 0}
+  viTriwoood: {fileID: 0}
+  viTriroots: {fileID: 0}

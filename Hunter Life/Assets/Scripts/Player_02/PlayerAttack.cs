@@ -11,7 +11,7 @@ public class PlayerAttack    : MonoBehaviour
     private bool attacking = false;
     private bool attacking2 = true;
 
-    private float timeToAttack = 0.25f;
+    private float timeToAttack = 0.2f;
 
     private float time = 0f;
 
@@ -30,7 +30,7 @@ public class PlayerAttack    : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.E))
         {
              Attack();
-             ani.Play("Char_Attack_LR");
+           //  ani.Play("Char_Attack_LR");
             
            
            

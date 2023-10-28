@@ -53,19 +53,19 @@ public class Players : MonoBehaviour
             animator.SetFloat("run-y", Mathf.Abs(moveInput.y));
         }
     }
-      private void OnTriggerEnter2D(Collider2D collision)
-    { 
-        string Objectname =collision.attachedRigidbody.gameObject.name ;
-        if (collision.gameObject.CompareTag("wood"))
-        {
+    //   private void OnTriggerEnter2D(Collider2D collision)
+    // { 
+    //     string Objectname =collision.attachedRigidbody.gameObject.name ;
+    //     if (collision.gameObject.CompareTag("wood"))
+    //     {
          
-           Destroy(GameObject.Find(Objectname));
-           Debug.Log(">>>>>>>>>>.>>>>>>>>>>>>>>.");
+    //        Destroy(GameObject.Find(Objectname));
+    //        Debug.Log(">>>>>>>>>>.>>>>>>>>>>>>>>.");
 
-        }
+    //     }
 
        
-    }
+   // }
 
 
 
