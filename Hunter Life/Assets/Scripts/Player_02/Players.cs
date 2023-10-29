@@ -21,8 +21,8 @@ public class Players : MonoBehaviour
 
     void MoveInput()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
         Vector3 moveInput = new Vector3(x, y, 0).normalized;
         transform.position += moveInput * moveSpeed * Time.deltaTime;
 
@@ -45,7 +45,8 @@ public class Players : MonoBehaviour
 
         else if (moveInput.y > 0)
         {
-            animator.SetFloat("runy", moveInput.y); 
+            animator.SetFloat("runy", moveInput.y);
+            animator.SetFloat("run-y", -1);
         }
 
         else if (moveInput.y < 0)
