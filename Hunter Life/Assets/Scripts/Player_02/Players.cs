@@ -43,12 +43,12 @@ public class Players : MonoBehaviour
             }
         }
 
-        if (moveInput.y > 0)
+        else if (moveInput.y > 0)
         {
-            animator.SetFloat("runy", moveInput.y);
+            animator.SetFloat("runy", moveInput.y); 
         }
 
-        if (moveInput.y < 0)
+        else if (moveInput.y < 0)
         {
             animator.SetFloat("run-y", Mathf.Abs(moveInput.y));
         }
