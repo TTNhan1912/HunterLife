@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
-    private GameObject currentTeleporter;
+    private GameObject currentTeleporter; 
+    private GameObject transition;
+
+    public Animator aniTransition;
+    public float transitionTime = 1f;
+
+    [SerializeField] private GameObject Loader;
+    //[SerializeField] private GameObject Farm;
+    //[SerializeField] private GameObject Road;
+    //[SerializeField] private GameObject Town;
+    //[SerializeField] private GameObject Dungeon;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +30,7 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (currentTeleporter != null)
             {
-                transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+                LoadingTransition();       
             }
         }
     }
@@ -28,6 +40,7 @@ public class PlayerTeleport : MonoBehaviour
         if (collision.gameObject.CompareTag("teleporter"))
         {
             currentTeleporter = collision.gameObject;
+            
         }
     }
 
@@ -38,4 +51,24 @@ public class PlayerTeleport : MonoBehaviour
             currentTeleporter = null;
         }
     }
+
+    public void LoadingTransition()
+    {
+        StartCoroutine(Loading());
+    }
+
+    //Transition Area
+    IEnumerator Loading()
+    {
+        Loader.SetActive(true);
+        //play animation
+        aniTransition.SetTrigger("start");
+        //teleport
+        transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+        //wait
+        yield return new WaitForSeconds(transitionTime);
+        Loader.SetActive(false);
+
+    }
+
 }
