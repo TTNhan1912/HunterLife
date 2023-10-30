@@ -18,6 +18,10 @@ TagManager:
   - Tree_Snow
   - wood
   - enemy4
+  - enemy5
+  - enemy6
+  - enemy7
+  - enemy8
   layers:
   - Default
   - TransparentFX
