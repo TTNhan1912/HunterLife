@@ -111,7 +111,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!61 &5134012828502363678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   characterSR: {fileID: 5134012828502363676}
   seeker: {fileID: 5134012828502363673}
   updateContinuesPath: 1
-  target: {fileID: 0}
+  target: {fileID: 3454047610055947527, guid: 8c8777b71fbe0b148b2d52f22755bd11, type: 3}
   positionEnemies: {fileID: 5134012828502363675}
   chaseRadius: 4
 --- !u!114 &5134012828502363673
