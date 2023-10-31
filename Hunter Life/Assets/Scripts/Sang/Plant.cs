@@ -45,6 +45,7 @@ public class Plant : MonoBehaviour
         {
             Dig();
             animation.Play("Player_DigGround");
+            AudioManager.instance.PlaySfx("Dig");
         }
 
         // trồng cây
@@ -59,6 +60,7 @@ public class Plant : MonoBehaviour
                 {
                     PlantFL();
                     animation.Play("Player_Plant");
+                    AudioManager.instance.PlaySfx("Plant");
                 }
             }
         }
@@ -160,6 +162,7 @@ public class Plant : MonoBehaviour
     private void PlayDestructionAnimation()
     {
         animation.Play("Player_Harvest");
+        AudioManager.instance.PlaySfx("Harvest");
     }
 
 }
