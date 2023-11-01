@@ -31,11 +31,11 @@ public class HitAndHeathEnemies : MonoBehaviour
         //khi bị tấn công
         if (collision.gameObject.CompareTag("boom"))
         {
-            BeingAttacked( 0.25f );
+            BeingAttacked( 0.25 );
         }
         if (collision.gameObject.CompareTag("axe"))
         {
-            BeingAttacked( 0.2f );
+            BeingAttacked( 0.2 );
         }
     }
 
