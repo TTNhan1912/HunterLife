@@ -249,11 +249,13 @@ GameObject:
   - component: {fileID: 3454047610055947529}
   - component: {fileID: 3454047610055947530}
   - component: {fileID: 3454047610055947531}
-  - component: {fileID: 3454047610055947532}
   - component: {fileID: 3454047610055947528}
   - component: {fileID: 3454047610055947534}
   - component: {fileID: 3454047610055947535}
   - component: {fileID: 7426975741338687469}
+  - component: {fileID: 2343674686585331144}
+  - component: {fileID: 7106812389893900708}
+  - component: {fileID: 495854272069182821}
   m_Layer: 0
   m_Name: Char_02
   m_TagString: player
@@ -365,20 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AXe: {fileID: 3454047609203452188}
---- !u!114 &3454047610055947532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3454047609259685741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2263f1fbe6cbe394fb91415aa0c34471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quaBoom: {fileID: 4053925063990023261, guid: dcfea14e160e3a44ebdae2fa97793dba, type: 3}
-  viTri: {fileID: 4392997309141785420}
 --- !u!114 &3454047610055947528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +395,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -453,10 +441,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rigidbody2D: {fileID: 0}
-  ani: {fileID: 0}
-  boom: {fileID: 0}
-  viTriDatBoom: {fileID: 0}
+  rigidbody2D: {fileID: 3454047610055947534}
+  ani: {fileID: 3454047610055947530}
+  boom: {fileID: 4053925063990023261, guid: dcfea14e160e3a44ebdae2fa97793dba, type: 3}
+  viTriDatBoom: {fileID: 4392997309141785420}
+--- !u!114 &2343674686585331144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454047609259685741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2263f1fbe6cbe394fb91415aa0c34471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quaBoom: {fileID: 4053925063990023261, guid: dcfea14e160e3a44ebdae2fa97793dba, type: 3}
+  viTri: {fileID: 4392997309141785420}
+--- !u!114 &7106812389893900708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454047609259685741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0467a6a650b742140917b2e30890eb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashEffect: {fileID: 495854272069182821}
+--- !u!114 &495854272069182821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454047609259685741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3474ca602d01b40858fa5e4a8de1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: b627297ac8d272947a2a28a9136934bc, type: 2}
+  duration: 0.2
 --- !u!1 &3454047609365720181
 GameObject:
   m_ObjectHideFlags: 0

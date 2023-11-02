@@ -13,7 +13,7 @@ public class Tree : MonoBehaviour
   public GameObject wood = default;
   public GameObject roots = default;
   public GameObject PopUpDame;
-//  public TMP_Text popuptext;
+  //  public TMP_Text popuptext;
   private int lifeTree_Snow = 5;
   [SerializeField] private SimpleFlash flashEffect;
 
@@ -32,16 +32,16 @@ public class Tree : MonoBehaviour
     string nameTree = collision.attachedRigidbody.gameObject.name;
     if (collision.gameObject.CompareTag("axe"))
     {
-       Vector3 originPosotion = transform.position;
-      
+      Vector3 originPosotion = transform.position;
+
       lifeTree_Snow = lifeTree_Snow - 1;
 
       CutTreeSound.Play();
-       flashEffect.Flash();
+      flashEffect.Flash();
       // popuptext.text =damage.ToString;
-       Instantiate(PopUpDame,originPosotion,Quaternion.identity
-       );
-     
+      Instantiate(PopUpDame, originPosotion, Quaternion.identity
+      );
+
       StartCoroutine(ShakeOnce(0.2f, 0.012f));
       if (lifeTree_Snow == 0)
       {
