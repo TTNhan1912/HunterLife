@@ -31,11 +31,11 @@ public class HitAndHeathEnemies : MonoBehaviour
         //khi bị tấn công
         if (collision.gameObject.CompareTag("boom"))
         {
-            BeingAttacked( 0.25 );
+            BeingAttacked( 0.25f );
         }
         if (collision.gameObject.CompareTag("axe"))
         {
-            BeingAttacked( 0.2 );
+            BeingAttacked( 0.2f );
         }
     }
 
@@ -46,6 +46,8 @@ public class HitAndHeathEnemies : MonoBehaviour
 
         blood.fillAmount = blood.fillAmount - oneTouch;
         blood.fillAmount = blood.fillAmount;
+
+        
          flashEffect.Flash();
          popuptext.text=(oneTouch*100).ToString();
          Instantiate(PopUpDame, viTriPopUpDame.position, viTriPopUpDame.rotation);

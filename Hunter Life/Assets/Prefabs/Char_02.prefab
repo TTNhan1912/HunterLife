@@ -377,8 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2263f1fbe6cbe394fb91415aa0c34471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quaBoom: {fileID: 0}
-  viTri: {fileID: 0}
+  quaBoom: {fileID: 4053925063990023261, guid: dcfea14e160e3a44ebdae2fa97793dba, type: 3}
+  viTri: {fileID: 4392997309141785420}
 --- !u!114 &3454047610055947528
 MonoBehaviour:
   m_ObjectHideFlags: 0
