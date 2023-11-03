@@ -22,6 +22,7 @@ TagManager:
   - enemy6
   - enemy7
   - enemy8
+  - bird
   layers:
   - Default
   - TransparentFX
