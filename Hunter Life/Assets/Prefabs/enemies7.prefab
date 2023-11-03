@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1051634949200651000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7107578326891311085}
+  - component: {fileID: 3056843703657978832}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Slimebite
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7107578326891311085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051634949200651000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2232757944732219960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &3056843703657978832
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051634949200651000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.13383865, y: 0.026626587}
+      - {x: -0.23319155, y: -0.068165034}
+      - {x: -0.15725464, y: -0.27085483}
+      - {x: 0.30106127, y: -0.31584525}
+      - {x: 0.68727016, y: -0.09239584}
 --- !u!1 &2232757944732219952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +78,8 @@ GameObject:
   - component: {fileID: 2232757944732219957}
   - component: {fileID: 2232757944732219954}
   - component: {fileID: 2232757944732219955}
+  - component: {fileID: 3837233437973800242}
+  - component: {fileID: 1840734391640353817}
   m_Layer: 0
   m_Name: enemies7
   m_TagString: enemy7
@@ -35,7 +99,9 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7107578326891311085}
   - {fileID: 5913060000078268140}
+  - {fileID: 7948680003445330510}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -201,6 +267,10 @@ MonoBehaviour:
   ActiveBlood: {fileID: 5884153107400798838}
   blood: {fileID: 307698316311484731}
   hit: 3
+  flashEffect: {fileID: 3837233437973800242}
+  viTriPopUpDame: {fileID: 7948680003445330510}
+  PopUpDame: {fileID: 4044865319149873141, guid: 7eec32a8e1e439d4bb17e46785704790, type: 3}
+  popuptext: {fileID: 1038131267852115966, guid: 7eec32a8e1e439d4bb17e46785704790, type: 3}
 --- !u!114 &2232757944732219955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,9 +289,66 @@ MonoBehaviour:
   characterSR: {fileID: 2232757944732219961}
   seeker: {fileID: 2232757944732219957}
   updateContinuesPath: 1
-  target: {fileID: 0}
+  target: {fileID: 3454047610055947527, guid: 8c8777b71fbe0b148b2d52f22755bd11, type: 3}
   positionEnemies: {fileID: 2232757944732219960}
   chaseRadius: 5
+--- !u!114 &3837233437973800242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232757944732219952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3474ca602d01b40858fa5e4a8de1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: b627297ac8d272947a2a28a9136934bc, type: 2}
+  duration: 0.2
+--- !u!114 &1840734391640353817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232757944732219952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc014658d574c9a4c875f0ed80aee4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5503812511032223559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7948680003445330510}
+  m_Layer: 0
+  m_Name: vitripopupDame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7948680003445330510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503812511032223559}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.23, y: 0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2232757944732219960}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2232757943972427236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5544829687103288072, guid: adc34be5a0b427f419f2e3486637f3eb, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5544829687103288072, guid: adc34be5a0b427f419f2e3486637f3eb, type: 3}
       propertyPath: m_AnchorMax.x

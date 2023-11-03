@@ -11,7 +11,7 @@ public class PlayerAttack    : MonoBehaviour
     private bool attacking = false;
     private bool attacking2 = true;
 
-    private float timeToAttack = 0.2f;
+    private float timeToAttack = 0.14f;
 
     private float time = 0f;
 
