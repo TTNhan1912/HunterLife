@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class InventorySO : ScriptableObject
 {
-    [SerializeField] 
+    [field: SerializeField] 
     private List<InventoryItem> inventoryItems;
 
     [field: SerializeField]
@@ -52,7 +52,7 @@ public class InventorySO : ScriptableObject
 
 }
 
-[SerializeField]
+[System.Serializable]
 public struct InventoryItem 
 {
     public int quantity;
