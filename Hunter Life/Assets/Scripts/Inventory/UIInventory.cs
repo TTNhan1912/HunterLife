@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-    
+
 public class UIInventory : MonoBehaviour
 {
     [SerializeField] UIInventoryItem itemPrefabs;
@@ -18,13 +16,13 @@ public class UIInventory : MonoBehaviour
 
     List<UIInventoryItem> ListOfUIItem = new List<UIInventoryItem>();
 
-   /* public Sprite image, image2;
-    public int quantity;
-    public string title,description;*/
+    /* public Sprite image, image2;
+     public int quantity;
+     public string title,description;*/
 
     private int currentlyDraggedItemIndex = -1;
 
-    public event Action<int> OnDescipttionRequested,OnItemActionRequested,
+    public event Action<int> OnDescipttionRequested, OnItemActionRequested,
         OnStartDragging;
 
     public event Action<int, int> OnSwapItem;
@@ -38,10 +36,10 @@ public class UIInventory : MonoBehaviour
 
     public void InitInventory(int inventorysize)
     {
-        for(int i = 0; i < inventorysize; i++)
+        for (int i = 0; i < inventorysize; i++)
         {
-            UIInventoryItem uiItem = Instantiate(itemPrefabs,Vector3.zero, Quaternion.identity);
-           
+            UIInventoryItem uiItem = Instantiate(itemPrefabs, Vector3.zero, Quaternion.identity);
+
             uiItem.transform.SetParent(contenPanel);
             ListOfUIItem.Add(uiItem);
             uiItem.OnItemclick += HandleItemSelection;
@@ -52,10 +50,16 @@ public class UIInventory : MonoBehaviour
 
         }
     }
+    internal void UpdateDesciption(int itemindex, Sprite iteamImage, string name, string description)
+    {
+        itemDescription.SetDescription(iteamImage, name, description);
+        DeselectAllItems();
+        ListOfUIItem[itemindex].Select();
+    }
 
     public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
     {
-        if(ListOfUIItem.Count > itemIndex)
+        if (ListOfUIItem.Count > itemIndex)
         {
             ListOfUIItem[itemIndex].SetData(itemImage, itemQuantity);
         }
@@ -114,7 +118,7 @@ public class UIInventory : MonoBehaviour
     {
         int index = ListOfUIItem.IndexOf(inventoryItemUI);
         if (index == -1) return;
-        OnDescipttionRequested?.Invoke(index); 
+        OnDescipttionRequested?.Invoke(index);
 
     }
 
@@ -122,10 +126,10 @@ public class UIInventory : MonoBehaviour
     {
         gameObject.SetActive(true);
         ResetSelection();
-        
+
     }
 
-    private void ResetSelection()
+    public void ResetSelection()
     {
         itemDescription.ResetDiscription();
         DeselectAllItems();
@@ -144,6 +148,5 @@ public class UIInventory : MonoBehaviour
         gameObject.SetActive(false);
         ResetDraggtedItem();
     }
-
 
 }

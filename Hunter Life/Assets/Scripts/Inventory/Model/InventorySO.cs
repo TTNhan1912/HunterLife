@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class InventorySO : ScriptableObject
 {
-    [field: SerializeField] 
+    [field: SerializeField]
     private List<InventoryItem> inventoryItems;
 
     [field: SerializeField]
@@ -14,7 +13,7 @@ public class InventorySO : ScriptableObject
     public void Initialize()
     {
         inventoryItems = new List<InventoryItem>();
-        for(int i = 0; i < Size; i++)
+        for (int i = 0; i < Size; i++)
         {
             inventoryItems.Add(InventoryItem.GetEmtyItem());
         }
@@ -43,17 +42,20 @@ public class InventorySO : ScriptableObject
         {
             if (inventoryItems[i].IsEmty)
                 continue;
-            returnValue[i] = inventoryItems[i]; 
+            returnValue[i] = inventoryItems[i];
         }
         return returnValue;
     }
 
+    public InventoryItem GetItemAt(int itemindex)
+    {
+        return inventoryItems[itemindex];
 
-
+    }
 }
 
 [System.Serializable]
-public struct InventoryItem 
+public struct InventoryItem
 {
     public int quantity;
     public ItemSO itemSO;
@@ -61,8 +63,8 @@ public struct InventoryItem
 
     public InventoryItem ChangeQuantity(int newQuantity)
     {
-        return new InventoryItem 
-        { 
+        return new InventoryItem
+        {
             itemSO = this.itemSO,
             quantity = newQuantity,
         };
