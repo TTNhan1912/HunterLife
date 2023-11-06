@@ -36,6 +36,11 @@ public class Plant : MonoBehaviour
     // kiểm tra xem có đang đào không
     private bool isDigging = false;
 
+    // cập nhập hướng quay 
+    private int facingDirection = 1;
+    // hướng ban đầu
+    private int initialFacingDirection = 1;
+
     private void Start()
     {
         // tạo 1 mảng lấy vị trí của ô đất đã đào và ô đã trồng cây
@@ -47,14 +52,18 @@ public class Plant : MonoBehaviour
         // bắt sự kiện phá hủy cây bên FLO
         FLO.OnDestroyed += PlayDestructionAnimation;
 
+        // ô đất đã click ở vị trí nào
         clickedTiles = new bool[tilemap.cellBounds.size.x * tilemap.cellBounds.size.y];
+
+
+        initialFacingDirection = (int)Mathf.Sign(transform.localScale.x);
     }
 
 
     private void Update()
     {
         // đào đất
-        if (Input.GetMouseButtonDown(0) && canDig && !isDigging)
+        if (Input.GetMouseButtonDown(0) && canDig && !isDigging && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
         {
             if (!CanDigAtMousePosition())
             {
@@ -64,7 +73,7 @@ public class Plant : MonoBehaviour
         }
 
         // trồng cây
-        if (Input.GetKeyDown(KeyCode.Z) && canPlant && canDig)
+        if (Input.GetKeyDown(KeyCode.Z) && canPlant && canDig && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
@@ -74,14 +83,12 @@ public class Plant : MonoBehaviour
                 if (!IsTilePlanted(cellPosition) && !CanDigAtMousePosition())
                 {
                     PlantFL();
-
                 }
             }
         }
 
 
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Dig"))
@@ -112,6 +119,7 @@ public class Plant : MonoBehaviour
             {
                 if (!clickedTiles[index])
                 {
+                    UpdateFacingDirection(cellPosition);
                     animation.Play("Player_DigGround");
                     AudioManager.instance.PlaySfx("Dig");
                 }
@@ -122,6 +130,7 @@ public class Plant : MonoBehaviour
                     tilemap.SetTile(cellPosition, newTile);
                     dugTiles[index] = true;
                     canPlant = true;
+                    RestoreInitialFacingDirection();
                 }
             }
         }
@@ -181,26 +190,37 @@ public class Plant : MonoBehaviour
         return index != -1 && plantedTrees[index];
     }
 
+    // hàm chờ để đưa về trạng thái ban đầu cho trồng cây
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        RestoreInitialFacingDirection();
+    }
+
     // hàm trồng cây
     private void PlantFL()
     {
-        if (canPlant)
+        if (!SoundController.isGamePaused)
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
-
-            int index = GetTileIndex(cellPosition);
-
-            if (index != -1 && dugTiles[index] && !plantedTrees[index])
+            if (canPlant)
             {
-                // Kiểm tra ô đã trồng cây chưa
-                if (!IsTilePlanted(cellPosition) && !TreeExistsAtCell(cellPosition))
-                {
-                    // Trồng cây tại ô đã đào
-                    Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
-                    animation.Play("Player_Plant");
-                    AudioManager.instance.PlaySfx("Plant");
+                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
 
+                int index = GetTileIndex(cellPosition);
+
+                if (index != -1 && dugTiles[index] && !plantedTrees[index])
+                {
+                    // Kiểm tra ô đã trồng cây chưa
+                    if (!IsTilePlanted(cellPosition) && !TreeExistsAtCell(cellPosition))
+                    {
+                        UpdateFacingDirection(cellPosition);
+                        // Trồng cây tại ô đã đào
+                        Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
+                        animation.Play("Player_Plant");
+                        AudioManager.instance.PlaySfx("Plant");
+                        StartCoroutine(Wait());
+                    }
                 }
             }
         }
@@ -241,6 +261,7 @@ public class Plant : MonoBehaviour
         AudioManager.instance.PlaySfx("Harvest");
     }
 
+    // khoảng cách đào đất
     private bool CanDigAtMousePosition()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -251,4 +272,33 @@ public class Plant : MonoBehaviour
         return Mathf.Abs(cellPosition.x - playerCellPosition.x) > 1f || Mathf.Abs(cellPosition.y - playerCellPosition.y) > 1f;
     }
 
+    // cập nhập hướng quay nhân vật
+    private void UpdateFacingDirection(Vector3Int cellPosition)
+    {
+        int playerCellX = tilemap.WorldToCell(transform.position).x;
+        if (cellPosition.x < playerCellX)
+        {
+            facingDirection = -1; // Quay về phía trái
+        }
+        else if (cellPosition.x > playerCellX)
+        {
+            facingDirection = 1; // Quay về phía phải
+        }
+
+        // Áp dụng hướng cho localScale
+        Vector3 newScale = transform.localScale;
+        newScale.x = Mathf.Abs(newScale.x) * facingDirection;
+        transform.localScale = newScale;
+    }
+
+    // khôi phục lại hướng ban đầu
+    private void RestoreInitialFacingDirection()
+    {
+        facingDirection = initialFacingDirection;
+
+        // Áp dụng hướng cho localScale
+        Vector3 newScale = transform.localScale;
+        newScale.x = Mathf.Abs(newScale.x) * facingDirection;
+        transform.localScale = newScale;
+    }
 }

@@ -8,6 +8,7 @@ public class FLO : MonoBehaviour
 {
     public Sprite newSprite, newSprite1, newSprite2, newSprite3, newSprite4, newSprite5, newSprite6; // Hình ảnh mới cần thay đổi
 
+
     private SpriteRenderer spriteRenderer;
     // thu hoạch đc chưa
     private bool isCollect;
@@ -28,6 +29,8 @@ public class FLO : MonoBehaviour
     private float riuMoveDuration = 0.4f;
     private bool hasHarvested = false;
 
+    // cây bông biến mất chưa
+    private bool hasDisappeared = false;
 
     private void Start()
     {
@@ -41,6 +44,7 @@ public class FLO : MonoBehaviour
 
     private void Update()
     {
+        // thu hoạch được và bằng chuột
         if (isCollect && !hasHarvested)
         {
             if (Input.GetMouseButtonDown(1))
@@ -55,13 +59,11 @@ public class FLO : MonoBehaviour
                         StartCoroutine(MoveRiuAndHarvest());
                         hasHarvested = true;
                     }
-
-
                 }
             }
         }
 
-
+        // xuất hiện hình cây liềm
         if (isCollect)
         {
             if (harvestSymbolInstance == null)
@@ -71,9 +73,29 @@ public class FLO : MonoBehaviour
             }
         }
 
-
+        // thu hoạch bằng shift
+        if (isCollect)
+        {
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+                if (hit.collider != null && hit.collider.gameObject == gameObject)
+                {
+                    if (!hasDisappeared)
+                    {
+                        OnDestroyed();
+                        StartCoroutine(MoveRiuAndHarvest());
+                        hasHarvested = true;
+                        hasDisappeared = true;
+                    }
+                }
+            }
+        }
     }
 
+
+    // hàm cho cây lớn từ từ
     private IEnumerator ChangeSpriteAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -106,7 +128,6 @@ public class FLO : MonoBehaviour
         if (isCollect)
         {
             GetComponent<Renderer>().material.color = highlightColor;
-
         }
 
     }
@@ -116,6 +137,8 @@ public class FLO : MonoBehaviour
         GetComponent<Renderer>().material.color = originalColor; // Khôi phục màu khi chuột rời khỏi
     }
 
+
+    // di chuyển cây liềm và thu hoạch cây
     private IEnumerator MoveRiuAndHarvest()
     {
         // Tạo cây rìu
@@ -149,6 +172,10 @@ public class FLO : MonoBehaviour
         // Hủy cây rìu sau khi hoàn thành
         Destroy(riuInstance);
     }
+
+   
+
+
 
 
 }
