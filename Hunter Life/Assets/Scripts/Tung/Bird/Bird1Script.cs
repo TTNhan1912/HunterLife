@@ -18,6 +18,7 @@ public class Bird1Script : MonoBehaviour
 
     //public GameObject Pos;
     private Vector3 initPos;
+    private Animator ani;
 
     public Transform target;
     public Transform positionEnemies;
@@ -27,6 +28,7 @@ public class Bird1Script : MonoBehaviour
     {
         InvokeRepeating("CalculatePath", 0f, 0.5f);
         reachDestination = true;
+        ani= GetComponent<Animator>();
 
         // lấy vị trí ban đầu
         initPos = positionEnemies.position;
@@ -40,6 +42,7 @@ public class Bird1Script : MonoBehaviour
 
         if (distanceToTarget <= chaseRadius)
         {
+            // nhân vật tới gần
             roaming = true;
             updateContinuesPath = true;
             Debug.Log("Vị trí ban đầu: " + initPos);
@@ -122,17 +125,26 @@ public class Bird1Script : MonoBehaviour
 
         if (roaming)
         {
-            // If the character is within the specified radius, evade the character
+            // nhân vật đi tới
             if (distanceToPlayer <= chaseRadius)
             {
                 Vector2 directionToPlayer = (transform.position - playerPos).normalized;
-                Vector2 evadePosition = (Vector2)initPos + directionToPlayer * (chaseRadius + 1.0f); // Add some buffer to the evade distance
+                ani.SetBool("isIdle", false);
+                ani.SetFloat("isFly",0.2f);
+                Vector2 evadePosition = (Vector2)initPos + directionToPlayer * chaseRadius; 
+                if((Vector2)positionEnemies.position == evadePosition)
+                {
+                    ani.SetFloat("isFly", 0.05f);
+                    ani.SetBool("isIdle", true);
+                }
                 return evadePosition;
             }
             else
+            // nhân vật đi xa
             {
-                // Otherwise, roam freely within a specified range around the initial position
-                return (Vector2)initPos + (Random.Range(3f, 6f) * new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized);
+                ani.SetFloat("isFly", 0.05f);
+                ani.SetBool("isIdle", true);
+                return (Vector2)positionEnemies.position;
             }
         }
         else
