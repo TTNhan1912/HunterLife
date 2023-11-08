@@ -63,7 +63,7 @@ public class Plant : MonoBehaviour
     private void Update()
     {
         // đào đất
-        if (Input.GetMouseButtonDown(0) && canDig && !isDigging && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        if (Input.GetMouseButtonDown(0) && canDig && !isDigging && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift) && !Input.GetKey(KeyCode.Z))
         {
             if (!CanDigAtMousePosition())
             {
@@ -81,6 +81,20 @@ public class Plant : MonoBehaviour
             if (tilemap.GetTile(cellPosition) == newTile)
             {
                 if (!IsTilePlanted(cellPosition) && !CanDigAtMousePosition())
+                {
+                    PlantFL();
+                }
+            }
+        }
+
+        if(Input.GetKey(KeyCode.Z) && canPlant && canDig && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        {
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
+
+            if (tilemap.GetTile(cellPosition) == newTile)
+            {
+                if (!IsTilePlanted(cellPosition))
                 {
                     PlantFL();
                 }
