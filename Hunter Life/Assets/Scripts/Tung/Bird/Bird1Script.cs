@@ -1,20 +1,21 @@
 ﻿using Pathfinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bird1Script : MonoBehaviour
 {
-    private bool roaming = true;
-    public float moveSpeed;
-    public float nextWPDistance;
+    private bool roaming;
+    private float moveSpeed;
+    private float nextWPDistance = 0.3f;
     public SpriteRenderer characterSR;
 
     public Seeker seeker;
     Path path;
     Coroutine moveCoroutine;
     bool reachDestination = false;
-    public bool updateContinuesPath;
 
     //public GameObject Pos;
     private Vector3 initPos;
@@ -23,6 +24,8 @@ public class Bird1Script : MonoBehaviour
     public Transform target;
     public Transform positionEnemies;
     public float chaseRadius;
+    private bool isCheck = false;
+    public float chuviSize = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,14 +47,12 @@ public class Bird1Script : MonoBehaviour
         {
             // nhân vật tới gần
             roaming = true;
-            updateContinuesPath = true;
+            Destroy(gameObject, 4);
             Debug.Log("Vị trí ban đầu: " + initPos);
         }
         else
         {
-            roaming = true;
-            updateContinuesPath = false;
-
+            roaming = false;
         }
 
     }
@@ -65,7 +66,7 @@ public class Bird1Script : MonoBehaviour
     void CalculatePath()
     {
         Vector2 target = FindTarget();
-        if (seeker.IsDone() && (reachDestination || updateContinuesPath))
+        if (seeker.IsDone() && (reachDestination))
             seeker.StartPath(transform.position, target, OnPathComplete);
     }
 
@@ -92,8 +93,6 @@ public class Bird1Script : MonoBehaviour
             Vector2 force = direction * moveSpeed * Time.deltaTime;
             transform.position += (Vector3)force;
 
-            //animator.SetFloat("isRun", direction.sqrMagnitude);
-
             float distance = Vector2.Distance(transform.position, path.vectorPath[currentWP]);
             if (distance < nextWPDistance)
             {
@@ -118,39 +117,56 @@ public class Bird1Script : MonoBehaviour
         reachDestination = true;
     }
 
-    Vector2 FindTarget()
+    Vector2 RandomPosition()
+    {
+        // Tạo vị trí mới trong ô vuông
+        Vector2 randomPos = (Vector2) initPos + new Vector2(Random.Range(-chuviSize / 2f, chuviSize / 2f), Random.Range(-chuviSize / 2f, chuviSize / 2f));
+
+        // Giới hạn vị trí trong ô vuông
+        randomPos.x = Mathf.Clamp(randomPos.x, initPos.x - chuviSize / 2f, initPos.x + chuviSize / 2f);
+        randomPos.y = Mathf.Clamp(randomPos.y, initPos.y - chuviSize / 2f, initPos.y + chuviSize / 2f);
+
+        return randomPos;
+    }
+
+    Vector2 FlyAlways()
     {
         Vector3 playerPos = FindObjectOfType<PlayerMovement>().transform.position;
-        float distanceToPlayer = Vector3.Distance(transform.position, playerPos);
-
+        Vector2 directionToPlayer = (transform.position - playerPos).normalized;
+        ani.SetBool("isIdle", false);
+        ani.SetFloat("isFly", 0.2f);
+        Vector2 evadePosition = (Vector2)initPos + directionToPlayer * (chaseRadius + 2f);
+        moveSpeed = 3f;
+        if ((Vector2)positionEnemies.position == evadePosition)
+        {
+            ani.SetFloat("isFly", 0.05f);
+            ani.SetBool("isIdle", true);
+        }
+        return evadePosition;
+    }
+    Vector2 FindTarget()
+    {
+        Vector2 newPos;
         if (roaming)
         {
-            // nhân vật đi tới
-            if (distanceToPlayer <= chaseRadius)
-            {
-                Vector2 directionToPlayer = (transform.position - playerPos).normalized;
-                ani.SetBool("isIdle", false);
-                ani.SetFloat("isFly",0.2f);
-                Vector2 evadePosition = (Vector2)initPos + directionToPlayer * chaseRadius; 
-                if((Vector2)positionEnemies.position == evadePosition)
-                {
-                    ani.SetFloat("isFly", 0.05f);
-                    ani.SetBool("isIdle", true);
-                }
-                return evadePosition;
-            }
-            else
-            // nhân vật đi xa
-            {
-                ani.SetFloat("isFly", 0.05f);
-                ani.SetBool("isIdle", true);
-                return (Vector2)positionEnemies.position;
-            }
+            isCheck = true;
+            newPos = FlyAlways();    
         }
         else
+        // nhân vật đi xa
         {
-            // If not roaming, always chase the character
-            return playerPos;
+            
+            if(!isCheck) {
+                ani.SetFloat("isFly", 0.05f);
+                ani.SetBool("isIdle", true);
+                moveSpeed = 1.5f;
+                newPos = RandomPosition();
+            }
+            else
+            {
+                newPos = FlyAlways();
+            }
         }
+        return newPos;
     }
 }
