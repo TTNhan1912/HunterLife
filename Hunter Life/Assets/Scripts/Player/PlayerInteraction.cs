@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -22,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         string Objectname = collision.attachedRigidbody.gameObject.name;
         if (collision.gameObject.CompareTag("wood"))
@@ -34,5 +32,5 @@ public class PlayerInteraction : MonoBehaviour
         }
 
 
-    }
+    }*/
 }
