@@ -41,6 +41,11 @@ public class Plant : MonoBehaviour
     // hướng ban đầu
     private int initialFacingDirection = 1;
 
+    /*// panel nền tối
+    public GameObject nightPanel;
+    // thời gian tồn tại panel
+    private float transitionTime = 20f;*/
+
     private void Start()
     {
         // tạo 1 mảng lấy vị trí của ô đất đã đào và ô đã trồng cây
@@ -55,10 +60,12 @@ public class Plant : MonoBehaviour
         // ô đất đã click ở vị trí nào
         clickedTiles = new bool[tilemap.cellBounds.size.x * tilemap.cellBounds.size.y];
 
-
         initialFacingDirection = (int)Mathf.Sign(transform.localScale.x);
-    }
 
+
+        // ngày đêm
+        //StartCoroutine(StartDayNightCycle());
+    }
 
     private void Update()
     {
@@ -315,4 +322,37 @@ public class Plant : MonoBehaviour
         newScale.x = Mathf.Abs(newScale.x) * facingDirection;
         transform.localScale = newScale;
     }
+
+    // Ngày đêm
+    /*private IEnumerator StartDayNightCycle()
+    {
+        yield return new WaitForSeconds(5f);
+        CanvasGroup canvasGroup = nightPanel.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0f;
+
+        while (true)
+        {
+            float elapsedTime = 0f;
+
+            while (elapsedTime < transitionTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / transitionTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(transitionTime);
+
+            elapsedTime = 0f;
+
+            while (elapsedTime < transitionTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / transitionTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(transitionTime);
+        }
+    }*/
 }
