@@ -23,7 +23,7 @@ public class Tree : MonoBehaviour
   void Start()
   {
     anim = GetComponent<Animator>();
-
+ StartCoroutine(RotateMe(Vector3.back * 90, 0.9f));
   }
 
   // Update is called once per frame

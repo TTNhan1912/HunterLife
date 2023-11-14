@@ -3,16 +3,20 @@ using System.Collections.Generic;
 // using TMPro;
 using UnityEngine;
 
+
+
 public class PlayerLife : MonoBehaviour
 {
     private Animator ani;
-    public GameObject Heart1, Heart1half, Heart1empty;
-    public GameObject Heart2, Heart2half, Heart2empty;
-    public GameObject Heart3, Heart3half, Heart3empty;
-    public GameObject Heart4, Heart4half, Heart4empty;
-    public GameObject Heart5, Heart5half, Heart5empty;
+   
+   
 
-    private int CharLife = 10;
+    public int CharLife = 8;
+    public int CharLifeMax = 10;
+   
+    
+    
+   
 
 
 
@@ -28,43 +32,26 @@ public class PlayerLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (CharLife)
+         if (Input.GetKeyDown(KeyCode.H))
         {
-            case 0:
-                ani.Play("Char_Die");
-                Heart1empty.SetActive(true);
-                break;
-            case 10:
-             
-                break;
-            case 9:
-                Heart5half.SetActive(true);
-                break;
-            case 8:
-                Heart5empty.SetActive(true);
-                break;
-            case 7:
-                Heart4half.SetActive(true);
-                break;
-            case 6:
-                Heart4empty.SetActive(true);
-                break;
-            case 5:
-                Heart3half.SetActive(true);
-                break;
-            case 4:
-                Heart3empty.SetActive(true);
-                break;
-            case 3:
-                Heart2half.SetActive(true);
-                break;
-            case 2:
-                Heart2empty.SetActive(true);
-                break;
-            case 1:
-                Heart1half.SetActive(true);
-                break;
+            CharLife = CharLife+1;
+           //  ani.Play("Char_Attack_LR");
+            
+           
+
         }
+             
+
+
+
+      
+        if(CharLife==0){
+
+              ani.Play("Player_Die");
+        }      
+        //         Heart1empty.SetActive(true);
+       
+
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -111,4 +98,9 @@ public class PlayerLife : MonoBehaviour
 
 
     }
+    
+     
+
+
 }
+

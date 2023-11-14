@@ -18,6 +18,10 @@ TagManager:
   - Tree_Snow
   - wood
   - Slimebite
+  - enemy6
+  - enemy8
+  - enemy7
+  - enemy5
   layers:
   - Default
   - TransparentFX
@@ -26,7 +30,7 @@ TagManager:
   - Water
   - UI
   - GamePlay
-  - 
+  - Player
   - 
   - 
   - 

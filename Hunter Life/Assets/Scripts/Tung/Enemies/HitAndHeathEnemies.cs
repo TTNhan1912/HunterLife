@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
+
 
 public class HitAndHeathEnemies : MonoBehaviour
 {
@@ -17,15 +19,16 @@ public class HitAndHeathEnemies : MonoBehaviour
     public float hit;
     private Animator animator;
     private bool isKill = false;
-     [SerializeField] private SimpleFlash flashEffect;
-     [SerializeField] private Transform viTriPopUpDame;
-     public GameObject PopUpDame;
-     public TMP_Text popuptext;
+    [SerializeField] private SimpleFlash flashEffect;
+    [SerializeField] private Transform viTriPopUpDame;
+    public GameObject PopUpDame;
+    public Health health;
+    // public TMP_Text popuptext;
 
     // Start is called before the first frame update
     void Start()
     {
-       animator= GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         eni5 = GetComponent<AIEnemies5>();
         eni1 = GetComponent<AIEnemies1>();
         eni2 = GetComponent<AIEnemies2>();
@@ -43,6 +46,8 @@ public class HitAndHeathEnemies : MonoBehaviour
         {
             DestroyEnemiesWithTag(gameObject.tag);
         }
+      //  BeingAttacked(0.2f);
+    
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,29 +57,32 @@ public class HitAndHeathEnemies : MonoBehaviour
         //khi bị tấn công
         if (collision.gameObject.CompareTag("boom"))
         {
-            BeingAttacked(0.25f  );
+            BeingAttacked(0.25f);
 
             Debug.Log("isKill: " + isKill);
-            
+
         }
-         if (collision.gameObject.CompareTag("axe"))
+        if (collision.gameObject.CompareTag("axe"))
         {
-            BeingAttacked( 0.2f );
+            BeingAttacked(0.2f);
         }
     }
 
-    private void BeingAttacked(float dame)
+    public void BeingAttacked(float dame)
     {
-       //  Vector3 originPosotion = transform.position;
+
+        //  Vector3 originPosotion = transform.position;
         float oneTouch = dame;
+        string text = (dame * 100).ToString();
 
-         flashEffect.Flash();
-         popuptext.text=(oneTouch*100).ToString();
-        Instantiate(PopUpDame, viTriPopUpDame.position, viTriPopUpDame.rotation);
 
+        flashEffect.Flash();
+       //  popuptext.text=(oneTouch*100).ToString();
+        GameObject prefab = Instantiate(PopUpDame, viTriPopUpDame.position, Quaternion.identity);
+        prefab.GetComponentInChildren<TextMesh>().text = text;
         blood.fillAmount = blood.fillAmount - oneTouch;
         blood.fillAmount = blood.fillAmount;
-        if(blood.fillAmount < 0.1f)
+        if (blood.fillAmount < 0.1f)
         {
             isKill = true;
         }
@@ -88,7 +96,7 @@ public class HitAndHeathEnemies : MonoBehaviour
         animator.SetTrigger("isDie");
         switch (tag)
         {
-            case "enemy1" :
+            case "enemy1":
                 eni1.moveSpeed = 0f;
                 break;
             case "enemy2":
@@ -97,10 +105,10 @@ public class HitAndHeathEnemies : MonoBehaviour
             case "enemy3":
                 eni3.moveSpeed = 0f;
                 break;
-            case "enemy4":             
+            case "enemy4":
                 eni4.moveSpeed = 0f;
                 break;
-            case "enemy5":               
+            case "enemy5":
                 eni5.moveSpeed = 0f;
                 break;
             case "enemy6":
