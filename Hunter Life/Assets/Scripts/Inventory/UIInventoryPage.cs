@@ -1,16 +1,16 @@
-using System.Collections;
+using Inventory.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIInventoryPage : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private UIInventoryItem itemPrefab;
 
     [SerializeField]
     private UIInventoryDescription itemDescription;
 
-    [SerializeField] 
+    [SerializeField]
     private RectTransform contenPanel;
 
     List<UIInventoryItem> listOfUIItem = new List<UIInventoryItem>();
