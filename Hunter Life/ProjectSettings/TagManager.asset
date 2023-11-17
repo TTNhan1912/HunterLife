@@ -17,6 +17,11 @@ TagManager:
   - axe
   - Tree_Snow
   - wood
+  - bird
+  - Map1vsMap2
+  - Map4vsMap1
+  - teleporter
+  - Map2vsMap3
   layers:
   - Default
   - TransparentFX
@@ -25,16 +30,16 @@ TagManager:
   - Water
   - UI
   - GamePlay
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MiniMap1
+  - MiniMap2
+  - MiniMap3
+  - MiniMap4
+  - Map4-1
+  - Map1-4
+  - Map1-2
+  - Map2-1
+  - Map2-3
+  - Map3-2
   - 
   - 
   - 
