@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7422355491036508364}
   - component: {fileID: 2132976979409216460}
+  - component: {fileID: 7054516853004366838}
   m_Layer: 0
   m_Name: Mapple
   m_TagString: Untagged
@@ -84,3 +85,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &7054516853004366838
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201453571427664277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.062438965, y: -0.33807755}
+  - {x: -0.025848389, y: -0.5289917}
+  - {x: -0.22996521, y: -0.34386063}
+  - {x: -0.4173584, y: -0.3527336}
+  - {x: -0.16854858, y: -0.7457886}
+  - {x: -0.1313324, y: -0.791378}
+  - {x: -0.12666321, y: -0.9733429}
+  - {x: -0.063079834, y: -1.0339012}
+  - {x: -0.06611633, y: -1.2572823}
+  - {x: -0.13175964, y: -1.2606926}
+  - {x: -0.18325806, y: -1.5120125}
+  - {x: -0.31832886, y: -1.5273705}
+  - {x: -0.39076233, y: -1.7772903}
+  - {x: -0.3985443, y: -2.30019}
+  - {x: 0.37445068, y: -2.3034515}
+  - {x: 0.37760925, y: -1.5382195}
+  - {x: 0.31947327, y: -1.5366745}
+  - {x: 0.32209778, y: -0.7884903}
+  - {x: 0.38397217, y: -0.64450073}
+  - {x: 0.38537598, y: -0.46684647}
+  - {x: 0.2528839, y: -0.46932983}
+  - {x: 0.25228882, y: -0.33522797}
+  - {x: 0.06201172, y: -0.33849716}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

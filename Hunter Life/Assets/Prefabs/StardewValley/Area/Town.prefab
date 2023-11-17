@@ -45,6 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6775254331858374949}
   - component: {fileID: 1443459660409074053}
+  - component: {fileID: 8049026523148779090}
   m_Layer: 0
   m_Name: Tavern
   m_TagString: Untagged
@@ -107,7 +108,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1426762441, guid: f95a943bbf22e714cb67fabfaa20f8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,6 +120,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &8049026523148779090
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879097760181264043}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07495499, y: -1.8281479}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.1875, y: 9.1875}
+    newSize: {x: 7.1875, y: 9.1875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.67115, y: 5.531204}
+  m_EdgeRadius: 0
 --- !u!1 &898524771323336796
 GameObject:
   m_ObjectHideFlags: 0
@@ -12390,6 +12417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4195540079973134381}
   - component: {fileID: 3816387741842246108}
+  - component: {fileID: 4486710374467350529}
   m_Layer: 0
   m_Name: Library
   m_TagString: Untagged
@@ -12452,7 +12480,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 147596077, guid: f95a943bbf22e714cb67fabfaa20f8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12464,6 +12492,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4486710374467350529
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949098194843126157}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010421753, y: -1.1149292}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9, y: 8}
+    newSize: {x: 9, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.520683, y: 5.7701416}
+  m_EdgeRadius: 0
 --- !u!1 &2184326801761544993
 GameObject:
   m_ObjectHideFlags: 0
@@ -12558,6 +12612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3083555895579782698}
   - component: {fileID: 2588645984417096722}
+  - component: {fileID: 1576786684724580672}
   m_Layer: 0
   m_Name: Cabin_House
   m_TagString: Untagged
@@ -12620,7 +12675,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1230531418, guid: f95a943bbf22e714cb67fabfaa20f8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12632,6 +12687,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1576786684724580672
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354628881229337131}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.054304123, y: 0.08447647}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.8125, y: 4}
+    newSize: {x: 7.8125, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.7038918, y: 3.831047}
+  m_EdgeRadius: 0
 --- !u!1 &2703577494260448359
 GameObject:
   m_ObjectHideFlags: 0
@@ -12710,6 +12791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6750266986275768773}
   - component: {fileID: 3832244195990350941}
+  - component: {fileID: 4874486962826459393}
   m_Layer: 0
   m_Name: House_0
   m_TagString: Untagged
@@ -12772,7 +12854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: -480330638, guid: f95a943bbf22e714cb67fabfaa20f8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12784,6 +12866,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4874486962826459393
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015060270125676570}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -2.2737808}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 10.25}
+    newSize: {x: 8, y: 10.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.746475, y: 5.7024384}
+  m_EdgeRadius: 0
 --- !u!1 &4478479535079143693
 GameObject:
   m_ObjectHideFlags: 0
@@ -74066,6 +74174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3815230725324569869}
   - component: {fileID: 2760252674096806708}
+  - component: {fileID: 1653336532544519579}
   m_Layer: 0
   m_Name: Major_House
   m_TagString: Untagged
@@ -74128,7 +74237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 914960184, guid: f95a943bbf22e714cb67fabfaa20f8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -74140,6 +74249,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &1653336532544519579
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926860152190695802}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 4.3388176, y: 1.5836563}
+  - {x: 4.3429947, y: 2.2465897}
+  - {x: -4.3780136, y: 2.2150726}
+  - {x: -4.3768997, y: -4.5073776}
+  - {x: -4.4951324, y: -4.5303574}
+  - {x: -4.519169, y: -5.540413}
+  - {x: -3.4264488, y: -5.542862}
+  - {x: -3.4229355, y: -6.4894943}
+  - {x: -2.5496254, y: -6.4801636}
+  - {x: -2.5544472, y: -5.468445}
+  - {x: -0.4246788, y: -5.4996643}
+  - {x: -0.41427612, y: -6.302101}
+  - {x: 0.40982056, y: -6.2973785}
+  - {x: 0.43602753, y: -5.5372925}
+  - {x: 0.5658684, y: -5.5234222}
+  - {x: 0.56528854, y: -4.350998}
+  - {x: 4.360012, y: -4.3946457}
+  - {x: 4.342144, y: 1.633049}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &6390091143296137538
 GameObject:
   m_ObjectHideFlags: 0
@@ -75646,6 +75793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6786841530358810953}
   - component: {fileID: 8844034530855778967}
+  - component: {fileID: 9146241903846345916}
   m_Layer: 0
   m_Name: House_1
   m_TagString: Untagged
@@ -75708,7 +75856,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: -252969330, guid: f95a943bbf22e714cb67fabfaa20f8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -75720,6 +75868,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &9146241903846345916
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425572983048518415}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 3.4025116, y: 1.7045059}
+  - {x: -4.379654, y: 1.6611404}
+  - {x: -4.314598, y: -4.9837112}
+  - {x: 4.3188705, y: -4.9935913}
+  - {x: 4.327133, y: 0.69875336}
+  - {x: 3.3786392, y: 1.7147598}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &8996872813547725454
 GameObject:
   m_ObjectHideFlags: 0
