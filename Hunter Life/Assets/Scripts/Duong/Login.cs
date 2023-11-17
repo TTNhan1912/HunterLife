@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -20,29 +20,29 @@ public class Login : MonoBehaviour
     void Start()
     {
         eventSystem = EventSystem.current;
-        fisrt.Select();
+        // fisrt.Select();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Selectable next = eventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
-            if (next != null)
-            {
-                next.Select();
-            }
-        }
+        /*        if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    Selectable next = eventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
+                    if (next != null)
+                    {
+                        next.Select();
+                    }
+                }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Selectable next = eventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();
-            if (next != null)
-            {
-                next.Select();
-            }
-        }
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    Selectable next = eventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();
+                    if (next != null)
+                    {
+                        next.Select();
+                    }
+                }*/
     }
 
     public void CheckLogin()
@@ -53,10 +53,10 @@ public class Login : MonoBehaviour
 
     IEnumerator LoginUser()
     {
-        //�
+        //…
         var email = edtEmail.text;
         var pass = edtPassword.text;
-        
+
 
         UserModel userModel = new UserModel(email, pass);
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -88,6 +88,52 @@ public class Login : MonoBehaviour
         request.Dispose();
 
 
+    }
+
+
+    public void test()
+    {
+        StartCoroutine(GetDataFromNodeJS());
+        GetDataFromNodeJS();
+    }
+
+    IEnumerator GetDataFromNodeJS()
+    {
+        var id = "654507e7644da551c636056c";
+        TestResponseModel userModel = new TestResponseModel(id);
+
+        string jsonStringRequest = JsonConvert.SerializeObject(userModel);
+
+        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/getitemsinventory", "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonStringRequest);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            var jsonString = request.downloadHandler.text.ToString();
+            // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
+            List<TestModel> testModels = JsonConvert.DeserializeObject<List<TestModel>>(jsonString);
+
+
+            foreach (TestModel model in testModels)
+            {
+                Debug.Log($"_id: {model._id}");
+                Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
+                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
+                Debug.Log($"Quantity: {model.quantity}");
+            }
+
+
+        }
+        request.Dispose();
     }
 
 }

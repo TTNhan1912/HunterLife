@@ -87,7 +87,7 @@ namespace Inventory.UI
                 return;
             }
             OnSwapItem?.Invoke(currentlyDraggedItemIndex, index);
-
+            HandleItemSelection(inventoryItemUI);
         }
 
         private void ResetDraggtedItem()
@@ -99,7 +99,8 @@ namespace Inventory.UI
         private void HandleBeginDrag(UIInventoryItem inventoryItemUI)
         {
             int index = ListOfUIItem.IndexOf(inventoryItemUI);
-            if (index == -1) return;
+            if (index == -1)
+                return;
             currentlyDraggedItemIndex = index;
             HandleItemSelection(inventoryItemUI);
             OnStartDragging?.Invoke(index);
@@ -151,5 +152,13 @@ namespace Inventory.UI
             ResetDraggtedItem();
         }
 
+        internal void ResetAllItem()
+        {
+            foreach (var item in ListOfUIItem)
+            {
+                item.ResetData();
+                item.Deselect();
+            }
+        }
     }
 }
