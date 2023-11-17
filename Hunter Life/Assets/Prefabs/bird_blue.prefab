@@ -196,11 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae05f225abf5dde4c8d55def00f1a982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  nextWPDistance: 0.3
   characterSR: {fileID: 2770861468056527258}
   seeker: {fileID: 2770861468056527262}
-  updateContinuesPath: 1
   target: {fileID: 0}
   positionEnemies: {fileID: 2770861468056527259}
   chaseRadius: 5
+  chuviSize: 5

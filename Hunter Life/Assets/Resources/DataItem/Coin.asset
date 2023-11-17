@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 10
-  <Name>k__BackingField: "\u0110\u1ED3ng xu v\xE0ng"
-  <Description>k__BackingField: 
+  <Name>k__BackingField: Coins
+  <Description>k__BackingField: Coin Coin Coin
   <IteamImage>k__BackingField: {fileID: -1480302921, guid: cf1ca48330380124bbc1db32318c48c3, type: 3}
