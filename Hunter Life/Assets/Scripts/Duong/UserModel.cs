@@ -1,9 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UserModel 
+﻿public class UserModel
 {
+    public UserModel(string id, float positionX, float positionY, float positionZ)
+    {
+        this.id = id;
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.positionZ = positionZ;
+    }
+
+    public UserModel(string id, float coin)
+    {
+        this.id = id;
+        this.coin = coin;
+
+    }
+
     public UserModel(string email, string password, string confirm_password)
     {
         this.email = email;
@@ -27,9 +38,16 @@ public class UserModel
         this.otp = otp;
     }
 
-    public string email {  get; set; }
+    public string email { get; set; }
     public string password { get; set; }
     public string confirm_password { get; set; }
     public string otp { get; set; }
-    
+
+    // save vị trí/ coin
+    public string id { get; set; }
+    public float positionX { get; set; }
+    public float positionY { get; set; }
+    public float positionZ { get; set; }
+    public float coin { get; set; }
+
 }
