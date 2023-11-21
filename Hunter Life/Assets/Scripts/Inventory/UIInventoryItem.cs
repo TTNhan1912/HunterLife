@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventoryItem : MonoBehaviour , IPointerClickHandler,
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler,
     IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField] private Image itemImage;
@@ -15,7 +12,7 @@ public class UIInventoryItem : MonoBehaviour , IPointerClickHandler,
     [SerializeField] private Image boder;
 
     public event Action<UIInventoryItem> OnItemclick, OnItemDroppedOn,
-        OnItemBeginDrag, OnItemEndDrag,OnRightMouseButtonClick;
+        OnItemBeginDrag, OnItemEndDrag, OnRightMouseButtonClick;
     private bool emty = true;
 
 
@@ -83,6 +80,6 @@ public class UIInventoryItem : MonoBehaviour , IPointerClickHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+
     }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883db3b07e4463a40be31b62205d0637, type: 3}
   m_Name: "H\u1EA1t Gi\u1ED1ng"
   m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 0
-  <MaxStackSize>k__BackingField: 50
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
   <Name>k__BackingField: "H\u1EA1t gi\u1ED1ng hoa"
   <Description>k__BackingField: "M\u1ED9t b\xF4ng hoa tuy\u1EC7t \u0111\u1EB9p, b\u1EA1n
     c\xF3 th\u1EC3 tr\u1ED3ng n\xF3 v\xE0 \u0111em b\xE1n cho th\u01B0\u01A1ng l\xE1i."
