@@ -19,10 +19,10 @@ public class SavePositionCoin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             savePosition.SetActive(true);
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -42,6 +42,21 @@ public class SavePositionCoin : MonoBehaviour
         coin.text = coinn + "";
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("SavePosition"))
+        {
+            savePosition.SetActive(true);
+        }
+    }
+
+    public void EnablePanel()
+    {
+        savePosition.SetActive(false);
+    }
+
+
     public void SavePos()
     {
         StartCoroutine(savePos());

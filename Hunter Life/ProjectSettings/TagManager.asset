@@ -22,6 +22,7 @@ TagManager:
   - Map4vsMap1
   - teleporter
   - Map2vsMap3
+  - SavePosition
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,8 @@
 
 public class PlayerInteraction : MonoBehaviour
 {
-
+    [SerializeField]
+    private GameObject savePosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class PlayerInteraction : MonoBehaviour
     // bắt sự kiện va chạm
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /* if (collision.gameObject.CompareTag("SavePosition"))
+         {
+             savePosition.SetActive(true);
+         }*/
     }
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
