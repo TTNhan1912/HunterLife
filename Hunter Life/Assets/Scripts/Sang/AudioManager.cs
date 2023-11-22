@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AudioManager : MonoBehaviour
 {
@@ -13,9 +14,16 @@ public class AudioManager : MonoBehaviour
     // panel nền tối
     public GameObject nightPanel;
     // thời gian tồn tại panel
-    private float transitionTime = 10f;
-
+    private float transitionTime = 180f;
+    // đã đến tối hay chưa
     private bool isNight = false;
+
+    // thời gian
+    [SerializeField] TextMeshProUGUI timeText;
+    float elapsedTime;
+    float maxTime = 1440f;
+
+    public Transform rotatingImage;
 
 
     private void Awake()
@@ -32,10 +40,106 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // ngày đêm
-        StartCoroutine(StartDayNightCycle());
-
         PlayDayMusic();
+        elapsedTime = 6 * 60;
+    }
+
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
+
+        if (elapsedTime > maxTime)
+        {
+            elapsedTime = 0f;
+        }
+
+        int m = Mathf.FloorToInt(elapsedTime / 60);
+        int s = Mathf.FloorToInt(elapsedTime % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", m, s);
+
+        // Hiển thị panel khi đạt 17
+        if (m == 17)
+        {
+            StartCoroutine(FadeInPanel());
+        }
+
+        // Ẩn panel khi đạt 4
+        if (m == 4)
+        {
+            StartCoroutine(FadeOutPanel());
+        }
+
+        // chạy nhạc buổi tối khi 9h tối
+        if (m == 19 && s == 0)
+        {
+            if (!isNight)
+            {
+                isNight = true;
+                PlayNightMusic();
+                rotatingImage.transform.Rotate(new Vector3(0, 0, -100f));
+            }
+        }
+
+        /*if(m == 12 && s == 0)
+        {
+            rotatingImage.transform.Rotate(new Vector3(0, 0, -50f));
+        }*/
+
+        //chạy nhạc buổi sáng khi 6h sáng
+        if(m == 6 && s == 0)
+        {
+            if (isNight)
+            {
+                isNight = false;
+                PlayDayMusic();
+                rotatingImage.transform.Rotate(new Vector3(0, 0, 100f));
+            }
+        }
+
+        /*if (m == 1 && s == 0)
+        {
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 50f));
+        }*/
+    }
+
+    // panel hiện dần
+    private IEnumerator FadeInPanel()
+    {
+        CanvasGroup canvasGroup = nightPanel.GetComponent<CanvasGroup>();
+        float elapsedTime = 0f;
+
+        while (elapsedTime < transitionTime)
+        {
+            canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / transitionTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    // panel tắt dần
+    private IEnumerator FadeOutPanel()
+    {
+        CanvasGroup canvasGroup = nightPanel.GetComponent<CanvasGroup>();
+        float elapsedTime = 0f;
+
+        while (elapsedTime < transitionTime)
+        {
+            canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / transitionTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    // chạy nhạc buổi tối
+    private void PlayNightMusic()
+    {
+       PlayMusic("Night");
+    }
+
+    // chạy nhạc buổi sáng
+    private void PlayDayMusic()
+    {
+       PlayMusic("Farm");
     }
 
     // nhạc nền
@@ -69,11 +173,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // bấm nút tắt nhạc nền
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
     }
 
+    // bấm nút tắt âm thanh
     public void ToggleSfx()
     {
         sfxSource.mute = !sfxSource.mute;
@@ -83,58 +189,10 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.volume = volume;
     }
+
     public void SfxVolume(float volume)
     {
         sfxSource.volume = volume;
-    }
-
-
-    private IEnumerator StartDayNightCycle()
-    {
-        yield return new WaitForSeconds(5f);
-        CanvasGroup canvasGroup = nightPanel.GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0f;
-
-        while (true)
-        {
-            float elapsedTime = 0f;
-
-            while (elapsedTime < transitionTime)
-            {
-                canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / transitionTime);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            isNight = true; // Đã chuyển sang trời tối
-            PlayNightMusic(); // Phát nhạc buổi tối
-
-            yield return new WaitForSeconds(transitionTime);
-
-            elapsedTime = 0f;
-
-            while (elapsedTime < transitionTime)
-            {
-                canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / transitionTime);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            isNight = false; // Đã chuyển sang trời sáng
-            PlayDayMusic(); // Phát lại nhạc ban đầu
-
-            yield return new WaitForSeconds(transitionTime);
-        }
-    }
-
-    private void PlayNightMusic()
-    {
-       PlayMusic("Night");
-    }
-
-    private void PlayDayMusic()
-    {
-       PlayMusic("Farm");
     }
 
 }

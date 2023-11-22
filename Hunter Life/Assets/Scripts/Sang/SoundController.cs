@@ -32,17 +32,4 @@ public class SoundController : MonoBehaviour
         AudioManager.instance.SfxVolume(_sfxSlider.value);
     }
 
-    public void ClickSettingButton()
-    {
-        SettingSound.SetActive(true);
-        isGamePaused = true;
-        Time.timeScale = 0f;
-    }
-
-    public void ClickCancelButton()
-    {
-        SettingSound.SetActive(false);
-        isGamePaused = false;
-        Time.timeScale = 1f;
-    }
 }

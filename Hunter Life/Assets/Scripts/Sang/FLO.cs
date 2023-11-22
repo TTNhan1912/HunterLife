@@ -36,7 +36,7 @@ public class FLO : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        StartCoroutine(ChangeSpriteAfterDelay(3.0f));
+        StartCoroutine(ChangeSpriteAfterDelay(45.0f));
 
         isCollect = false;
         originalColor = GetComponent<Renderer>().material.color; // Lấy màu gốc từ Renderer
