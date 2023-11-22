@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 425426185274425401}
   - component: {fileID: 2452487283357360548}
+  - component: {fileID: 1400186126538118803}
+  - component: {fileID: 381082167499814195}
   m_Layer: 0
   m_Name: BloomBush
-  m_TagString: Untagged
+  m_TagString: Behind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,3 +86,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1400186126538118803
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756683063616197925}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.875, y: 2.1875}
+    newSize: {x: 1.875, y: 2.1875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.25749207, y: 0.9760332}
+      - {x: 0.1869049, y: 1.0962}
+      - {x: 0.0801239, y: 1.0998259}
+      - {x: -0.07394409, y: 1.0491714}
+      - {x: -0.09777832, y: 0.9277344}
+      - {x: -0.19515991, y: 1.0437689}
+      - {x: -0.46247864, y: 1.0499954}
+      - {x: -0.43746948, y: 0.812479}
+      - {x: -0.67926025, y: 0.8420353}
+      - {x: -0.6999817, y: 0.5249748}
+      - {x: -0.9286499, y: 0.54000473}
+      - {x: -0.93540955, y: -0.42146587}
+      - {x: -0.81651306, y: -0.51100636}
+      - {x: -0.81256104, y: -0.84010124}
+      - {x: -0.75668335, y: -0.9109402}
+      - {x: -0.6324158, y: -0.91000557}
+      - {x: -0.6116333, y: -1.0920248}
+      - {x: -0.36262512, y: -1.1025648}
+      - {x: -0.24433899, y: -1.0268793}
+      - {x: 0.62875366, y: -1.0312767}
+      - {x: 0.6240845, y: -0.86055565}
+      - {x: 0.6907654, y: -0.8494587}
+      - {x: 0.78707886, y: -0.79354286}
+      - {x: 0.88238525, y: -0.79232883}
+      - {x: 0.934021, y: -0.40937424}
+      - {x: 0.94314575, y: 0.054923058}
+      - {x: 0.8187256, y: 0.82498646}
+      - {x: 0.5624695, y: 0.96248627}
+--- !u!114 &381082167499814195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756683063616197925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f29015a7f668e40a95e861abbc9daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 2452487283357360548}

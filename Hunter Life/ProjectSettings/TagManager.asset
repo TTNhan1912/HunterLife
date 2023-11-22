@@ -17,6 +17,9 @@ TagManager:
   - axe
   - Tree_Snow
   - wood
+  - teleporter
+  - bird
+  - Behind
   layers:
   - Default
   - TransparentFX

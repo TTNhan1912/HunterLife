@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2228756218365623905}
   - component: {fileID: 3206800079599263176}
+  - component: {fileID: 3031087558055432793}
+  - component: {fileID: 8808962878465679177}
   m_Layer: 0
   m_Name: Bush
-  m_TagString: Untagged
+  m_TagString: Behind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,3 +86,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &3031087558055432793
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5302839831156772074}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.5625}
+    newSize: {x: 1.5, y: 1.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.061080933, y: 0.7862663}
+      - {x: -0.5477295, y: 0.7170296}
+      - {x: -0.57244873, y: 0.4769745}
+      - {x: -0.73475647, y: 0.46538162}
+      - {x: -0.7420044, y: -0.110565186}
+      - {x: -0.68663025, y: -0.11379242}
+      - {x: -0.6924896, y: -0.17828369}
+      - {x: -0.7454376, y: -0.21995544}
+      - {x: -0.74420166, y: -0.34877014}
+      - {x: -0.69654846, y: -0.38134003}
+      - {x: -0.7431488, y: -0.40535736}
+      - {x: -0.74086, y: -0.71473694}
+      - {x: -0.6914215, y: -0.7271919}
+      - {x: -0.68847656, y: -0.775383}
+      - {x: 0.63494873, y: -0.77674484}
+      - {x: 0.68577576, y: -0.7245865}
+      - {x: 0.74835205, y: -0.5958824}
+      - {x: 0.7526245, y: 0.08506012}
+      - {x: 0.6927185, y: 0.44350433}
+      - {x: 0.6291046, y: 0.71875}
+      - {x: 0.625, y: 0.78125}
+--- !u!114 &8808962878465679177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5302839831156772074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f29015a7f668e40a95e861abbc9daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 3206800079599263176}
