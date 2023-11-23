@@ -105,6 +105,8 @@ namespace Inventory
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
+
+                // GetComponent<Login>().test();
                 if (inventoryUI.isActiveAndEnabled == false)
                 {
                     inventoryUI.Show();

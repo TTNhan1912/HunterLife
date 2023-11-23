@@ -43,6 +43,12 @@ public class Login : MonoBehaviour
                         next.Select();
                     }
                 }*/
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            test();
+            Debug.Log("API");
+        }
     }
 
     public void CheckLogin()
