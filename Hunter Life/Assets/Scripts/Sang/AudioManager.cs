@@ -62,13 +62,11 @@ public class AudioManager : MonoBehaviour
         {
             StartCoroutine(FadeInPanel());
         }
-
         // Ẩn panel khi đạt 4
         if (m == 4)
         {
             StartCoroutine(FadeOutPanel());
         }
-
         // chạy nhạc buổi tối khi 9h tối
         if (m == 19 && s == 0)
         {
@@ -76,15 +74,10 @@ public class AudioManager : MonoBehaviour
             {
                 isNight = true;
                 PlayNightMusic();
-                rotatingImage.transform.Rotate(new Vector3(0, 0, -100f));
+                rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                rotatingImage.transform.Rotate(new Vector3(0, 0, 40f));
             }
         }
-
-        /*if(m == 12 && s == 0)
-        {
-            rotatingImage.transform.Rotate(new Vector3(0, 0, -50f));
-        }*/
-
         //chạy nhạc buổi sáng khi 6h sáng
         if(m == 6 && s == 0)
         {
@@ -92,14 +85,95 @@ public class AudioManager : MonoBehaviour
             {
                 isNight = false;
                 PlayDayMusic();
-                rotatingImage.transform.Rotate(new Vector3(0, 0, 100f));
+                rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                rotatingImage.transform.Rotate(new Vector3(0, 0, 140f));
             }
         }
-
-        /*if (m == 1 && s == 0)
+        if ( m ==  7 && s == 0)
         {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 132.5f));
+        }
+        if (m == 8 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 125f));
+        }
+        if (m == 9 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 117.5f));
+        }
+        if (m == 10 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 110f));
+        }
+        if (m == 11 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 102.5f));
+        }
+        if (m == 12 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 95f));
+        }
+        if (m == 13 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 87.5f));
+        }
+        if (m == 14 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 80f));
+        }
+        if (m == 15 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 72.5f));
+        }
+        if (m == 16 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 65f));
+        }
+        if (m == 17 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 57.5f));
+        }
+        if (m == 18 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             rotatingImage.transform.Rotate(new Vector3(0, 0, 50f));
-        }*/
+        }
+        if (m == 1 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 56.5f));
+        }
+        if (m == 2 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 73f));
+        }
+        if (m == 3 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 89.5f));
+        }
+        if (m == 4 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 106f));
+        }
+        if (m == 5 && s == 0)
+        {
+            rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            rotatingImage.transform.Rotate(new Vector3(0, 0, 122.5f));
+        }
     }
 
     // panel hiện dần
