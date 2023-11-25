@@ -121,7 +121,7 @@ public class Plant : MonoBehaviour
         }
     }
 
-    /// hàm chờ và đào đất
+    // hàm chờ và đào đất
     private IEnumerator WaitAndDig()
     {
         if (!SoundController.isGamePaused)
