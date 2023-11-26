@@ -13,27 +13,34 @@ namespace Inventory
 
         [SerializeField]
         private InventorySO inventoryData;
+        private InventoryController inventoryController;
 
         public List<InventoryItem> initalItems = new List<InventoryItem>();
+        public List<InventoryAPI> initalItemsAPI = new List<InventoryAPI>();
 
-        private Login login;
+        public Login login { get; private set; }
+
 
         void Start()
         {
             PrepareUI();
             PrepareInventoryData();
+
         }
+
 
         private void PrepareInventoryData()
         {
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
+
             foreach (InventoryItem item in initalItems)
             {
                 if (item.IsEmty)
                     continue;
                 inventoryData.AddItem(item);
             }
+
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
@@ -42,6 +49,14 @@ namespace Inventory
             foreach (var item in inventoryState)
             {
                 inventoryUI.UpdateData(item.Key, item.Value.itemSO.IteamImage, item.Value.quantity);
+            }
+        }
+        private void UpdateInventoryUIAPI(Dictionary<int, InventoryAPI> inventoryStatee)
+        {
+            inventoryUI.ResetAllItem();
+            foreach (var item in inventoryStatee)
+            {
+                inventoryUI.UpdateData(item.Key, item.Value.itemSOAPI.IteamImageAPI, item.Value.quantityAPI);
             }
         }
 
@@ -101,12 +116,59 @@ namespace Inventory
 
         }
 
+        public void LayAPI()
+        {
+            foreach (TestModel model in Login.testModelAPI)
+            {
+                Debug.Log($"_id: {model._id}");
+                Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
+                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
+                Debug.Log($"Quantity: {model.quantity}");
+
+
+            }
+
+        }
+
         public void Update()
         {
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+
+                Login.loginIntance.test();
+
+                Debug.Log(Login.test01Model1.itemname);
+
+                foreach (InventoryItem item in initalItems)
+                {
+                    if (item.IsEmty)
+                        continue;
+
+                    // item.itemSO.name += Login.test01Model1.itemname;
+
+                    inventoryData.AddItem(item);
+
+                    inventoryData.Initialize();
+                    inventoryData.OnInventoryUpdated += UpdateInventoryUI;
+                    Debug.Log(item.itemSO.name);
+                }
+
+
+
+
+
+
+
+
+            }
+
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 if (inventoryUI.isActiveAndEnabled == false)
                 {
+
                     inventoryUI.Show();
                     //  login.test();
                     foreach (var item in inventoryData.GetCurrentInventoryState())

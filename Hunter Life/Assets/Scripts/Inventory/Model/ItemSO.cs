@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Inventory.Model
 {
@@ -27,6 +27,13 @@ namespace Inventory.Model
 
         public Sprite IteamImage { get; set; }
 
+        // Hàm tạo mới nhận đường dẫn hình ảnh
+        public string imagePath;
+
+        public ItemSO(string imagePath)
+        {
+            this.imagePath = imagePath;
+        }
 
     }
 }

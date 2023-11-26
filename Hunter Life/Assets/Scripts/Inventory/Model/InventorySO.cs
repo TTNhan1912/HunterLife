@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ObjectTest;
 
 namespace Inventory.Model
 {
@@ -11,12 +12,16 @@ namespace Inventory.Model
     {
         [field: SerializeField]
         private List<InventoryItem> inventoryItems;
+        private List<InventoryAPI> inventoryItemsAPI;
 
         [field: SerializeField]
         public int Size { get; private set; } = 10;
 
         public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
 
+        public event Action<Dictionary<int, InventoryAPI>> OnInventoryUpdatedAPI;
+
+        public Login login { get; private set; }
         public void Initialize()
         {
             inventoryItems = new List<InventoryItem>();
@@ -25,10 +30,19 @@ namespace Inventory.Model
                 inventoryItems.Add(InventoryItem.GetEmtyItem());
             }
         }
+        public void InitializeAPI()
+        {
+            inventoryItemsAPI = new List<InventoryAPI>();
+            for (int i = 0; i < Size; i++)
+            {
+                inventoryItemsAPI.Add(InventoryAPI.GetEmtyItem());
+            }
+        }
 
         // ****
         public int AddItem(ItemSO itemSO, int quantity)
         {
+
             if (itemSO.IsStackable == false)
             {
                 for (int i = 0; i < inventoryItems.Count; i++)
@@ -46,6 +60,21 @@ namespace Inventory.Model
             quantity = AddStackAbleItem(itemSO, quantity);
             InformAboutChange();
             return quantity;
+        }
+
+        //new API
+        public int AddItemAPI(ItemSOAPI itemSOAPI, int quantityAPI)
+        {
+
+            for (int i = 0; i < inventoryItems.Count; i++)
+            {
+
+                InformAboutChange();
+                return quantityAPI;
+            }
+
+            InformAboutChange();
+            return quantityAPI;
         }
 
         private int AddItemToFirstFreeSlot(ItemSO itemSO, int quantity)
@@ -108,7 +137,31 @@ namespace Inventory.Model
         public void AddItem(InventoryItem item)
         {
             AddItem(item.itemSO, item.quantity);
+            //  Debug.Log(item.itemSO.Name);
         }
+
+        //new
+        public void AddItemAPI(InventoryAPI item)
+        {
+            AddItemAPI(item.itemSOAPI, item.quantityAPI);
+
+        }
+
+        public void newAPI()
+        {
+
+            foreach (TestModel model in Login.testModelAPI)
+            {
+                Debug.Log($"_id: {model._id}");
+                Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
+                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
+                Debug.Log($"Quantity: {model.quantity}");
+
+
+            }
+        }
+
 
         public Dictionary<int, InventoryItem> GetCurrentInventoryState()
         {
@@ -144,11 +197,38 @@ namespace Inventory.Model
         }
     }
 
+
+
+    [System.Serializable]
+
+    //new
+    public struct InventoryAPI
+    {
+        public int quantityAPI;
+        public ItemSOAPI itemSOAPI;
+
+
+        public bool IsEmty => itemSOAPI == null;
+
+
+
+        public static InventoryAPI GetEmtyItem() => new InventoryAPI
+        {
+            itemSOAPI = null,
+            quantityAPI = 0,
+        };
+
+
+
+    }
+
+
     [System.Serializable]
     public struct InventoryItem
     {
         public int quantity;
         public ItemSO itemSO;
+        public MyScriptableObject scriptableObject;
         public bool IsEmty => itemSO == null;
 
         public InventoryItem ChangeQuantity(int newQuantity)
@@ -157,6 +237,7 @@ namespace Inventory.Model
             {
                 itemSO = this.itemSO,
                 quantity = newQuantity,
+                scriptableObject = this.scriptableObject
             };
         }
 
@@ -164,9 +245,23 @@ namespace Inventory.Model
         {
             itemSO = null,
             quantity = 0,
+            scriptableObject = null
         };
 
+        // Hàm tạo để thêm ScriptableObject tự động
+        public InventoryItem(int newQuantity, ItemSO newItemSO, MyScriptableObject newScriptableObject)
+        {
+            quantity = newQuantity;
+            itemSO = newItemSO;
+            scriptableObject = newScriptableObject;
+        }
 
+        /*public InventoryItem ChangeQuantity(int newQuantity)
+        {
+            return new InventoryItem(newQuantity, itemSO, scriptableObject);
+        }
+
+        public static InventoryItem GetEmtyItem() => new InventoryItem(0, null, null);*/
 
     }
 }

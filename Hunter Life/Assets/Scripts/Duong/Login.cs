@@ -16,11 +16,34 @@ public class Login : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
     public static LoginResponseMoel loginResponse;
+    public static List<TestModel> testModelAPI;
+    public static Test01model test01Model1;
+    public static Login loginIntance;
+
+    public string idItem;
+    public string ItemName;
+    public string ItemNameID;
+    public string ItemNameDescription;
+    public int ItemNameQuantity;
+
+
     // Start is called before the first frame update
     void Start()
     {
         eventSystem = EventSystem.current;
         // fisrt.Select();
+    }
+
+    private void Awake()
+    {
+        if (loginIntance == null)
+        {
+            loginIntance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +66,11 @@ public class Login : MonoBehaviour
                         next.Select();
                     }
                 }*/
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //  test();
+            // Debug.Log("id item name la :" + ItemName);
+        }
     }
 
     public void CheckLogin()
@@ -104,7 +132,7 @@ public class Login : MonoBehaviour
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
 
-        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/getitemsinventory", "POST");
+        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/getitemsinventoryOne", "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonStringRequest);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -119,17 +147,26 @@ public class Login : MonoBehaviour
         {
             var jsonString = request.downloadHandler.text.ToString();
             // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
-            List<TestModel> testModels = JsonConvert.DeserializeObject<List<TestModel>>(jsonString);
+            Test01model test01Model = JsonConvert.DeserializeObject<Test01model>(jsonString);
+
+            //   Debug.Log(test01Model.itemname);
+
+            /* foreach (TestModel model in testModels)
+             {
+                 Debug.Log($"_id: {model._id}");
+                 Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                     $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
+                     $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
+                 Debug.Log($"Quantity: {model.quantity}");
+
+                 idItem += model._id;
+                 ItemNameID += model.itemName._id;
+                 ItemName += model.itemName.itemName;
+                 ItemNameDescription += model.itemName.description;
+                 ItemNameQuantity += model.quantity;
 
 
-            foreach (TestModel model in testModels)
-            {
-                Debug.Log($"_id: {model._id}");
-                Debug.Log($"Item Name: _id: {model.itemName._id}," +
-                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
-                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
-                Debug.Log($"Quantity: {model.quantity}");
-            }
+             }*/
 
 
         }
