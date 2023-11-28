@@ -66,9 +66,9 @@ public class Login : MonoBehaviour
                         next.Select();
                     }
                 }*/
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            //  test();
+            test();
             // Debug.Log("id item name la :" + ItemName);
         }
     }
@@ -132,7 +132,7 @@ public class Login : MonoBehaviour
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
 
-        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/getitemsinventoryOne", "POST");
+        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/getitemsinventory", "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonStringRequest);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -147,26 +147,26 @@ public class Login : MonoBehaviour
         {
             var jsonString = request.downloadHandler.text.ToString();
             // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
-            Test01model test01Model = JsonConvert.DeserializeObject<Test01model>(jsonString);
+            testModelAPI = JsonConvert.DeserializeObject<List<TestModel>>(jsonString);
 
             //   Debug.Log(test01Model.itemname);
 
-            /* foreach (TestModel model in testModels)
-             {
-                 Debug.Log($"_id: {model._id}");
-                 Debug.Log($"Item Name: _id: {model.itemName._id}," +
-                     $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
-                     $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
-                 Debug.Log($"Quantity: {model.quantity}");
+            foreach (TestModel model in testModelAPI)
+            {
+                Debug.Log($"_id: {model._id}");
+                Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
+                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
+                Debug.Log($"Quantity: {model.quantity}");
 
-                 idItem += model._id;
-                 ItemNameID += model.itemName._id;
-                 ItemName += model.itemName.itemName;
-                 ItemNameDescription += model.itemName.description;
-                 ItemNameQuantity += model.quantity;
+                /*  idItem += model._id;
+                  ItemNameID += model.itemName._id;
+                  ItemName += model.itemName.itemName;
+                  ItemNameDescription += model.itemName.description;
+                  ItemNameQuantity += model.quantity;*/
 
 
-             }*/
+            }
 
 
         }

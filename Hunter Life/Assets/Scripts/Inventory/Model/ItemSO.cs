@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Inventory.Model
 {
@@ -28,13 +29,12 @@ namespace Inventory.Model
         public Sprite IteamImage { get; set; }
 
         // Hàm tạo mới nhận đường dẫn hình ảnh
-        public string imagePath;
+        public string itemName;
 
-        public ItemSO(string imagePath)
+        public static implicit operator ItemSO(ObjectTest.MyScriptableObject v)
         {
-            this.imagePath = imagePath;
+            throw new NotImplementedException();
         }
-
     }
 }
 

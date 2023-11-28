@@ -1,4 +1,4 @@
-using Inventory.Model;
+﻿using Inventory.Model;
 using Inventory.UI;
 using System;
 using System.Collections.Generic;
@@ -16,9 +16,10 @@ namespace Inventory
         private InventoryController inventoryController;
 
         public List<InventoryItem> initalItems = new List<InventoryItem>();
-        public List<InventoryAPI> initalItemsAPI = new List<InventoryAPI>();
+        //  public List<InventoryAPI> initalItemsAPI = new List<InventoryAPI>();
 
         public Login login { get; private set; }
+        public ItemSO itemSO;
 
 
         void Start()
@@ -27,6 +28,7 @@ namespace Inventory
             PrepareInventoryData();
 
         }
+
 
 
         private void PrepareInventoryData()
@@ -137,30 +139,7 @@ namespace Inventory
             if (Input.GetKeyDown(KeyCode.I))
             {
 
-                Login.loginIntance.test();
-
-                Debug.Log(Login.test01Model1.itemname);
-
-                foreach (InventoryItem item in initalItems)
-                {
-                    if (item.IsEmty)
-                        continue;
-
-                    // item.itemSO.name += Login.test01Model1.itemname;
-
-                    inventoryData.AddItem(item);
-
-                    inventoryData.Initialize();
-                    inventoryData.OnInventoryUpdated += UpdateInventoryUI;
-                    Debug.Log(item.itemSO.name);
-                }
-
-
-
-
-
-
-
+                PrepareInventoryData();
 
             }
 

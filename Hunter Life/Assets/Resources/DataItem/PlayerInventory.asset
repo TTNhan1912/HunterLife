@@ -15,62 +15,42 @@ MonoBehaviour:
   inventoryItems:
   - quantity: 2
     itemSO: {fileID: 11400000, guid: 80fbb69b60bbd354288bc5c7fa37e3bc, type: 2}
-    itemAPI: {fileID: 0}
   - quantity: 5
     itemSO: {fileID: 11400000, guid: 720d2462c86f132469f1beb5478df3fa, type: 2}
-    itemAPI: {fileID: 0}
+  - quantity: 6
+    itemSO: {fileID: 11400000, guid: 0c7fd76a90bfd2248b2f7ef7ab952c07, type: 2}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
-  - quantity: 0
-    itemSO: {fileID: 0}
-    itemAPI: {fileID: 0}
   <Size>k__BackingField: 20

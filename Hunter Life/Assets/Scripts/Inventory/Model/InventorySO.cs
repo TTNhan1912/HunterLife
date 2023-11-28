@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static ObjectTest;
 
 namespace Inventory.Model
 {
@@ -30,6 +29,25 @@ namespace Inventory.Model
                 inventoryItems.Add(InventoryItem.GetEmtyItem());
             }
         }
+        public void AddItemSO(ItemSO itemSO)
+        {
+            // Tạo một InventoryItem mới từ ItemSO và thêm vào danh sách
+            InventoryItem newItem = new InventoryItem
+            {
+                quantity = 1,
+                itemSO = itemSO
+            };
+            inventoryItems.Add(newItem);
+
+            // Gọi sự kiện thông báo rằng dữ liệu đã được cập nhật
+            //  OnInventoryUpdated?.Invoke();
+        }
+
+
+
+
+
+
         public void InitializeAPI()
         {
             inventoryItemsAPI = new List<InventoryAPI>();
@@ -38,6 +56,7 @@ namespace Inventory.Model
                 inventoryItemsAPI.Add(InventoryAPI.GetEmtyItem());
             }
         }
+
 
         // ****
         public int AddItem(ItemSO itemSO, int quantity)
@@ -140,10 +159,11 @@ namespace Inventory.Model
             //  Debug.Log(item.itemSO.Name);
         }
 
+
         //new
-        public void AddItemAPI(InventoryAPI item)
+        public void AddItemAPI(ItemSO item, int quantity)
         {
-            AddItemAPI(item.itemSOAPI, item.quantityAPI);
+            AddItem(item, quantity);
 
         }
 
@@ -195,6 +215,8 @@ namespace Inventory.Model
         {
             OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
         }
+
+
     }
 
 
@@ -228,7 +250,7 @@ namespace Inventory.Model
     {
         public int quantity;
         public ItemSO itemSO;
-        public MyScriptableObject scriptableObject;
+
         public bool IsEmty => itemSO == null;
 
         public InventoryItem ChangeQuantity(int newQuantity)
@@ -236,26 +258,27 @@ namespace Inventory.Model
             return new InventoryItem
             {
                 itemSO = this.itemSO,
-                quantity = newQuantity,
-                scriptableObject = this.scriptableObject
+                quantity = newQuantity
             };
         }
 
         public static InventoryItem GetEmtyItem() => new InventoryItem
         {
             itemSO = null,
-            quantity = 0,
-            scriptableObject = null
+            quantity = 0
+
         };
 
-        // Hàm tạo để thêm ScriptableObject tự động
-        public InventoryItem(int newQuantity, ItemSO newItemSO, MyScriptableObject newScriptableObject)
-        {
-            quantity = newQuantity;
-            itemSO = newItemSO;
-            scriptableObject = newScriptableObject;
-        }
 
+
+        /* // Hàm tạo để thêm ScriptableObject tự động
+         public InventoryItem(int newQuantity, ItemSO newItemSO)
+         {
+             quantity = newQuantity;
+             itemSO = newItemSO;
+
+         }
+    */
         /*public InventoryItem ChangeQuantity(int newQuantity)
         {
             return new InventoryItem(newQuantity, itemSO, scriptableObject);
