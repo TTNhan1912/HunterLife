@@ -13,10 +13,12 @@ namespace Inventory
 
         [SerializeField]
         private InventorySO inventoryData;
-        private InventoryController inventoryController;
+        public InventoryController inventoryController;
+
+        public ItemSO newScriptableObjectt;
 
         public List<InventoryItem> initalItems = new List<InventoryItem>();
-        //  public List<InventoryAPI> initalItemsAPI = new List<InventoryAPI>();
+        // public List<InventoryAPI> initalItemsAPI = new List<InventoryAPI>();
 
         public Login login { get; private set; }
         public ItemSO itemSO;
@@ -31,10 +33,24 @@ namespace Inventory
 
 
 
-        private void PrepareInventoryData()
+        public void PrepareInventoryData()
         {
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
+
+
+            // Kiểm tra và thêm newScriptableObject vào danh sách
+            if (newScriptableObjectt != null)
+            {
+                // Tạo một InventoryItem mới và thêm vào danh sách
+                InventoryItem newItem = new InventoryItem
+                {
+                    itemSO = newScriptableObjectt,
+                    quantity = 1 // Số lượng bạn muốn thêm vào danh sách
+                };
+
+                initalItems.Add(newItem);
+            }
 
             foreach (InventoryItem item in initalItems)
             {

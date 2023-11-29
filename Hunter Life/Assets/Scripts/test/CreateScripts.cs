@@ -1,14 +1,16 @@
-﻿using Inventory.Model;
+﻿using Inventory;
+using Inventory.Model;
 using UnityEditor;
 using UnityEngine;
-
 public class CreateScripts : MonoBehaviour
 {
     public ItemSO itemSO;
 
     public InventorySO inventoryData;
 
-    public ItemSO yourItemSO;
+    // public ItemSO newScriptableObject;
+
+    public InventoryController inventoryController;
 
     [MenuItem("Tools/Create My ScriptableObject")]
 
@@ -36,59 +38,29 @@ public class CreateScripts : MonoBehaviour
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            Debug.Log(newScriptableObject);
 
-            AddScriptableObjectToInventory(newScriptableObject);
-
-
-            /*// Kiểm tra xem tham chiếu có tồn tại không
-            if (myScriptableObject != null)
+            InventoryController inventoryController = FindObjectOfType<InventoryController>();
+            if (inventoryController != null)
             {
-                // Gọi hàm Initialize từ InventoryManager và truyền vào ItemSO
-                myScriptableObject.Initialize(newScriptableObject);
+                inventoryController.newScriptableObjectt = newScriptableObject;
+                inventoryController.PrepareInventoryData();
             }
-            else
-            {
-                Debug.LogError("Tham chiếu đến InventoryManager không tồn tại.");
-            }*/
-
-
-
-            //    ItemSO myItemSO = newScriptableObject;
-            //   InventoryItem myInventoryItem = new InventoryItem(myItemSO, 10);
-
-            //    myScriptableObject.AddItemAPI(newScriptableObject, 2);
-
-
-            //   Debug.Log(myInventoryItem.itemSO.Name);
-            //   Debug.Log(myInventoryItem.itemSO.IteamImage);
 
             // Chọn đối tượng mới tạo trong Project window
             Selection.activeObject = newScriptableObject;
 
         }
 
-
     }
 
-    private void AddScriptableObjectToInventory(ItemSO itemSO)
-    {
-        if (inventoryData != null && itemSO != null)
-        {
-            inventoryData.AddItemSO(itemSO);
-        }
-        else
-        {
-            Debug.LogError("Tham chiếu đến InventoryData hoặc ItemSO không tồn tại.");
-        }
 
-    }
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))
         {
             CreateMyScriptableObject();
         }
+
     }
 
 }
