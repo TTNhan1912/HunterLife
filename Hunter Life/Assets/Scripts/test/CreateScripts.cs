@@ -17,13 +17,13 @@ public class CreateScripts : MonoBehaviour
     public void CreateMyScriptableObject()
     {
 
-        foreach (TestModel model in Login.testModelAPI)
+        foreach (TestModel model in Login.testModel)
         {
             Debug.Log($"_id: {model._id}");
-            Debug.Log($"Item Name: _id: {model.itemName._id}," +
+            Debug.Log($"Item Name: _id: {model._id}," +
                 $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
-                $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
-            Debug.Log($"Quantity: {model.quantity}");
+                $" Image: {model}");
+            ;
 
             // Tạo một ScriptableObject mới
             ItemSO newScriptableObject = ScriptableObject.CreateInstance<ItemSO>();

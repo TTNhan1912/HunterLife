@@ -134,20 +134,7 @@ namespace Inventory
 
         }
 
-        public void LayAPI()
-        {
-            foreach (TestModel model in Login.testModelAPI)
-            {
-                Debug.Log($"_id: {model._id}");
-                Debug.Log($"Item Name: _id: {model.itemName._id}," +
-                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
-                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
-                Debug.Log($"Quantity: {model.quantity}");
 
-
-            }
-
-        }
 
         public void Update()
         {
