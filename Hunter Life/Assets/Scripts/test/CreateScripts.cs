@@ -8,22 +8,24 @@ public class CreateScripts : MonoBehaviour
 
     public InventorySO inventoryData;
 
-    // public ItemSO newScriptableObject;
-
     public InventoryController inventoryController;
+
+    public LoadImageFromURL loadImage;
+
 
     [MenuItem("Tools/Create My ScriptableObject")]
 
     public void CreateMyScriptableObject()
     {
-
         foreach (TestModel model in Login.testModel)
         {
             Debug.Log($"_id: {model._id}");
             Debug.Log($"Item Name: _id: {model._id}," +
                 $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
                 $" Image: {model}");
-            ;
+
+            //   loadImage.LoadImageURL();
+
 
             // Tạo một ScriptableObject mới
             ItemSO newScriptableObject = ScriptableObject.CreateInstance<ItemSO>();
@@ -60,6 +62,10 @@ public class CreateScripts : MonoBehaviour
         {
             CreateMyScriptableObject();
         }
+        /*if (Input.GetKeyUp(KeyCode.Q))
+        {
+            loadImage.LoadImageURL();
+        }*/
 
     }
 

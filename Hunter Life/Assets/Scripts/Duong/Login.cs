@@ -186,4 +186,37 @@ public class Login : MonoBehaviour
         request.Dispose();
     }
 
+    public void LoadImgURL(string image)
+    {
+        StartCoroutine(LoadImage(image));
+    }
+
+    IEnumerator LoadImage(string uri)
+    {
+        Debug.Log(uri);
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(uri);
+
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log($"Loi Image : {www.error}");
+        }
+        else
+        {
+            // lấy texture từ respone
+            Texture2D texture2D = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+            Debug.Log(texture2D);
+
+            /*   if (LoadImageURl.image != null)
+               {
+                   LoadImageURl.image = texture2D;
+               }*/
+
+        }
+
+    }
+
+
 }
