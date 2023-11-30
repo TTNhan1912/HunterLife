@@ -16,11 +16,34 @@ public class Login : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
     public static LoginResponseMoel loginResponse;
+    public static List<TestModel> testModel;
+    public static Test01model test01Model1;
+    public static Login loginIntance;
+
+    public string idItem;
+    public string ItemName;
+    public string ItemNameID;
+    public string ItemNameDescription;
+    public int ItemNameQuantity;
+
+
     // Start is called before the first frame update
     void Start()
     {
         eventSystem = EventSystem.current;
         // fisrt.Select();
+    }
+
+    private void Awake()
+    {
+        if (loginIntance == null)
+        {
+            loginIntance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +66,11 @@ public class Login : MonoBehaviour
                         next.Select();
                     }
                 }*/
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            test();
+            // Debug.Log("id item name la :" + ItemName);
+        }
     }
 
     public void CheckLogin()
@@ -99,7 +127,20 @@ public class Login : MonoBehaviour
 
     IEnumerator GetDataFromNodeJS()
     {
-        var id = "654507e7644da551c636056c";
+        var id = "";
+
+        if (Login.loginResponse != null)
+        {
+            id = Login.loginResponse.id;
+            Debug.Log("id1" + id);
+            Debug.Log("Login");
+        }
+
+        if (Register.registerResponseMoel != null)
+        {
+            id = Register.registerResponseMoel.id;
+            Debug.Log("Register" + id);
+        }
         TestResponseModel userModel = new TestResponseModel(id);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -119,21 +160,63 @@ public class Login : MonoBehaviour
         {
             var jsonString = request.downloadHandler.text.ToString();
             // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
-            List<TestModel> testModels = JsonConvert.DeserializeObject<List<TestModel>>(jsonString);
+            testModel = JsonConvert.DeserializeObject<List<TestModel>>(jsonString);
 
+            //   Debug.Log(test01Model.itemname);
 
-            foreach (TestModel model in testModels)
+            foreach (TestModel model in testModel)
             {
                 Debug.Log($"_id: {model._id}");
-                Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                Debug.Log($"Item Name: _id: {model._id}," +
                     $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
-                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
-                Debug.Log($"Quantity: {model.quantity}");
+                    $" Image: {model}");
+                Debug.Log($"Quantity: {model}");
+
+                /*  idItem += model._id;
+                  ItemNameID += model.itemName._id;
+                  ItemName += model.itemName.itemName;
+                  ItemNameDescription += model.itemName.description;
+                  ItemNameQuantity += model.quantity;*/
+
+
             }
 
 
         }
         request.Dispose();
     }
+
+    public void LoadImgURL(string image)
+    {
+        StartCoroutine(LoadImage(image));
+    }
+
+    IEnumerator LoadImage(string uri)
+    {
+        Debug.Log(uri);
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(uri);
+
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log($"Loi Image : {www.error}");
+        }
+        else
+        {
+            // lấy texture từ respone
+            Texture2D texture2D = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+            Debug.Log(texture2D);
+
+            /*   if (LoadImageURl.image != null)
+               {
+                   LoadImageURl.image = texture2D;
+               }*/
+
+        }
+
+    }
+
 
 }
