@@ -23,6 +23,10 @@ TagManager:
   - teleporter
   - Map2vsMap3
   - SavePosition
+  - Behind
+  - TreeCut
+  - Sheaf
+  - Cut
   layers:
   - Default
   - TransparentFX

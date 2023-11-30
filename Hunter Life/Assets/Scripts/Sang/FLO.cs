@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class FLO : MonoBehaviour
 {
-    public Sprite newSprite, newSprite1, newSprite2, newSprite3, newSprite4, newSprite5, newSprite6; // Hình ảnh mới cần thay đổi
+    public Sprite newSprite, newSprite1, newSprite2, newSprite3; // Hình ảnh mới cần thay đổi
 
 
     private SpriteRenderer spriteRenderer;
@@ -32,11 +32,14 @@ public class FLO : MonoBehaviour
     // cây bông biến mất chưa
     private bool hasDisappeared = false;
 
+    // thu hoạch xong tạo ra bó lúa
+    public GameObject rice = default;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        StartCoroutine(ChangeSpriteAfterDelay(45.0f));
+        StartCoroutine(ChangeSpriteAfterDelay(2.0f));
 
         isCollect = false;
         originalColor = GetComponent<Renderer>().material.color; // Lấy màu gốc từ Renderer
@@ -68,7 +71,7 @@ public class FLO : MonoBehaviour
         {
             if (harvestSymbolInstance == null)
             {
-                Vector3 symbolPosition = transform.position + Vector3.up * 0.5f; // Điều chỉnh vị trí kí hiệu
+                Vector3 symbolPosition = transform.position + Vector3.up * 0.7f; // Điều chỉnh vị trí kí hiệu
                 harvestSymbolInstance = Instantiate(harvestSymbolPrefab, symbolPosition, Quaternion.identity);
             }
         }
@@ -110,18 +113,7 @@ public class FLO : MonoBehaviour
         yield return new WaitForSeconds(delay);
         spriteRenderer.sprite = newSprite3;
 
-        yield return new WaitForSeconds(delay);
-        spriteRenderer.sprite = newSprite4;
-
-        yield return new WaitForSeconds(delay);
-        spriteRenderer.sprite = newSprite5;
-
-        yield return new WaitForSeconds(delay);
-        spriteRenderer.sprite = newSprite6;
-
         isCollect = true;
-
-
     }
     private void OnMouseEnter()
     {
@@ -136,7 +128,6 @@ public class FLO : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = originalColor; // Khôi phục màu khi chuột rời khỏi
     }
-
 
     // di chuyển cây liềm và thu hoạch cây
     private IEnumerator MoveRiuAndHarvest()
@@ -168,14 +159,25 @@ public class FLO : MonoBehaviour
 
         Destroy(gameObject);
         Destroy(harvestSymbolInstance);
-
         // Hủy cây rìu sau khi hoàn thành
         Destroy(riuInstance);
+        RiceToSheaf();
     }
 
-   
+    private void RiceToSheaf()
+    {
+        Vector3 sheafPosition = transform.position;
+        GameObject sheaf = Instantiate(rice, sheafPosition, Quaternion.identity);
 
+        Rigidbody2D sheafRb = sheaf.GetComponent<Rigidbody2D>();
+        if (sheafRb == null)
+        {
+            sheafRb = sheaf.AddComponent<Rigidbody2D>();
+        }
 
-
-
+        // Thiết lập vận tốc ban đầu cho nhảy
+        float jumpForce = 5f; // Điều chỉnh mức độ nhảy
+        sheafRb.velocity = new Vector2(0f, jumpForce);
+        Destroy(sheafRb, 1f);
+    }
 }

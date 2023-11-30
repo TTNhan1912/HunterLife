@@ -22,14 +22,19 @@ namespace CharAndNPC
         //private Animator animator;
         private BoxCollider2D npcBox;
         private PlayerMovement playerSpeed;
-        private bool isAfterTouchChar;
+
+        public Transform player;
+        public GameObject NotNear;
+        public GameObject Near;
+        private bool isNear = false;
+        // được nhấn F hay không
+        private bool isPanelActive = false;
 
         private void Start()
         {
             npcBox = GetComponent<BoxCollider2D>();
             //animator = GetComponent<Animator>();
             checkBtnClick2Time = 0;
-            isAfterTouchChar = false;
             // Truy cập biến của PlayerInteraction.cs 
             playerSpeed = FindObjectOfType<PlayerMovement>();
             if (playerSpeed != null) { }
@@ -42,9 +47,34 @@ namespace CharAndNPC
         private void Update()
         {
             button.SetActive(false);
+
+
             if (contentLabel.text == content[index])
             {
                 button.SetActive(true);
+            }
+
+            if (!isPanelActive)
+            {
+                float distance = Vector2.Distance(transform.position, player.position);
+                if (distance > 2f)
+                {
+                    isNear = false;
+                    NotNear.SetActive(true);
+                    Near.SetActive(false);
+                }
+                else
+                {
+                    isNear = true;
+                    NotNear.SetActive(false);
+                    Near.SetActive(true);
+                }
+
+                if (isNear && Input.GetKeyDown(KeyCode.F))
+                {
+                    PanelHandler();
+                    playerSpeed.setSpeedRun(0f);
+                }
             }
         }
 
@@ -72,28 +102,14 @@ namespace CharAndNPC
             }
         }
 
-        // bắt sự kiện 2 box va chạm nhau
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            var name = collision.gameObject.tag;
-
-            //khi nhân vật chạm npc
-            if (collision.gameObject.CompareTag("player"))
-            {
-                if (!isAfterTouchChar)
-                {
-                    PanelHandler();
-                    // dừng di chuyển char
-                    playerSpeed.setSpeedRun(0f);
-                }
-            }
-        }
         // thao tác với panel 
         private void PanelHandler()
         {
             Debug.Log("đang đứng");
             Panel.SetActive(true);
+            index = 0;
             StartCoroutine(Typing());
+            isPanelActive = true;
         }
 
         public void checkClick()
@@ -115,11 +131,9 @@ namespace CharAndNPC
                 Debug.Log("đang chạy");
                 //tắt panel
                 Panel.SetActive(false);
-                isAfterTouchChar = true;
-                //npc đi xuyên qua char
-             //   npcBox.isTrigger = true;
-                // xóa npc sau 3s
-              //  Destroy(gameObject, 3);
+                contentLabel.text = "";
+                isPanelActive = false;
+                checkBtnClick2Time = 0;
             }
         }
     }
