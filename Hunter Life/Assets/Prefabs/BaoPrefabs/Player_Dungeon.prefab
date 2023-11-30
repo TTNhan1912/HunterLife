@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3314837836799504759
 Transform:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3314837836799504756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57e1559225f4fbb47a7069d11f99844b, type: 3}
+  m_Script: {fileID: 11500000, guid: af8b4131e7736544ab39304b4e428c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnAnimationEventTriggered:
@@ -198,7 +198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3314837837041158219
 Transform:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3314837837041158216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57e1559225f4fbb47a7069d11f99844b, type: 3}
+  m_Script: {fileID: 11500000, guid: af8b4131e7736544ab39304b4e428c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnAnimationEventTriggered:
@@ -341,13 +341,14 @@ GameObject:
   - component: {fileID: 3314837837483130466}
   - component: {fileID: 3314837837483130467}
   - component: {fileID: 3314837837483130464}
-  - component: {fileID: 3314837837483130471}
   - component: {fileID: 3314837837483130781}
+  - component: {fileID: 3314837837483130471}
+  - component: {fileID: 1388651978479068630}
   - component: {fileID: 3314837837483130776}
   - component: {fileID: 3314837837483130780}
   - component: {fileID: 3314837837483130782}
   - component: {fileID: 3314837837483130783}
-  - component: {fileID: 3314837837483130755}
+  - component: {fileID: 8207453916256303571}
   m_Layer: 7
   m_Name: Player_Dungeon
   m_TagString: player
@@ -472,6 +473,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3515854, y: 0.35194016}
   m_EdgeRadius: 0
+--- !u!114 &3314837837483130781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314837837483130465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a36edf1e7e48434b8095101343aaa93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rigidbody2D: {fileID: 3314837837483130467}
+  ani: {fileID: 3314837837483130471}
+  boom: {fileID: 4053925063990023261, guid: dcfea14e160e3a44ebdae2fa97793dba, type: 3}
+  viTriDatBoom: {fileID: 3314837837874021475}
 --- !u!95 &3314837837483130471
 Animator:
   serializedVersion: 5
@@ -492,7 +510,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &3314837837483130781
+--- !u!114 &1388651978479068630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -501,7 +519,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3314837837483130465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a36edf1e7e48434b8095101343aaa93, type: 3}
+  m_Script: {fileID: 11500000, guid: ca3f9f6edf387034bad58d705629de0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -572,10 +590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0467a6a650b742140917b2e30890eb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heal: {fileID: 0}
+  viTriheal: {fileID: 0}
   CharLife: 8
   CharLifeMax: 10
   flashEffect: {fileID: 3314837837483130782}
---- !u!114 &3314837837483130755
+--- !u!114 &8207453916256303571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -584,7 +604,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3314837837483130465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e55508f22d30ad24e8ff24eba867c026, type: 3}
+  m_Script: {fileID: 11500000, guid: 0491aa4655ca39548816195b0afdbc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTime: 0.5
@@ -595,6 +615,10 @@ MonoBehaviour:
   itemman4: {fileID: 0}
   itemman5: {fileID: 0}
   itemman3A: {fileID: 0}
+  itemman6: {fileID: 0}
+  itemman5A: {fileID: 0}
+  itemman7: {fileID: 0}
+  itemman8: {fileID: 0}
   Loader: {fileID: 0}
 --- !u!1 &3314837837799099532
 GameObject:
@@ -766,9 +790,9 @@ MonoBehaviour:
   characterRenderer: {fileID: 3314837837483130466}
   delay: 0.3
   radius: 0.67
-  weaponRenderer1: {fileID: 3314837836799504744}
-  animator1: {fileID: 3314837836799504745}
-  circleOrigin1: {fileID: 3314837836984160675}
+  weaponRenderer1: {fileID: 3314837837041158218}
+  animator1: {fileID: 3314837837041158221}
+  circleOrigin1: {fileID: 3314837838153881555}
   weaponRenderer2: {fileID: 3314837836799504744}
   animator2: {fileID: 3314837836799504745}
   circleOrigin2: {fileID: 3314837836984160675}

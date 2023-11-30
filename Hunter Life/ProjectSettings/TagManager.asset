@@ -27,11 +27,19 @@ TagManager:
   - TreeCut
   - Sheaf
   - Cut
+  - Slimebite
+  - trap
+  - enemy8
+  - enemy6
+  - enemy7
+  - Boss
+  - BossAttack
+  - BossBullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Startman7
   - Water
   - UI
   - GamePlay
@@ -45,21 +53,21 @@ TagManager:
   - Map2-1
   - Map2-3
   - Map3-2
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - endman1
+  - startman2
+  - Endman2
+  - Startman3
+  - Endman3
+  - Sideman3
+  - Sideman4.1
+  - Sideman4.2
+  - Sideman5.1
+  - Endman5
+  - Sideman5A
+  - Sideman5.2
+  - Endman6
+  - Startman6
+  - Endman7
   m_SortingLayers:
   - name: Default
     uniqueID: 0

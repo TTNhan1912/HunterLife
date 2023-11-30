@@ -212,7 +212,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
         //play animation
         //  aniTransition.SetTrigger("start");
         //teleport
-        transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+        transform.position = currentTeleporter.GetComponent<TeleporterDungeon>().GetDestination().position;
         //wait
         yield return new WaitForSeconds(transitionTime);
         Loader.SetActive(false);
