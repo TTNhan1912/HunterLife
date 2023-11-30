@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Inventory.Model
 {
@@ -26,6 +26,9 @@ namespace Inventory.Model
         [field: SerializeField]
 
         public Sprite IteamImage { get; set; }
+
+        // Hàm tạo mới nhận đường dẫn hình ảnh
+        public string itemName;
 
 
     }
