@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Tree : MonoBehaviour
@@ -10,16 +11,20 @@ public class Tree : MonoBehaviour
   public AudioSource CutTreeSound;
 
   public GameObject wood = default;
-  public GameObject roots = default;
-  private int lifeTree_Snow = 5;
-
   [SerializeField] private Transform viTriwoood;
+  public GameObject roots = default;
+  public GameObject PopUpDame;
+  //  public TMP_Text popuptext;
+  private int lifeTree_Snow = 5;
+  [SerializeField] private SimpleFlash flashEffect;
+
+  
   [SerializeField] private Transform viTriroots;
   // Start is called before the first frame update
   void Start()
   {
     anim = GetComponent<Animator>();
-
+ StartCoroutine(RotateMe(Vector3.back * 90, 0.9f));
   }
 
   // Update is called once per frame
@@ -28,9 +33,16 @@ public class Tree : MonoBehaviour
     string nameTree = collision.attachedRigidbody.gameObject.name;
     if (collision.gameObject.CompareTag("axe"))
     {
+      Vector3 originPosotion = transform.position;
+
       lifeTree_Snow = lifeTree_Snow - 1;
 
       CutTreeSound.Play();
+      flashEffect.Flash();
+      // popuptext.text =damage.ToString;
+      Instantiate(PopUpDame, originPosotion, Quaternion.identity
+      );
+
       StartCoroutine(ShakeOnce(0.2f, 0.012f));
       if (lifeTree_Snow == 0)
       {
