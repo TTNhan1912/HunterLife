@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-
-  private Animator anim;
-
-  public AudioSource CutTreeSound;
-
   public GameObject wood = default;
   public GameObject roots = default;
   private int lifeTree_Snow = 5;
 
-  [SerializeField] private Transform viTriwoood;
+  [SerializeField] private Transform viTriwood;
   [SerializeField] private Transform viTriroots;
-  // Start is called before the first frame update
-  void Start()
-  {
-    anim = GetComponent<Animator>();
-
-  }
+  
 
   // Update is called once per frame
   private void OnTriggerEnter2D(Collider2D collision)
@@ -30,36 +20,32 @@ public class Tree : MonoBehaviour
     {
       lifeTree_Snow = lifeTree_Snow - 1;
 
-      CutTreeSound.Play();
+     
       StartCoroutine(ShakeOnce(0.2f, 0.012f));
       if (lifeTree_Snow == 0)
       {
-        TreeToRoots();
+     
         StartCoroutine(RotateMe(Vector3.back * 90, 0.9f));
         Destroy(gameObject, 1.2f);
-        // TreeToWood();
-        lifeTree_Snow = 5;
+         TreeToWood();
+                 TreeToRoots();
+                lifeTree_Snow = 5;
 
       }
 
     }
 
-
-
   }
   private void TreeToWood()
   {
-    /*ani.Play("Char_Attack_LR");*/
-
-    GameObject woodfall = Instantiate(wood, viTriwoood.position, viTriwoood.rotation);
-
-
+    GameObject woodfall = Instantiate(wood, viTriwood.position, viTriwood.rotation);
   }
+
   private void TreeToRoots()
   {
-
     GameObject rootsfall = Instantiate(roots, viTriroots.position, viTriroots.rotation);
   }
+
   public IEnumerator ShakeOnce(float time, float magnitude)
   {
     Vector3 originPosotion = transform.position;
@@ -81,6 +67,7 @@ public class Tree : MonoBehaviour
 
 
   }
+
   public IEnumerator RotateMe(Vector3 byAngles, float inTime)
   {
     var fromAngle = transform.rotation;
@@ -92,7 +79,7 @@ public class Tree : MonoBehaviour
       transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
       yield return null;
     }
-    TreeToWood();
+    //TreeToWood();
 
 
 

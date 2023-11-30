@@ -32,6 +32,9 @@ public class FLO : MonoBehaviour
     // cây bông biến mất chưa
     private bool hasDisappeared = false;
 
+    // thu hoạch xong tạo ra bó lúa
+    public GameObject rice = default;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -110,10 +113,7 @@ public class FLO : MonoBehaviour
         yield return new WaitForSeconds(delay);
         spriteRenderer.sprite = newSprite3;
 
-
         isCollect = true;
-
-
     }
     private void OnMouseEnter()
     {
@@ -128,7 +128,6 @@ public class FLO : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = originalColor; // Khôi phục màu khi chuột rời khỏi
     }
-
 
     // di chuyển cây liềm và thu hoạch cây
     private IEnumerator MoveRiuAndHarvest()
@@ -160,14 +159,25 @@ public class FLO : MonoBehaviour
 
         Destroy(gameObject);
         Destroy(harvestSymbolInstance);
-
         // Hủy cây rìu sau khi hoàn thành
         Destroy(riuInstance);
+        RiceToSheaf();
     }
 
-   
+    private void RiceToSheaf()
+    {
+        Vector3 sheafPosition = transform.position;
+        GameObject sheaf = Instantiate(rice, sheafPosition, Quaternion.identity);
 
+        Rigidbody2D sheafRb = sheaf.GetComponent<Rigidbody2D>();
+        if (sheafRb == null)
+        {
+            sheafRb = sheaf.AddComponent<Rigidbody2D>();
+        }
 
-
-
+        // Thiết lập vận tốc ban đầu cho nhảy
+        float jumpForce = 5f; // Điều chỉnh mức độ nhảy
+        sheafRb.velocity = new Vector2(0f, jumpForce);
+        Destroy(sheafRb, 1f);
+    }
 }

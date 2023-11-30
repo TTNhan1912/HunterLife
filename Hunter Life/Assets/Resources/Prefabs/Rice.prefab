@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: -775079316, guid: 9b778a297bc67f545854cb254ad745a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   harvestSymbolPrefab: {fileID: 4195672170272160808, guid: 1bae36a5b1b8a0e4bbd828683496a9f4, type: 3}
   riuPrefab: {fileID: 9079459727316333131, guid: ef81afbd650c68243a31845f099a1b55, type: 3}
+  rice: {fileID: 7068528123535438927, guid: 13a709dc6972d44428a210a97eeffa89, type: 3}
 --- !u!61 &8039321321470282231
 BoxCollider2D:
   m_ObjectHideFlags: 0
