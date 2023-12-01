@@ -26,8 +26,7 @@ namespace Assets.Scripts.Player
             if (isActive)
             {
                 ani.SetBool("IsBoomNo", true);
-                Destroy(gameObject, 0.15f);
-                Debug.Log("Chạm enemy");
+                Destroy(gameObject, 0.15f);              
             }
 
             ani.SetBool("IsBoomNo", true);

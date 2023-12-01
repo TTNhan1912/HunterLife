@@ -22,11 +22,6 @@ public class BossAttackBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hit.isDie)
-        {
-            Debug.Log("Vị trí cheet nha");
-            //StopCoroutine(ShootBulletAfterDelay());
-        }
     }
 
     IEnumerator ShootBulletAfterDelay()
@@ -53,7 +48,6 @@ public class BossAttackBullet : MonoBehaviour
             Vector3 bulletScale = bullet.transform.localScale;
             bulletScale.x = -4;
             bullet.transform.localScale = bulletScale;
-            Debug.Log("Bắn đạn: qua trái");
         }
         else if(characterSR.transform.localScale.x == -4f)
         {
@@ -62,7 +56,6 @@ public class BossAttackBullet : MonoBehaviour
             Vector3 bulletScale = bullet.transform.localScale;
             bulletScale.x = 4;
             bullet.transform.localScale = bulletScale;
-            Debug.Log("Bắn đạn: qua phải");
         }
         Destroy(bullet, 4f);
     }

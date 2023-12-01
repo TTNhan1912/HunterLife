@@ -49,15 +49,11 @@ public class BossMove1 : MonoBehaviour
         {
             roaming = false;
             updateContinuesPath = true;
-            Debug.Log("Vị trí ban đầu: " + initPos);
-            // dí theo nhân vật và tấn công :>>
-            // tăng tốc chạy
             moveSpeed = 3.3f;
             if (distanceToTarget < 1f)
             {
                 // Xử lý sự kiện khi quái vật gần chạm nhân vật
                 animator.SetTrigger("isAttack");
-                Debug.Log("Chém");
             }
         }
         else

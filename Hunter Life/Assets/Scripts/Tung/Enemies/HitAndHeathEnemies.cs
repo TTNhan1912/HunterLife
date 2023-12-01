@@ -58,9 +58,6 @@ public class HitAndHeathEnemies : MonoBehaviour
         if (collision.gameObject.CompareTag("boom"))
         {
            BeingAttacked(0.25f);
-
-            Debug.Log("isKill: " + isKill);
-
         }
         if (collision.gameObject.CompareTag("axe"))
         {

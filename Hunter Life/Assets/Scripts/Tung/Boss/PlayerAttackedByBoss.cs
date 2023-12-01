@@ -21,12 +21,10 @@ public class PlayerAttackedByBoss : MonoBehaviour
     {
         if (other.gameObject.CompareTag("BossAttack"))
         {
-            Debug.Log("Player bị boss chém");
         }
 
         else if (other.gameObject.CompareTag("BossBullet"))
         {
-            Debug.Log("Player bị boss bắn trúng");
             Destroy(other.gameObject);
         }
     }

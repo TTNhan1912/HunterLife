@@ -45,7 +45,6 @@ public class AIEnemies3 : MonoBehaviour
         {
             roaming = false;
             updateContinuesPath = true;
-            Debug.Log("Vị trí ban đầu: " + initPos);
             // dí theo nhân vật với animator hung dữ :>>
             animator.SetBool("isHurt", true);
         }

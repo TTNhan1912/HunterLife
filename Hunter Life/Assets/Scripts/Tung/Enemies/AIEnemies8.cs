@@ -45,7 +45,6 @@ public class AIEnemies8 : MonoBehaviour
         {
             roaming = false;
             updateContinuesPath = true;
-            Debug.Log("Vị trí ban đầu: " + initPos);
         }
         else
         {
