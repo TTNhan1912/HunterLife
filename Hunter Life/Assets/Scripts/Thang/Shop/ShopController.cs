@@ -26,9 +26,29 @@ namespace Inventory
 
         }
 
+        private void PrepareInventoryData()
+        {
+            inventoryData.Initialize();
+            inventoryData.OnInventoryUpdated += UpdateShopUI;
+            foreach (InventoryItem item in initalItems)
+            {
+                if (item.IsEmty)
+                    continue;
+                inventoryData.AddItem(item);
+            }
+        }
+
         private void PrepareUI()
         {
             shopUI.InitInventory(inventoryData.Size);
+        }
+
+        private void UpdateShopUI(Dictionary<int, InventoryItem> inventoryState)
+        {
+            foreach (var item in inventoryState)
+            {
+                shopUI.UpdateData(item.Key, item.Value.itemSO.IteamImage, item.Value.quantity);
+            }
         }
     }
 }
