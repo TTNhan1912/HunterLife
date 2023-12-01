@@ -7,10 +7,13 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
 {
     private GameObject currentTeleporter;
     private GameObject transition;
+   
+
+
 
 
     // public Animator aniTransition;
-    public float transitionTime = 1f;
+    public float transitionTime = 0.5f;
 
     public GameObject cam;
 
@@ -21,7 +24,19 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
     public RawImage miniMap;
     public Texture texture1, texture2, texture3, texture3a, texture4, texture5, texture5a, texture6, texture7, textureboss;
 
-    [SerializeField] private GameObject Loader;
+     [SerializeField] private GameObject Loader;
+     //
+     //
+     //
+    //  [Header("player")]
+    // public GameObject PlayerDungeon;
+    // public GameObject PlayerFarm;
+    // [Header("Canvan")]
+    // public GameObject CanvanDungeon;
+    // public GameObject Canvan;
+    //  [Header("Camera")]
+    // public GameObject CameraDungeon;
+    // public GameObject Camera;
 
 
     // Start is called before the first frame update
@@ -129,7 +144,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
             }
             else if (otherLayer == LayerMask.NameToLayer("Sideman3"))
             {
-                if(Map == map3A)
+                if (Map == map3A)
                 {
                     Map = map3;
                     itemman3A.SetActive(false);
@@ -145,7 +160,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                     itemman3.SetActive(false);
                     //thay mini map
                     miniMap.texture = texture4;
-                }                
+                }
             }
             else if (otherLayer == LayerMask.NameToLayer("Sideman4.1"))
             {
@@ -172,7 +187,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture4;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Sideman5.2"))
+            else if (otherLayer == LayerMask.NameToLayer("Sideman5.2"))
             {
                 Map = map5A;
                 itemman5.SetActive(false);
@@ -180,7 +195,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture5a;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Sideman5A"))
+            else if (otherLayer == LayerMask.NameToLayer("Sideman5A"))
             {
                 Map = map5;
                 itemman5.SetActive(true);
@@ -188,7 +203,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture5;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Endman5"))
+            else if (otherLayer == LayerMask.NameToLayer("Endman5"))
             {
                 Map = map6;
                 itemman5.SetActive(false);
@@ -196,7 +211,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture6;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Startman6"))
+            else if (otherLayer == LayerMask.NameToLayer("Startman6"))
             {
                 Map = map5;
                 itemman5.SetActive(true);
@@ -204,7 +219,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture5;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Endman6"))
+            else if (otherLayer == LayerMask.NameToLayer("Endman6"))
             {
                 Map = map7;
                 itemman7.SetActive(true);
@@ -212,7 +227,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture7;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Startman7"))
+            else if (otherLayer == LayerMask.NameToLayer("Startman7"))
             {
                 Map = map6;
                 itemman6.SetActive(true);
@@ -220,7 +235,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture6;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Endman7"))
+            else if (otherLayer == LayerMask.NameToLayer("Endman7"))
             {
                 Map = map8;
                 itemman8.SetActive(true);
@@ -228,7 +243,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = textureboss;
             }
-             else if (otherLayer == LayerMask.NameToLayer("Startman8"))
+            else if (otherLayer == LayerMask.NameToLayer("Startman8"))
             {
                 Map = map7;
                 itemman7.SetActive(true);
@@ -236,6 +251,22 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 //thay mini map
                 miniMap.texture = texture7;
             }
+            //  else if (otherLayer == LayerMask.NameToLayer("OutDungeon"))
+            // {
+            //     Map = map1;
+            //    // itemman1.SetActive(false);
+            //     CanvanDungeon.SetActive(false);
+            //     CameraDungeon.SetActive(false);
+            //     PlayerDungeon.SetActive(false);
+            //     Canvan.SetActive(true);
+            //     Camera.SetActive(true);
+            //     PlayerFarm.SetActive(true);
+               
+            //     //thay mini map
+                
+            // }
+             
+            
 
         }
     }
