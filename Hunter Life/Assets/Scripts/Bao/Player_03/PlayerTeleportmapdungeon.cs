@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTeleportmapdungeon : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
 
     private Vector3 Map, map1, map2, map3, map4, map5, map5A, map6, map7, map8, map9, map10, map3A;// =  new Vector3(x, y, -9);
     public GameObject itemman1, itemman2, itemman3, itemman4, itemman5, itemman3A, itemman6, itemman5A, itemman7, itemman8;
+
+    // UI ánh xạ mini map theo từng màn
+    public RawImage miniMap;
+    public Texture texture1, texture2, texture3, texture3a, texture4, texture5, texture5a, texture6, texture7, textureboss;
 
     [SerializeField] private GameObject Loader;
 
@@ -74,6 +79,8 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 Map = map2;
                 itemman2.SetActive(true);
                 itemman1.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture2;
 
             }
             else if (otherLayer == LayerMask.NameToLayer("startman2"))
@@ -81,12 +88,16 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 Map = map1;
                 itemman2.SetActive(false);
                 itemman1.SetActive(true);
+                //thay mini map
+                miniMap.texture = texture1;
             }
             else if (otherLayer == LayerMask.NameToLayer("Endman2"))
             {
                 Map = map3;
                 itemman3.SetActive(true);
                 itemman2.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture3;
 
             }
             else if (otherLayer == LayerMask.NameToLayer("Startman3"))
@@ -94,6 +105,8 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 Map = map2;
                 itemman3.SetActive(false);
                 itemman2.SetActive(true);
+                //thay mini map
+                miniMap.texture = texture2;
 
             }
             else if (otherLayer == LayerMask.NameToLayer("Endman3"))
@@ -101,19 +114,38 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 Map = map3A;
                 itemman3A.SetActive(true);
                 itemman3.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture3a;
             }
             else if (otherLayer == LayerMask.NameToLayer("Startman3A"))
             {
+                // không có layer này nên không dùng được
                 Map = map3;
                 itemman3A.SetActive(false);
                 itemman3.SetActive(true);
+                //thay mini map
+                Debug.Log("Quay về map 3");
+                miniMap.texture = texture3;
             }
             else if (otherLayer == LayerMask.NameToLayer("Sideman3"))
             {
-                Map = map4;
-                itemman4.SetActive(true);
-                itemman3.SetActive(false);
-
+                if(Map == map3A)
+                {
+                    Map = map3;
+                    itemman3A.SetActive(false);
+                    itemman3.SetActive(true);
+                    //thay mini map
+                    Debug.Log("Quay về map 3");
+                    miniMap.texture = texture3;
+                }
+                else
+                {
+                    Map = map4;
+                    itemman4.SetActive(true);
+                    itemman3.SetActive(false);
+                    //thay mini map
+                    miniMap.texture = texture4;
+                }                
             }
             else if (otherLayer == LayerMask.NameToLayer("Sideman4.1"))
             {
@@ -121,67 +153,88 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 Map = map3;
                 itemman4.SetActive(false);
                 itemman3.SetActive(true);
-
+                //thay mini map
+                miniMap.texture = texture3;
             }
             else if (otherLayer == LayerMask.NameToLayer("Sideman4.2"))
             {
                 Map = map5;
                 itemman5.SetActive(true);
                 itemman4.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture5;
             }
             else if (otherLayer == LayerMask.NameToLayer("Sideman5.1"))
             {
                 Map = map4;
                 itemman5.SetActive(false);
                 itemman4.SetActive(true);
+                //thay mini map
+                miniMap.texture = texture4;
             }
              else if (otherLayer == LayerMask.NameToLayer("Sideman5.2"))
             {
                 Map = map5A;
                 itemman5.SetActive(false);
                 itemman5A.SetActive(true);
+                //thay mini map
+                miniMap.texture = texture5a;
             }
              else if (otherLayer == LayerMask.NameToLayer("Sideman5A"))
             {
                 Map = map5;
                 itemman5.SetActive(true);
                 itemman5A.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture5;
             }
              else if (otherLayer == LayerMask.NameToLayer("Endman5"))
             {
                 Map = map6;
                 itemman5.SetActive(false);
                 itemman6.SetActive(true);
+                //thay mini map
+                miniMap.texture = texture6;
             }
              else if (otherLayer == LayerMask.NameToLayer("Startman6"))
             {
                 Map = map5;
                 itemman5.SetActive(true);
                 itemman6.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture5;
             }
              else if (otherLayer == LayerMask.NameToLayer("Endman6"))
             {
                 Map = map7;
                 itemman7.SetActive(true);
                 itemman6.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture7;
             }
              else if (otherLayer == LayerMask.NameToLayer("Startman7"))
             {
                 Map = map6;
                 itemman6.SetActive(true);
                 itemman7.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture6;
             }
              else if (otherLayer == LayerMask.NameToLayer("Endman7"))
             {
                 Map = map8;
                 itemman8.SetActive(true);
                 itemman7.SetActive(false);
+                //thay mini map
+                miniMap.texture = textureboss;
             }
              else if (otherLayer == LayerMask.NameToLayer("Startman8"))
             {
                 Map = map7;
                 itemman7.SetActive(true);
                 itemman8.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture7;
             }
 
         }

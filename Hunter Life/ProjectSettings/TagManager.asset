@@ -81,3 +81,6 @@ TagManager:
   - name: GamePlay
     uniqueID: 304961483
     locked: 0
+  - name: MiniMapEnemy1
+    uniqueID: 434730661
+    locked: 0
