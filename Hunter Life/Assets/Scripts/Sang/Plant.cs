@@ -57,9 +57,6 @@ public class Plant : MonoBehaviour
 
         initialFacingDirection = (int)Mathf.Sign(transform.localScale.x);
 
-
-        // ngày đêm
-        //StartCoroutine(StartDayNightCycle());
     }
 
     private void Update()
@@ -137,7 +134,7 @@ public class Plant : MonoBehaviour
                 {
                     UpdateFacingDirection(cellPosition);
                     animation.Play("Player_DigGround");
-                    AudioManager.instance.PlaySfx("Dig");
+                    //AudioManager.instance.PlaySfx("Dig");
                 }
                 clickedTiles[index] = true;
                 yield return new WaitForSeconds(0.7f);
@@ -234,7 +231,7 @@ public class Plant : MonoBehaviour
                         // Trồng cây tại ô đã đào
                         Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
                         animation.Play("Player_Plant");
-                        AudioManager.instance.PlaySfx("Plant");
+                        //AudioManager.instance.PlaySfx("Plant");
                         StartCoroutine(Wait());
                     }
                 }
@@ -274,7 +271,7 @@ public class Plant : MonoBehaviour
     private void PlayDestructionAnimation()
     {
         animation.Play("Player_Harvest");
-        AudioManager.instance.PlaySfx("Harvest");
+        //AudioManager.instance.PlaySfx("Harvest");
     }
 
     // khoảng cách đào đất
