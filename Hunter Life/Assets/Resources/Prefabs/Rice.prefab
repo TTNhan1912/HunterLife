@@ -105,7 +105,7 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   harvestSymbolPrefab: {fileID: 4195672170272160808, guid: 1bae36a5b1b8a0e4bbd828683496a9f4, type: 3}
   riuPrefab: {fileID: 9079459727316333131, guid: ef81afbd650c68243a31845f099a1b55, type: 3}
-  rice: {fileID: 7068528123535438927, guid: 13a709dc6972d44428a210a97eeffa89, type: 3}
+  rice: {fileID: 4120560042608893, guid: 2075d31faa433924f8f2638901cab494, type: 3}
 --- !u!61 &8039321321470282231
 BoxCollider2D:
   m_ObjectHideFlags: 0
