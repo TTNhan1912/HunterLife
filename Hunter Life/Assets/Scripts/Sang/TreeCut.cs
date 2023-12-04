@@ -42,7 +42,6 @@ public class TreeCut : MonoBehaviour
     private void TreeToWood()
     {
         GameObject woodfall = Instantiate(wood, viTriwood.position, viTriwood.rotation);
-        Destroy(woodfall, 2f);
     }
 
     public IEnumerator ShakeOnce(float time, float magnitude)
