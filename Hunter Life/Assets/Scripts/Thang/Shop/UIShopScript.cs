@@ -38,5 +38,16 @@ namespace Inventory.UI
                 ListOfUIItem[itemIndex].SetData(itemImage, itemQuantity);
             }
         }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
