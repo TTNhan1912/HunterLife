@@ -3452,6 +3452,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4682893653863652702, guid: d1ac811790e74a440acfdd5d1fa68aa8, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 5648931855496382830, guid: d1ac811790e74a440acfdd5d1fa68aa8, type: 3}
       propertyPath: destination
       value: 
@@ -4800,6 +4804,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2220046371717227724, guid: dca8bd00c6adb484192a5d2d39623962, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 3798467773304032851, guid: dca8bd00c6adb484192a5d2d39623962, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -18928,6 +18936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoadFarmToVillage
       objectReference: {fileID: 0}
+    - target: {fileID: 1153068334446965294, guid: 1fc442e6d4f1b5b41b598a49c1c076e2, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 1409847084318858082, guid: 1fc442e6d4f1b5b41b598a49c1c076e2, type: 3}
       propertyPath: m_SortingOrder
       value: 4
@@ -18940,9 +18952,17 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 2030739154}
+    - target: {fileID: 3990576603310433741, guid: 1fc442e6d4f1b5b41b598a49c1c076e2, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 4862532701360793743, guid: 1fc442e6d4f1b5b41b598a49c1c076e2, type: 3}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054825550097628912, guid: 1fc442e6d4f1b5b41b598a49c1c076e2, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1396448983425888091, guid: 1fc442e6d4f1b5b41b598a49c1c076e2, type: 3}
@@ -20291,19 +20311,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -55
       objectReference: {fileID: 0}
     - target: {fileID: 7331181466187251652, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_Pivot.x
@@ -20459,6 +20479,14 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 1302861073}
+    - target: {fileID: 6264685215795507733, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865969483106429037, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
+      propertyPath: m_TagString
+      value: teleporter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
 --- !u!4 &1973620484 stripped
