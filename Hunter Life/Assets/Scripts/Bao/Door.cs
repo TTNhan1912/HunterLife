@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
 
     private Animator Anidoor1, Anidoor2;
+    public GameObject TreasureChest;
 
     [Header("Monter")]
     public GameObject[] quai = new GameObject[3];
@@ -38,6 +39,7 @@ public class Door : MonoBehaviour
         {
             opendoors();
             a = -1;
+
         }
     }
 
@@ -46,12 +48,19 @@ public class Door : MonoBehaviour
 
         //    Anidoor1.PlayOneShot("door1");
         //     Anidoor2.PlayOneShot("door2");
-       
+
         Anidoor1.SetTrigger("dong1");
         Anidoor2.SetTrigger("dong");
 
 
         Destroy(door, 0.5f);
+
+        TreasureChest.SetActive(true);
+
+
+
+
+
 
 
     }

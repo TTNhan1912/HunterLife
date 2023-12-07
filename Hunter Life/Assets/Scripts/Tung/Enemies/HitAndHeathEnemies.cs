@@ -23,6 +23,12 @@ public class HitAndHeathEnemies : MonoBehaviour
     [SerializeField] private Transform viTriPopUpDame;
     public GameObject PopUpDame;
     public Health health;
+    public int numKey;
+    public GameObject Key;
+    public int numLifePot;
+    public GameObject LifePot;
+    [SerializeField] private Transform viTri;
+
     // public TMP_Text popuptext;
 
     // Start is called before the first frame update
@@ -44,10 +50,18 @@ public class HitAndHeathEnemies : MonoBehaviour
     {
         if (isKill)
         {
+            
+
+
+            // GameObject Key2 = Instantiate(Key, viTri.position, viTri.rotation);
+        
+        
+// GameObject LifePot2 = Instantiate(LifePot, viTri.position, viTri.rotation);
+       
             DestroyEnemiesWithTag(gameObject.tag);
         }
-      //  BeingAttacked(0.2f);
-    
+        //  BeingAttacked(0.2f);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,11 +71,11 @@ public class HitAndHeathEnemies : MonoBehaviour
         //khi bị tấn công
         if (collision.gameObject.CompareTag("boom"))
         {
-           BeingAttacked(0.25f);
+            BeingAttacked(0.25f);
         }
         if (collision.gameObject.CompareTag("axe"))
         {
-          //  BeingAttacked(0.2f);
+            //  BeingAttacked(0.2f);
         }
     }
 
@@ -74,12 +88,12 @@ public class HitAndHeathEnemies : MonoBehaviour
 
 
         flashEffect.Flash();
-       //  popuptext.text=(oneTouch*100).ToString();
+        //  popuptext.text=(oneTouch*100).ToString();
         GameObject prefab = Instantiate(PopUpDame, viTriPopUpDame.position, Quaternion.identity);
         prefab.GetComponentInChildren<TextMesh>().text = text;
         blood.fillAmount = blood.fillAmount - oneTouch;
         blood.fillAmount = blood.fillAmount;
-        if (blood.fillAmount < 0.1f)
+        if (blood.fillAmount < 0.1f)44
         {
             isKill = true;
         }
@@ -91,6 +105,7 @@ public class HitAndHeathEnemies : MonoBehaviour
         // mất thanh máu
         ActiveBlood.SetActive(false);
         animator.SetTrigger("isDie");
+      
         switch (tag)
         {
             case "enemy1":

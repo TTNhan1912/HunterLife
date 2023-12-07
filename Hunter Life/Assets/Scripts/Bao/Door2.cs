@@ -6,6 +6,7 @@ public class Door2 : MonoBehaviour
 {
 
     private Animator Anidoor1;
+     public GameObject TreasureChest;
 
     [Header("Monter")]
     public GameObject[] quai = new GameObject[3];
@@ -49,6 +50,7 @@ public class Door2 : MonoBehaviour
         Anidoor1.SetTrigger("mo");
       
         Destroy(door, 0.5f);
+          TreasureChest.SetActive(true);
 
 
     }

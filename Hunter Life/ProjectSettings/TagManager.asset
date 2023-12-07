@@ -37,6 +37,8 @@ TagManager:
   - BossBullet
   - enterDungeon
   - outDungeon
+  - LifePot
+  - Key
   layers:
   - Default
   - TransparentFX
