@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 883db3b07e4463a40be31b62205d0637, type: 3}
-  m_Name: "M\u1EA3nh g\u1ED7"
+  m_Name: "B\xF3 l\xFAa"
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <id>k__BackingField: 656f1e204ea6601bc26d5d33
-  <Name>k__BackingField: "M\u1EA3nh g\u1ED7"
-  <quantity>k__BackingField: 17
-  <Description>k__BackingField: "D\xF9ng \u0111\u1EC3 x\xE2y nh\xE0 v\xE0 b\xE1n"
+  <id>k__BackingField: 6571532ea3a65dd019bd9b8a
+  <Name>k__BackingField: "B\xF3 l\xFAa"
+  <quantity>k__BackingField: 0
+  <Description>k__BackingField: "D\xF9ng \u0111\u1EC3 \u0111\u1ED1t nh\xE0"
   <IteamImage>k__BackingField: {fileID: 0}
-  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1701788309095-762777600Item2.png?alt=media&token=1ef0c0a6-f865-4f42-94e5-9967d2786f06
-  <price>k__BackingField: 40
+  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1701925678120-75819207itemm.png?alt=media&token=5e2c837b-23b3-48eb-a1fc-c6f58b628c16
+  <price>k__BackingField: 10

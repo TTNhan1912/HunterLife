@@ -12,6 +12,7 @@ public class ItemAPILogin : MonoBehaviour
     public static List<GetAllItemResponseModel> getAllItemResponse;
     public static ItemAPILogin itemAPI;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,18 @@ public class ItemAPILogin : MonoBehaviour
         {
             GetAllItem();
             // Debug.Log("id item name la :" + ItemName);
+        }
+    }
+
+    private void Awake()
+    {
+        if (itemAPI == null)
+        {
+            itemAPI = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 

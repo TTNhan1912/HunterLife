@@ -16,10 +16,7 @@ public class Login : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
     public static LoginResponseMoel loginResponse;
-    public static List<TestModel> testModel;
-    public static Test01model test01Model1;
     public static Login loginIntance;
-    public static List<GetAllItemResponseModel> getAllItemResponse;
 
     public string idItem;
     public string ItemName;

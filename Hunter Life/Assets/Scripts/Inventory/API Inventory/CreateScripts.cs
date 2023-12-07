@@ -38,7 +38,7 @@ public class CreateScripts : MonoBehaviour
             inventoryController.initalItems.Clear();
 
 
-            foreach (TestModel model in Login.testModel)
+            foreach (TestModel model in ItemAPILogin.testModel)
             {
 
                 // Tạo một ScriptableObject mới
@@ -103,7 +103,7 @@ public class CreateScripts : MonoBehaviour
 
     IEnumerator GetAllItemAPI()
     {
-        foreach (GetAllItemResponseModel model in Login.getAllItemResponse)
+        foreach (GetAllItemResponseModel model in ItemAPILogin.getAllItemResponse)
         {
 
             // Tạo một ScriptableObject mới
