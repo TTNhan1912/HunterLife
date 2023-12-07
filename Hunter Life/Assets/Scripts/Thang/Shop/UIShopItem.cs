@@ -14,8 +14,7 @@ public class UIShopItem : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TMP_Text priceTxt;
     [SerializeField] private Image boder;
 
-    public event Action<UIShopItem> OnItemclick, OnItemDroppedOn,
-        OnItemBeginDrag, OnItemEndDrag, OnRightMouseButtonClick;
+    public event Action<UIShopItem> OnItemclick, OnRightMouseButtonClick;
 
     private bool emty = true;
 

@@ -3,6 +3,8 @@ using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 namespace Inventory
 {
     public class ShopController : MonoBehaviour
@@ -83,6 +85,32 @@ namespace Inventory
             {
                 shopUI.UpdateData(item.Key, item.Value.itemSO.IteamImage, item.Value.quantity);
             }
+        }
+
+        private void HandleItemActionRequets(int itemindex)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void HandleDesciptionRequets(int itemindex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemindex);
+            if (inventoryItem.IsEmty)
+            {
+                shopUI.ResetSelection();
+                return;
+
+            }
+
+            ItemSO item = inventoryItem.itemSO;
+            //  TestModel model;
+
+            shopUI.UpdateDesciption(itemindex, item.IteamImage, item.name, item.Description);
+
+
+
+
+
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
