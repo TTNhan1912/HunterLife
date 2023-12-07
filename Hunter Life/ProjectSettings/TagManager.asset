@@ -37,6 +37,7 @@ TagManager:
   - BossBullet
   - enterDungeon
   - outDungeon
+  - VillageChief
   layers:
   - Default
   - TransparentFX
