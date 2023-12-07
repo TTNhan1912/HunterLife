@@ -63,6 +63,14 @@ namespace Inventory
                 inventoryData.AddItem(item);
             }
         }
+        private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
+        {
+            shopUI.ResetAllItem();
+            foreach (var item in inventoryState)
+            {
+                shopUI.UpdateData(item.Key, item.Value.itemSO.IteamImage, item.Value.quantity);
+            }
+        }
 
         private void PrepareUI()
         {

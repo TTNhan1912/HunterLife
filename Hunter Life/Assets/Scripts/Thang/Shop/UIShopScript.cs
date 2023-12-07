@@ -8,6 +8,10 @@ namespace Inventory.UI
     {
         [SerializeField] UIShopItem itemPrefabs;
         [SerializeField] RectTransform contenPanel;
+        [SerializeField]
+        private UIShopDescription itemDescription;
+        [SerializeField]
+        private MouseFollower mouseFollower;
         List<UIShopItem> ListOfUIItem = new List<UIShopItem>();
         // Start is called before the first frame update
         void Start()
@@ -20,6 +24,12 @@ namespace Inventory.UI
         {
 
         }
+        private void Awake()
+        {
+            Hide();
+            mouseFollower.Toggle(false);
+            itemDescription.ResetDiscription();
+        }
 
         public void InitInventory(int inventorysize)
         {
@@ -31,11 +41,32 @@ namespace Inventory.UI
             }
         }
 
+        internal void UpdateDesciption(int itemindex, Sprite iteamImage, string name, string description)
+        {
+            itemDescription.SetDescription(iteamImage, name, description);
+            DeselectAllItems();
+            ListOfUIItem[itemindex].Select();
+        }
+
         public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
         {
             if (ListOfUIItem.Count > itemIndex)
             {
                 ListOfUIItem[itemIndex].SetData(itemImage, itemQuantity);
+            }
+        }
+
+        public void ResetSelection()
+        {
+            itemDescription.ResetDiscription();
+            DeselectAllItems();
+        }
+
+        private void DeselectAllItems()
+        {
+            foreach (UIShopItem item in ListOfUIItem)
+            {
+                item.Deselect();
             }
         }
 
@@ -48,6 +79,15 @@ namespace Inventory.UI
         public void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        internal void ResetAllItem()
+        {
+            foreach (var item in ListOfUIItem)
+            {
+                item.ResetData();
+                item.Deselect();
+            }
         }
     }
 }
