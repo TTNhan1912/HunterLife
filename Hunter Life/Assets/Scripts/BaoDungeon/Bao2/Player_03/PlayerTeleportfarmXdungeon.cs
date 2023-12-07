@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTeleportfarmXdungeon : MonoBehaviour
@@ -14,9 +13,10 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
     public GameObject Canvan;
     [Header("Camera")]
     public GameObject CameraDungeon;
+    public Camera CameraDungeonCanvas;
     public GameObject Camera;
 
-   
+
     public float transitionTime = 1f;
 
 
@@ -36,13 +36,15 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.X))
-        {  if (currentTeleporter != null)
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            LoadingTransition();
-            // Vector3 originPosotion = cam.transform.position;
+            if (currentTeleporter != null)
+            {
+                LoadingTransition();
+                // Vector3 originPosotion = cam.transform.position;
 
-        }}
+            }
+        }
 
 
 
@@ -61,14 +63,18 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
         if (collision.gameObject.CompareTag("teleporter"))
         {
             int otherLayer = collision.gameObject.layer;
-  
+
             if (otherLayer == LayerMask.NameToLayer("EnterDungeon"))
             {
 
                 // itemman1.SetActive(false);
                 Canvan.SetActive(false);
                 Camera.SetActive(false);
-                 transform.position += new Vector3(0, -2, 0);
+
+                //  Canvas canvas = GetComponent<Canvas>();
+                //  canvas.worldCamera = CameraDungeonCanvas;
+
+                transform.position += new Vector3(0, -2, 0);
                 PlayerFarm.SetActive(false);
                 CanvanDungeon.SetActive(true);
                 CameraDungeon.SetActive(true);
@@ -84,7 +90,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
                 // itemman1.SetActive(false);
                 CanvanDungeon.SetActive(false);
                 CameraDungeon.SetActive(false);
-               transform.position += new Vector3(0, 2, 0);
+                transform.position += new Vector3(0, 2, 0);
                 PlayerDungeon.SetActive(false);
                 Canvan.SetActive(true);
                 Camera.SetActive(true);
@@ -106,7 +112,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
     {
         Loader.SetActive(true);
         //play animation
-        
+
         //teleport
 
         //wait
