@@ -9,7 +9,7 @@ public class PlayerLife : MonoBehaviour
 {
     private Animator ani;
     public GameObject heal = default;
-     public Rigidbody2D rigidbody2D;
+    public Rigidbody2D rigidbody2D;
     [SerializeField] private Transform viTriheal;
     public TextMeshProUGUI TextLifePot;
     public TextMeshProUGUI TextKey;
@@ -82,24 +82,24 @@ public class PlayerLife : MonoBehaviour
         {
             matmau(2);
         }
-        //   string Objectname = collision.attachedRigidbody.gameObject.name;
-
-        //       if (collision.gameObject.CompareTag("LifePot"))
-        //         {
-
-        //             Destroy(GameObject.Find(Objectname));
-        //             TongLifePot(1);
 
 
-        //        }
-        //         if (collision.gameObject.CompareTag("Key"))
-        //        {
+        if (collision.gameObject.CompareTag("LifePot"))
+        {
 
-        //            Destroy(GameObject.Find(Objectname));
-        //             TongKey(1);
+            Destroy(collision.gameObject);
+            TongLifePot(1);
 
 
-        //         }
+        }
+        if (collision.gameObject.CompareTag("Key"))
+        {
+
+            Destroy(collision.gameObject);
+            TongKey(1);
+
+
+        }
 
 
 
