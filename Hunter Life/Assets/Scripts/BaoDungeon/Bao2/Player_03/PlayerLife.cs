@@ -79,23 +79,23 @@ public class PlayerLife : MonoBehaviour
             matmau(2);
         }
        
-        string Objectname =collision.attachedRigidbody.gameObject.name ;
-        if (collision.gameObject.CompareTag("LifePot"))
-        {
+        // string Objectname =collision.attachedRigidbody.gameObject.name ;
+        // if (collision.gameObject.CompareTag("LifePot"))
+        // {
          
-           Destroy(GameObject.Find(Objectname));
-           TongLifePot(1); 
+        //    Destroy(GameObject.Find(Objectname));
+        //    TongLifePot(1); 
          
 
-        }
-           if (collision.gameObject.CompareTag("Key"))
-        {
+        // }
+        //    if (collision.gameObject.CompareTag("Key"))
+        // {
          
-           Destroy(GameObject.Find(Objectname));
-           TongKey(1);
+        //    Destroy(GameObject.Find(Objectname));
+        //    TongKey(1);
           
 
-        }
+        // }
 
        
     
