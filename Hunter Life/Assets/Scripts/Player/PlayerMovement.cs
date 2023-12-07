@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +13,18 @@ public class PlayerMovement : MonoBehaviour
     private float timer;
     private float time = 2f;
 
+    void Start()
+    {
+        if (Login.loginResponse != null)
+        {
+            if (Login.loginResponse.positionX != "")
+            {
+                float x = float.Parse(Login.loginResponse.positionX);
+                float y = float.Parse(Login.loginResponse.positionY);
+                transform.position = new Vector3(x, y, 0);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update() // theo frame
@@ -24,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         movement.Normalize();
         ani.SetFloat("Horizontal", movement.x);
         ani.SetFloat("Vertical", movement.y);
-        ani.SetFloat("Speed", movement.sqrMagnitude );
+        ani.SetFloat("Speed", movement.sqrMagnitude);
 
         DatBoom();
 
@@ -57,10 +67,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time - timer > time)
         {
-            GameObject quaboom = Instantiate(boom,viTriDatBoom.position, viTriDatBoom.rotation);
+            GameObject quaboom = Instantiate(boom, viTriDatBoom.position, viTriDatBoom.rotation);
         }
     }
-    
+
 
 
 

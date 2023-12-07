@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestConModel 
+public class GetAllItemResponseModel 
 {
-    public TestConModel(string id, string itemName, string description, string consumable, string image, int price)
+    public GetAllItemResponseModel(string id, string itemName, string description, bool consumable, string image, int price)
     {
         _id = id;
         this.itemName = itemName;
@@ -17,7 +17,9 @@ public class TestConModel
     public string _id {  get; set; }
     public string itemName { get; set; }
     public string description { get; set; }
-    public string consumable { get; set; }
-    public string image { get;set; }
+    public bool consumable { get; set; }
+    public string image { get; set; }
     public int price { get; set; }
+
+
 }

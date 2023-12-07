@@ -2089,6 +2089,11 @@ MonoBehaviour:
   edtPassword: {fileID: 0}
   txtError: {fileID: 0}
   fisrt: {fileID: 0}
+  idItem: 
+  ItemName: 
+  ItemNameID: 
+  ItemNameDescription: 
+  ItemNameQuantity: 0
 --- !u!114 &177340559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4848,7 +4853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478799831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -82.26505, y: -58.407555, z: -9.952311}
+  m_LocalPosition: {x: -141.76505, y: -27.907553, z: -9.952311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14834,7 +14839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346346225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -82.26505, y: -58.407555, z: -9.952311}
+  m_LocalPosition: {x: -141.76505, y: -27.907553, z: -9.952311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20795,6 +20800,7 @@ GameObject:
   - component: {fileID: 2062579462}
   - component: {fileID: 2062579463}
   - component: {fileID: 2062579464}
+  - component: {fileID: 2062579465}
   m_Layer: 0
   m_Name: Char
   m_TagString: player
@@ -20909,7 +20915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062579448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -80.8, y: -51.3, z: 0}
+  m_LocalPosition: {x: -140.3, y: -20.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21017,6 +21023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1164508918}
   inventoryData: {fileID: 11400000, guid: 5c25f3d9c810c2945877cf87831651df, type: 2}
+  inventoryController: {fileID: 0}
+  newScriptableObjectt: {fileID: 0}
   initalItems:
   - quantity: 1
     itemSO: {fileID: 11400000, guid: 80fbb69b60bbd354288bc5c7fa37e3bc, type: 2}
@@ -21036,6 +21044,7 @@ MonoBehaviour:
     itemSO: {fileID: 0}
   - quantity: 0
     itemSO: {fileID: 0}
+  itemSO: {fileID: 0}
 --- !u!114 &2062579459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21128,6 +21137,22 @@ MonoBehaviour:
   newTile: {fileID: 11400000, guid: ee3e9f3c5d8f6674282089fc52259bbf, type: 2}
   treePrefab: {fileID: 4304624311371703809, guid: a576af2539cb44b4cbf34023180a68c1, type: 3}
   riuPrefab: {fileID: 5958305540437772738, guid: e4e03c49cc03f1d4aad8ff398166e0c5, type: 3}
+--- !u!114 &2062579465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062579448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145fc27d042e05b4492c8dc92a29a400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 0}
+  inventoryData: {fileID: 0}
+  inventoryController: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!1001 &2064602278
 PrefabInstance:
   m_ObjectHideFlags: 0

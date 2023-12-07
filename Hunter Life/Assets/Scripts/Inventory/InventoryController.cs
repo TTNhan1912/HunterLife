@@ -1,8 +1,10 @@
-using Inventory.Model;
+﻿using Inventory.Model;
 using Inventory.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Inventory
 {
@@ -12,28 +14,53 @@ namespace Inventory
         private UIInventory inventoryUI;
 
         [SerializeField]
-        private InventorySO inventoryData;
+        public InventorySO inventoryData;
+        public InventoryController inventoryController;
+
+        public ItemSO newScriptableObjectt;
 
         public List<InventoryItem> initalItems = new List<InventoryItem>();
+        // public List<InventoryAPI> initalItemsAPI = new List<InventoryAPI>();
 
-        private Login login;
+        public Login login { get; private set; }
+        public ItemSO itemSO;
+
 
         void Start()
         {
             PrepareUI();
             PrepareInventoryData();
+
         }
 
-        private void PrepareInventoryData()
+
+
+        public void PrepareInventoryData()
         {
             inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
+
+
+            // Kiểm tra và thêm newScriptableObject vào danh sách
+            if (newScriptableObjectt != null)
+            {
+                // Tạo một InventoryItem mới và thêm vào danh sách
+                InventoryItem newItem = new InventoryItem
+                {
+                    itemSO = newScriptableObjectt,
+                    quantity = newScriptableObjectt.quantity, // Số lượng bạn muốn thêm vào danh sách
+                };
+
+                initalItems.Add(newItem);
+            }
+
             foreach (InventoryItem item in initalItems)
             {
                 if (item.IsEmty)
                     continue;
                 inventoryData.AddItem(item);
             }
+
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
@@ -42,6 +69,14 @@ namespace Inventory
             foreach (var item in inventoryState)
             {
                 inventoryUI.UpdateData(item.Key, item.Value.itemSO.IteamImage, item.Value.quantity);
+            }
+        }
+        private void UpdateInventoryUIAPI(Dictionary<int, InventoryAPI> inventoryStatee)
+        {
+            inventoryUI.ResetAllItem();
+            foreach (var item in inventoryStatee)
+            {
+                inventoryUI.UpdateData(item.Key, item.Value.itemSOAPI.IteamImageAPI, item.Value.quantityAPI);
             }
         }
 
@@ -101,21 +136,31 @@ namespace Inventory
 
         }
 
+
+
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+
+            if (Input.GetKeyDown(KeyCode.I))
             {
 
-                // GetComponent<Login>().test();
+                PrepareInventoryData();
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+               
                 if (inventoryUI.isActiveAndEnabled == false)
                 {
+                    
                     inventoryUI.Show();
-                    //  login.test();
                     foreach (var item in inventoryData.GetCurrentInventoryState())
                     {
+                         
                         inventoryUI.UpdateData(item.Key,
-                            item.Value.itemSO.IteamImage,
-                            item.Value.quantity);
+                          item.Value.itemSO.IteamImage,                           
+                          item.Value.quantity);                       
 
                     }
 
@@ -131,7 +176,11 @@ namespace Inventory
 
         }
 
+       
 
+       
 
     }
+
+    
 }
