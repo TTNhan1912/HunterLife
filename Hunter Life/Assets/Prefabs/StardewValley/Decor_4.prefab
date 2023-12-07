@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3830835053213161544}
   - component: {fileID: 8498938956312915102}
   - component: {fileID: 8534627180859288790}
-  - component: {fileID: 5276208119026324881}
   m_Layer: 0
   m_Name: Decor_4
   m_TagString: Behind
@@ -112,16 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9375}
   m_EdgeRadius: 0
---- !u!114 &5276208119026324881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5144614432987025955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9f29015a7f668e40a95e861abbc9daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test: {fileID: 8498938956312915102}

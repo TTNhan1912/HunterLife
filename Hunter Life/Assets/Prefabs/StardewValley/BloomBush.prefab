@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 425426185274425401}
   - component: {fileID: 2452487283357360548}
   - component: {fileID: 1400186126538118803}
-  - component: {fileID: 381082167499814195}
+  - component: {fileID: 8860129262842147429}
   m_Layer: 0
   m_Name: BloomBush
   m_TagString: Behind
@@ -139,7 +139,7 @@ PolygonCollider2D:
       - {x: 0.94314575, y: 0.054923058}
       - {x: 0.8187256, y: 0.82498646}
       - {x: 0.5624695, y: 0.96248627}
---- !u!114 &381082167499814195
+--- !u!114 &8860129262842147429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4756683063616197925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9f29015a7f668e40a95e861abbc9daa, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fe4ac16e9fcf9b4883fe077b231b063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 2452487283357360548}
+  transparentObj: {fileID: 4756683063616197925}
