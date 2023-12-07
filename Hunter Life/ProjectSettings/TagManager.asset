@@ -25,6 +25,7 @@ TagManager:
   - SavePosition
   - Sheaf
   - TreeCut
+  - Cut
   layers:
   - Default
   - TransparentFX

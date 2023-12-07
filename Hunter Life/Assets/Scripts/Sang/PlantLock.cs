@@ -321,7 +321,7 @@ public class PlantLock : MonoBehaviour
     // kiểm tra xem nếu không còn cây thì unlock
     private bool HasTreeOnTilemap()
     {
-        GameObject[] trees = GameObject.FindGameObjectsWithTag("TreeCut");
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("Cut");
 
         // Nếu không có cây nào thì cho phép đào đất
         return trees.Length > 0;
