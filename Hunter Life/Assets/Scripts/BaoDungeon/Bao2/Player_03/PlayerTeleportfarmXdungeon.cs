@@ -36,12 +36,13 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTeleporter != null)
+       if(Input.GetKeyDown(KeyCode.X))
+        {  if (currentTeleporter != null)
         {
             LoadingTransition();
             // Vector3 originPosotion = cam.transform.position;
 
-        }
+        }}
 
 
 
@@ -60,13 +61,14 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
         if (collision.gameObject.CompareTag("teleporter"))
         {
             int otherLayer = collision.gameObject.layer;
-
+  
             if (otherLayer == LayerMask.NameToLayer("EnterDungeon"))
             {
 
                 // itemman1.SetActive(false);
                 Canvan.SetActive(false);
                 Camera.SetActive(false);
+                 transform.position += new Vector3(0, -2, 0);
                 PlayerFarm.SetActive(false);
                 CanvanDungeon.SetActive(true);
                 CameraDungeon.SetActive(true);
@@ -82,6 +84,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
                 // itemman1.SetActive(false);
                 CanvanDungeon.SetActive(false);
                 CameraDungeon.SetActive(false);
+               transform.position += new Vector3(0, 2, 0);
                 PlayerDungeon.SetActive(false);
                 Canvan.SetActive(true);
                 Camera.SetActive(true);

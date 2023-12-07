@@ -7,6 +7,8 @@ public class Door : MonoBehaviour
 
     private Animator Anidoor1, Anidoor2;
     public GameObject TreasureChest;
+   //   public GameObject openShow;
+     //  [SerializeField] private Transform viTri;
 
     [Header("Monter")]
     public GameObject[] quai = new GameObject[3];
@@ -37,6 +39,7 @@ public class Door : MonoBehaviour
         }
         if (a == 0)
         {
+            //  GameObject openShow2 = Instantiate(openShow, viTri.position, viTri.rotation);
             opendoors();
             a = -1;
 
@@ -48,7 +51,7 @@ public class Door : MonoBehaviour
 
         //    Anidoor1.PlayOneShot("door1");
         //     Anidoor2.PlayOneShot("door2");
-
+  
         Anidoor1.SetTrigger("dong1");
         Anidoor2.SetTrigger("dong");
 

@@ -21,7 +21,7 @@ public class ManManager : MonoBehaviour
         {
             if (man[i] == null)
             {
-                Save(i);
+              Save(i);
 
 
             }
@@ -34,10 +34,16 @@ public class ManManager : MonoBehaviour
 
         }
         if (Input.GetKeyDown(KeyCode.K))
-        {
+         {
 
             PlayerPrefs.SetInt(key_Man, -1);
-        }
+               PlayerPrefs.SetInt("ChestMan_1", 1);
+                PlayerPrefs.SetInt("ChestMan_4", 1);
+                  PlayerPrefs.SetInt("ChestMan_2", 1);
+                    PlayerPrefs.SetInt("ChestMan_3", 1);
+            
+
+         }
 
     }
     public void Save(int currentMap)

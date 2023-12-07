@@ -7,7 +7,8 @@ public class Door2 : MonoBehaviour
 
     private Animator Anidoor1;
      public GameObject TreasureChest;
-
+       public GameObject openShow;
+        [SerializeField] private Transform viTri;
     [Header("Monter")]
     public GameObject[] quai = new GameObject[3];
     [Header("door")]

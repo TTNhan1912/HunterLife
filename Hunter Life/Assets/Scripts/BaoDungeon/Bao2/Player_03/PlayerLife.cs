@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
- using TMPro;
+using TMPro;
 using UnityEngine;
 
 
@@ -9,12 +9,13 @@ public class PlayerLife : MonoBehaviour
 {
     private Animator ani;
     public GameObject heal = default;
+     public Rigidbody2D rigidbody2D;
     [SerializeField] private Transform viTriheal;
     public TextMeshProUGUI TextLifePot;
-     public TextMeshProUGUI TextKey;
-    int LifePot =4;
-   public  int Key =2;
-  
+    public TextMeshProUGUI TextKey;
+    int LifePot = 4;
+    public int Key = 2;
+
 
     public int CharLife = 10;
     public int CharLifeMax = 10;
@@ -24,24 +25,25 @@ public class PlayerLife : MonoBehaviour
     {
 
         ani = GetComponent<Animator>();
-         TextKey.text = "X "+Key;
-         TextLifePot.text = "X "+LifePot;
+        TextKey.text = "X " + Key;
+        TextLifePot.text = "X " + LifePot;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+
         if (Input.GetKeyDown(KeyCode.H))
         {
-              if(LifePot>0&&CharLife<CharLifeMax){
-            CharLife = CharLife + 1;
-            TongLifePot(-1);
-            //  ani.Play("Char_Attack_LR");
-            GameObject heal2 = Instantiate(heal, viTriheal.position, viTriheal.rotation);
+            if (LifePot > 0 && CharLife < CharLifeMax)
+            {
+                CharLife = CharLife + 1;
+                TongLifePot(-1);
+                //  ani.Play("Char_Attack_LR");
+                GameObject heal2 = Instantiate(heal, viTriheal.position, viTriheal.rotation);
 
-              }
+            }
 
         }
 
@@ -59,6 +61,8 @@ public class PlayerLife : MonoBehaviour
 
 
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -74,45 +78,45 @@ public class PlayerLife : MonoBehaviour
         {
             matmau(1);
         }
-         if (collision.gameObject.CompareTag("BossAttack"))
+        if (collision.gameObject.CompareTag("BossAttack"))
         {
             matmau(2);
         }
-       
-        // string Objectname =collision.attachedRigidbody.gameObject.name ;
-        // if (collision.gameObject.CompareTag("LifePot"))
-        // {
-         
-        //    Destroy(GameObject.Find(Objectname));
-        //    TongLifePot(1); 
-         
+        //   string Objectname = collision.attachedRigidbody.gameObject.name;
 
-        // }
-        //    if (collision.gameObject.CompareTag("Key"))
-        // {
-         
-        //    Destroy(GameObject.Find(Objectname));
-        //    TongKey(1);
-          
+        //       if (collision.gameObject.CompareTag("LifePot"))
+        //         {
 
-        // }
+        //             Destroy(GameObject.Find(Objectname));
+        //             TongLifePot(1);
 
-       
-    
+
+        //        }
+        //         if (collision.gameObject.CompareTag("Key"))
+        //        {
+
+        //            Destroy(GameObject.Find(Objectname));
+        //             TongKey(1);
+
+
+        //         }
+
+
+
 
 
     }
-     public void TongLifePot(int Pot)
+    public void TongLifePot(int Pot)
     {
-        LifePot +=Pot;
-        TextLifePot.text = "X "+LifePot;
+        LifePot += Pot;
+        TextLifePot.text = "X " + LifePot;
     }
-     public void TongKey(int K)
+    public void TongKey(int K)
     {
-        Key +=K;
-        TextKey.text = "X "+Key;
+        Key += K;
+        TextKey.text = "X " + Key;
     }
-    
+
     public void matmau(int dame)
     {
         flashEffect.Flash();

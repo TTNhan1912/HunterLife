@@ -7,6 +7,7 @@ public class TreasureChest : MonoBehaviour
     public GameObject Door, TreasureChestOpen, TreasureChestClose, TreasureChestIT;
     public PlayerLife playerLife;
     public GameObject open;
+    
     public int numKey;
     public GameObject Key;
     public int numLifePot;
