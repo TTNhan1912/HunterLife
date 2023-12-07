@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -15,7 +16,7 @@ public class Register : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
     
-    public GameObject nameUser, register;
+    public GameObject nameUser, register, error;
     public static RegisterResponseMoel registerResponseMoel;
     // Start is called before the first frame update
     void Start()
@@ -86,6 +87,7 @@ public class Register : MonoBehaviour
                 }
                 else
                 {
+                    error.SetActive(true) ;
                     txtError.text = registerResponseMoel.message;
                 }
             }

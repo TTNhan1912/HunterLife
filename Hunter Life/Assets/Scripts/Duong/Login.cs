@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -16,6 +17,7 @@ public class Login : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
     public static LoginResponseMoel loginResponse;
+    public GameObject error;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,7 @@ public class Login : MonoBehaviour
             }
             else
             {
+                error.SetActive(true);
                 txtError.text = loginResponse.message;
             }
         }

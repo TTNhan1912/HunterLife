@@ -15,7 +15,7 @@ public class ForgotPassword : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
 
-    public GameObject forgotPassword, login;
+    public GameObject forgotPassword, login, error;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +86,7 @@ public class ForgotPassword : MonoBehaviour
                     }
                     else
                     {
+                        error.SetActive(true) ;
                         txtError.text = forgotPasswordResponseMoel.message;
                     }
                 }

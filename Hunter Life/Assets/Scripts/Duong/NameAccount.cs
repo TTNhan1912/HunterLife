@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -14,7 +15,9 @@ public class NameAccount : MonoBehaviour
     public TMP_InputField edtName;
     public TMP_Text txtError;
     public Selectable fisrt;
-    
+
+    public GameObject error;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,7 @@ public class NameAccount : MonoBehaviour
             }
             else
             {
+                error.SetActive(true);
                 txtError.text = nameAccountResponseMoel.message;
             }
         }
