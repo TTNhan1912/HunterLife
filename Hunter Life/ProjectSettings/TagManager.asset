@@ -40,7 +40,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Startman8
   - Water
   - UI
   - GamePlay
@@ -58,17 +58,17 @@ TagManager:
   - startman2
   - EnterDungeon
   - OutDungeon
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Endman2
+  - Sideman3
+  - Startman3
+  - Sideman4.1
+  - Sideman4.2
+  - Endman5
+  - Startman6
+  - Endman6
+  - Startman7
+  - Sideman5.1
+  - Endman7
   m_SortingLayers:
   - name: Default
     uniqueID: 0
