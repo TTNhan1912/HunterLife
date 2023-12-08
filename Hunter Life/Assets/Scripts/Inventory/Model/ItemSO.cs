@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Inventory.Model
 {
@@ -17,7 +17,13 @@ namespace Inventory.Model
         public int MaxStackSize { get; set; } = 1;
 
         [field: SerializeField]
+        public string id { get; set; }
+
+        [field: SerializeField]
         public string Name { get; set; }
+
+        [field: SerializeField]
+        public int quantity { get; set; }
 
         [field: SerializeField]
         [field: TextArea]
@@ -26,6 +32,13 @@ namespace Inventory.Model
         [field: SerializeField]
 
         public Sprite IteamImage { get; set; }
+
+        // Hàm tạo mới nhận đường dẫn hình ảnh
+        [field: SerializeField]
+        public string itemImage { get; set; }
+
+        [field: SerializeField]
+        public string price { get; set; }
 
 
     }

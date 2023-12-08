@@ -25,6 +25,17 @@ TagManager:
   - SavePosition
   - Sheaf
   - TreeCut
+  - Behind
+  - Boss
+  - trap
+  - enemy6
+  - enemy7
+  - enemy8
+  - BossAttack
+  - Slimebite
+  - BossBullet
+  - Key
+  - LifePot
   layers:
   - Default
   - TransparentFX
@@ -43,10 +54,10 @@ TagManager:
   - Map2-1
   - Map2-3
   - Map3-2
-  - 
-  - 
-  - 
-  - 
+  - endman1
+  - startman2
+  - EnterDungeon
+  - OutDungeon
   - 
   - 
   - 

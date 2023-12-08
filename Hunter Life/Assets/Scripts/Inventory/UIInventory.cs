@@ -160,5 +160,10 @@ namespace Inventory.UI
                 item.Deselect();
             }
         }
+
+        internal void UpdateData(int key, Coroutine coroutine, int quantity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
