@@ -93,7 +93,7 @@ public class HitAndHeathEnemies : MonoBehaviour
         prefab.GetComponentInChildren<TextMesh>().text = text;
         blood.fillAmount = blood.fillAmount - oneTouch;
         blood.fillAmount = blood.fillAmount;
-        if (blood.fillAmount < 0.1f)44
+        if (blood.fillAmount < 0.1f)
         {
             isKill = true;
         }
