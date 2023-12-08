@@ -4,21 +4,25 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 
 public class SavePositionCoin : MonoBehaviour
 {
     public GameObject savePosition, saveCoin;
-    public Text coin;
-    private float coinn;
+    public TMP_Text coin;
+    public static float coinn;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+      
     }
+    
 
     // Update is called once per frame
     void Update()
     {
+        
         /*if (Input.GetKeyDown(KeyCode.E))
         {
             savePosition.SetActive(true);
@@ -38,8 +42,12 @@ public class SavePositionCoin : MonoBehaviour
         {
             coinn -= 10;
         }
-
-        coin.text = coinn + "";
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            var all = CoinsController.valueAll;
+            Debug.Log("Coin Tổng: " + all);
+        }
+        //coin.text = coinn + "";
 
     }
 
@@ -148,8 +156,9 @@ public class SavePositionCoin : MonoBehaviour
             id = Register.registerResponseMoel.id;
             Debug.Log("Register" + id);
         }
-
-        var coin = coinn;
+        var coinAll = CoinsController.valueAll;
+        Debug.Log("Coin Tổng: " + coinAll);
+        var coin = coinAll;
 
 
 

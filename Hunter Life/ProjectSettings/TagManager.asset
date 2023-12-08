@@ -25,6 +25,7 @@ TagManager:
   - SavePosition
   - Sheaf
   - TreeCut
+  - VillageChief
   layers:
   - Default
   - TransparentFX
