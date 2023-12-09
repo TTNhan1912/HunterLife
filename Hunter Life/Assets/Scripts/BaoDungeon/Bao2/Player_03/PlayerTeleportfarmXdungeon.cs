@@ -16,6 +16,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
     public Camera CameraDungeonCanvas;
     public GameObject Camera;
 
+    private Item itemAPI;
 
     public float transitionTime = 1f;
 
@@ -67,7 +68,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
             if (otherLayer == LayerMask.NameToLayer("EnterDungeon"))
             {
 
-                // itemman1.SetActive(false);
+
                 Canvan.SetActive(false);
                 Camera.SetActive(false);
 
@@ -87,7 +88,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
             else if (otherLayer == LayerMask.NameToLayer("OutDungeon"))
             {
 
-                // itemman1.SetActive(false);
+
                 CanvanDungeon.SetActive(false);
                 CameraDungeon.SetActive(false);
                 transform.position += new Vector3(0, 2, 0);

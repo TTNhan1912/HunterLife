@@ -1,10 +1,8 @@
 ﻿using Inventory.Model;
 using Inventory.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace Inventory
 {
@@ -150,17 +148,17 @@ namespace Inventory
 
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-               
+
                 if (inventoryUI.isActiveAndEnabled == false)
                 {
-                    
+
                     inventoryUI.Show();
                     foreach (var item in inventoryData.GetCurrentInventoryState())
                     {
-                         
+
                         inventoryUI.UpdateData(item.Key,
-                          item.Value.itemSO.IteamImage,                           
-                          item.Value.quantity);                       
+                          item.Value.itemSO.IteamImage,
+                          item.Value.quantity);
 
                     }
 
@@ -176,11 +174,11 @@ namespace Inventory
 
         }
 
-       
 
-       
+
+
 
     }
 
-    
+
 }

@@ -21,14 +21,15 @@ public class Item : MonoBehaviour
     {
         StartCoroutine(LoadImage());
 
-       
+        Debug.Log("acb");
+
     }
 
     public void DestroyItem()
     {
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(AnimateItemPickUp());
-        
+
 
     }
 
@@ -40,13 +41,13 @@ public class Item : MonoBehaviour
         // Lặp qua danh sách và làm cái gì đó
         foreach (ItemSO so in scriptableObjects)
         {
-            if(so.id == InventoryItem.id)
+            if (so.id == InventoryItem.id)
             {
                 InventoryItem.itemImage = so.itemImage;
                 StartCoroutine(LoadImage());
                 Debug.Log("ScriptableObject Name: " + so.IteamImage);
             }
-            
+
             // Thực hiện các thao tác khác nếu cần
         }
     }
