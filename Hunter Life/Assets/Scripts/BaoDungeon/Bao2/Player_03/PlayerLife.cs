@@ -1,3 +1,4 @@
+﻿using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,24 +12,28 @@ public class PlayerLife : MonoBehaviour
     public GameObject heal = default;
     public Rigidbody2D rigidbody2D;
     [SerializeField] private Transform viTriheal;
-    public TextMeshProUGUI TextLifePot;
+    //public TextMeshProUGUI TextLifePot;
     public TextMeshProUGUI TextKey;
-    int LifePot = 4;
-    public int Key = 2;
+    //int LifePot = 2;
+    public int Key ;
 
 
     public int CharLife = 10;
     public int CharLifeMax = 10;
     [SerializeField] private SimpleFlash flashEffect;
+
+   
     // Start is called before the first frame update
     void Start()
     {
 
         ani = GetComponent<Animator>();
-        TextKey.text = "X " + Key;
-        TextLifePot.text = "X " + LifePot;
+        //TextKey.text = "X " + Key;
+        //TextLifePot.text = "X " + LifePot;
 
     }
+
+  
 
     // Update is called once per frame
     void Update()
@@ -36,10 +41,11 @@ public class PlayerLife : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            if (LifePot > 0 && CharLife < CharLifeMax)
+            if (ShowPotion.playerLife.LifePot > 0 && CharLife < CharLifeMax)
             {
                 CharLife = CharLife + 1;
                 TongLifePot(-1);
+                ItemAPILogin.itemAPI.DeleteItemInventory("651ff3786d1b88d6eb0d18e4", 1);
                 //  ani.Play("Char_Attack_LR");
                 GameObject heal2 = Instantiate(heal, viTriheal.position, viTriheal.rotation);
 
@@ -84,32 +90,27 @@ public class PlayerLife : MonoBehaviour
         }
 
 
-        if (collision.gameObject.CompareTag("LifePot"))
-        {
+        //if (collision.gameObject.CompareTag("LifePot"))
+        //{
 
-            Destroy(collision.gameObject);
-            TongLifePot(1);
-
-
-        }
-        if (collision.gameObject.CompareTag("Key"))
-        {
-
-            Destroy(collision.gameObject);
-            TongKey(1);
+        //    Destroy(collision.gameObject);
+        //    TongLifePot(1);
 
 
-        }
+        //}
+        //if (collision.gameObject.CompareTag("Key"))
+        //{
+
+        //    Destroy(collision.gameObject);
+        //    TongKey(1);
 
 
-
-
-
+        //}
     }
     public void TongLifePot(int Pot)
     {
-        LifePot += Pot;
-        TextLifePot.text = "X " + LifePot;
+        ShowPotion.playerLife.LifePot += Pot;
+        //TextLifePot.text = "X " + LifePot;
     }
     public void TongKey(int K)
     {
@@ -151,7 +152,7 @@ public class PlayerLife : MonoBehaviour
     }
 
 
-
+   
 
 }
 

@@ -83,7 +83,7 @@ public class Item : MonoBehaviour
 
                 // Gán sprite trực tiếp vào SpriteRenderer
                 GetComponent<SpriteRenderer>().sprite = sprite;
-
+                transform.localScale = new Vector3(5, 5, 0);
                 // Hoặc gán sprite trực tiếp vào một Sprite khác (không thông qua SpriteRenderer)
                 // this.GetComponent<SpriteRenderer>().sprite = sprite;
             }

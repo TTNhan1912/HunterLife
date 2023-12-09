@@ -81,7 +81,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
                 CameraDungeon.SetActive(true);
                 PlayerDungeon.SetActive(true);
 
-
+                CreateScripts.createScriptsIntance.CreateMyScriptableObject();
                 //thay mini map
 
             }

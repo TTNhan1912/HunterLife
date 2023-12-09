@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
+using static UnityEditor.Progress;
 
 public class CreateScripts : MonoBehaviour
 {
@@ -32,11 +33,12 @@ public class CreateScripts : MonoBehaviour
     IEnumerator LoadImageSprite()
     {
         InventoryController inventoryController = FindObjectOfType<InventoryController>();
+        //ItemSO[] scriptableObjects = Resources.LoadAll<ItemSO>("DataItemAPI");
         if (inventoryController != null)
         {
             // xóa dữ liệu túi đồ cũ
             inventoryController.initalItems.Clear();
-
+           
 
             foreach (TestModel model in ItemAPILogin.testModel)
             {
@@ -56,7 +58,7 @@ public class CreateScripts : MonoBehaviour
 
                         // Gán sprite trực tiếp vào SpriteRenderer
                         spriteRenderer = sprite;
-                        newScriptableObject.id += model._id;
+                        newScriptableObject.id += model.itemName._id;
                         newScriptableObject.Name += model.itemName.itemName;
                         newScriptableObject.Description += model.itemName.description;
                         newScriptableObject.itemImage = model.itemName.image;
@@ -91,6 +93,9 @@ public class CreateScripts : MonoBehaviour
 
             }
         }
+        ShowPotion.playerLife.LoadQuantityPotion();
+        ShowPotion.playerLife.LoadQuantityKey();
+       
     }
 
     public void CreateMyScriptableObjectAllItem()
