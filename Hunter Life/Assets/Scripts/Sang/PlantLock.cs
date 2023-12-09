@@ -38,9 +38,6 @@ public class PlantLock : MonoBehaviour
     // hướng ban đầu
     private int initialFacingDirection = 1;
 
-    // unlock đc hay chưa
-    //private bool unlock;
-
     private void Start()
     {
         // tạo 1 mảng lấy vị trí của ô đất đã đào và ô đã trồng cây
@@ -56,10 +53,6 @@ public class PlantLock : MonoBehaviour
         clickedTiles = new bool[tilemap.cellBounds.size.x * tilemap.cellBounds.size.y];
 
         initialFacingDirection = (int)Mathf.Sign(transform.localScale.x);
-
-
-        // ngày đêm
-        //StartCoroutine(StartDayNightCycle());
     }
 
     private void Update()
