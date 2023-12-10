@@ -36,6 +36,7 @@ TagManager:
   - BossBullet
   - Key
   - LifePot
+  - Interact
   layers:
   - Default
   - TransparentFX
