@@ -15,15 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        if (Login.loginResponse != null)
-        {
-            if (Login.loginResponse.positionX != "")
-            {
-                float x = float.Parse(Login.loginResponse.positionX);
-                float y = float.Parse(Login.loginResponse.positionY);
-                transform.position = new Vector3(x, y, 0);
-            }
-        }
+      
     }
 
     // Update is called once per frame
