@@ -9,12 +9,13 @@ public class PickUpSystem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Item item = collision.GetComponent<Item>();
+        MissionController missioHandler = GetComponent<MissionController>();
         if (item != null)
         {
             ItemAPILogin.itemAPI.NewItemInventory(item.InventoryItem.id, item.Quantity);
 
             item.DestroyItem();
-
+            missioHandler.Mission4Controller();
         }
 
     }

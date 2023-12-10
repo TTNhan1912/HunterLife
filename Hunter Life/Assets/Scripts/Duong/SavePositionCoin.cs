@@ -1,15 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System.Collections;
 using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UI;
 
 public class SavePositionCoin : MonoBehaviour
 {
     public GameObject savePosition, saveCoin;
-    public Text coin;
-    private float coinn;
+    public TMP_Text coin;
+    public static float coinn;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +39,7 @@ public class SavePositionCoin : MonoBehaviour
             coinn -= 10;
         }
 
-        coin.text = coinn + "";
+        //coin.text = coinn + "";
 
     }
 
@@ -149,7 +149,9 @@ public class SavePositionCoin : MonoBehaviour
             Debug.Log("Register" + id);
         }
 
-        var coin = coinn;
+        var coinAll = CoinsController.valueAll;
+        Debug.Log("Coin Tổng: " + coinAll);
+        var coin = coinAll;
 
 
 
