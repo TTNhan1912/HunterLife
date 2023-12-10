@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreasureChest : MonoBehaviour
 {
-    public GameObject Door, TreasureChestOpen, TreasureChestClose, TreasureChestIT;
+    public GameObject Door, TreasureChestOpen, TreasureChestClose, TreasureChestIT, dialogFull,dialogLifePot;
     public PlayerLife playerLife;
     public GameObject open;
     
@@ -17,7 +17,9 @@ public class TreasureChest : MonoBehaviour
     [SerializeField] private Transform viTri;
     [SerializeField] private Transform viTriKey;
     [SerializeField] private Transform viTriLifePot;
+    [SerializeField] private Transform viTriPlayer;
     public string key_Chest = "ChestMan_1";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,25 @@ public class TreasureChest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+          float distance = Vector2.Distance(transform.position, viTriPlayer.position);
+                if (distance < 3f && Opench )
+                {
+                    if(numKey == 0){
+                        dialogLifePot.SetActive(true);
+
+                    }
+                    else
+                    {
+                        dialogFull.SetActive(true);
+                    }
+                   
+                }
+                else
+                {
+                      dialogLifePot.SetActive(false);
+                       dialogFull.SetActive(false);
+                }
+               
 
 
     }
