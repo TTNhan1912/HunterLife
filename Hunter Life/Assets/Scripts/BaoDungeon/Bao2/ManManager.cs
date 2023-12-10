@@ -19,7 +19,7 @@ public class ManManager : MonoBehaviour
         {
             if (man[i] == null)
             {
-                Save(i);
+                //   Save(i);
 
 
             }
