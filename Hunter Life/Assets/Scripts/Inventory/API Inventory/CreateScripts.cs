@@ -4,7 +4,6 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.Progress;
 
 public class CreateScripts : MonoBehaviour
 {
@@ -38,13 +37,15 @@ public class CreateScripts : MonoBehaviour
         {
             // xóa dữ liệu túi đồ cũ
             inventoryController.initalItems.Clear();
-           
+
 
             foreach (TestModel model in ItemAPILogin.testModel)
             {
 
                 // Tạo một ScriptableObject mới
                 ItemSO newScriptableObject = ScriptableObject.CreateInstance<ItemSO>();
+
+                Debug.Log(model.itemName.image);
 
                 using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(model.itemName.image))
                 {
@@ -95,7 +96,7 @@ public class CreateScripts : MonoBehaviour
         }
         ShowPotion.playerLife.LoadQuantityPotion();
         ShowPotion.playerLife.LoadQuantityKey();
-       
+
     }
 
     public void CreateMyScriptableObjectAllItem()

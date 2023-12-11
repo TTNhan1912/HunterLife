@@ -22590,7 +22590,7 @@ PrefabInstance:
     - target: {fileID: 8372186670493943899, guid: 6ac2aeaf091b44a47b570c8295a2b777, type: 3}
       propertyPath: initalItems.Array.data[0].itemSO
       value: 
-      objectReference: {fileID: 11400000, guid: cb605e0b8836f724f8875cc41d04b8cb, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8372186670493943899, guid: 6ac2aeaf091b44a47b570c8295a2b777, type: 3}
       propertyPath: initalItems.Array.data[1].itemSO
       value: 
@@ -23292,19 +23292,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -55
       objectReference: {fileID: 0}
     - target: {fileID: 7331181466187251652, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_Pivot.x
@@ -23483,10 +23483,6 @@ PrefabInstance:
     - target: {fileID: 4815526225165326949, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
       propertyPath: m_Name
       value: MyFarm
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815526225165326949, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5088431469796226052, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
       propertyPath: m_TagString

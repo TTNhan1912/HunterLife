@@ -21,6 +21,7 @@ public class MapMN : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // SetActiveObjects(false, myFarm, roadToMyFarm, beach, town, dungeon);
 
         if (collision.gameObject.CompareTag("myFarm"))
         {
