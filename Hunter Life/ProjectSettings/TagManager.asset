@@ -36,6 +36,15 @@ TagManager:
   - BossBullet
   - Key
   - LifePot
+  - myFarm
+  - beginArea
+  - roadMyVillage
+  - beach
+  - town
+  - dungeon
+  - outDungeon
+  - farm
+  - outtown
   layers:
   - Default
   - TransparentFX
