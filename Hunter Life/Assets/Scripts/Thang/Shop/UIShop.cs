@@ -53,9 +53,9 @@ namespace Shop.UI
 
             }
         }
-        internal void UpdateDesciption(int itemindex, Sprite iteamImage, string name, string description)
+        internal void UpdateDesciption(int itemindex, Sprite iteamImage, string name, string description, string price)
         {
-            itemDescription.SetDescription(iteamImage, name, description);
+            itemDescription.SetDescription(iteamImage, name, description, price);
             DeselectAllItems();
             ListOfUIItem[itemindex].Select();
         }
