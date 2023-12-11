@@ -18,6 +18,7 @@ namespace Shop.UI
         private TMP_Text description;
 
         private int currentTotal = 0;
+        private int initialPrice;
 
         [SerializeField] private TMP_Text total;
         [SerializeField] private TMP_Text btnIncrease;
@@ -33,7 +34,7 @@ namespace Shop.UI
         {
             itemImage.gameObject.SetActive(false);
             title.text = "";
-            description.text = "";
+            description.text = "";  
             total.text = "";
         }
         public void SetDescription(Sprite sprite, string itemname, string itemdesciption, string itemPrice)
@@ -43,29 +44,42 @@ namespace Shop.UI
             title.text = itemname;
             description.text = itemdesciption;
 
-            int price = int.Parse(itemPrice);
-
-            currentTotal = price;
-
+           
+            initialPrice = int.Parse(itemPrice);
+    
             total.text = itemPrice;
+       
 
-            
         }
 
         public void increase()
         {
-            // Chuyển đổi total.text từ kiểu string sang kiểu int
-            int price = int.Parse(total.text);
-
-            // Thêm giá trị mới vào currentTotal
-            currentTotal += price;
-
-            // Hiển thị giá trị mới trong total.text
+      
+            currentTotal += initialPrice;
+            
+            Debug.Log(initialPrice);
+            
             total.text = currentTotal.ToString();
 
-            // Cập nhật lại dữ liệu
-            SetDescription(itemImage.sprite, title.text, description.text, total.text);
-            Debug.Log("Pressed!");
+       
+            SetDescription(itemImage.sprite, title.text, description.text, currentTotal.ToString());
+    
         }
+
+        public void decrease()
+        {
+
+            currentTotal -= initialPrice;
+
+            Debug.Log(initialPrice);
+
+            total.text = currentTotal.ToString();
+
+
+            SetDescription(itemImage.sprite, title.text, description.text, currentTotal.ToString());
+
+        }
+
+
     }
 }
