@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShopPopUp : MonoBehaviour
 {
-    public GameObject miniMap, Setting, inventory;
+    public GameObject miniMap, Setting, inventory, shopBuy, shopSell;
 
     public void ShowInventory()
     {
@@ -23,6 +23,19 @@ public class ShopPopUp : MonoBehaviour
     {
         miniMap.SetActive(false);
         Setting.SetActive(true);
+
+    }
+
+    public void ShowShopBuy()
+    {
+        shopBuy.SetActive(true);
+        shopSell.SetActive(false);
+    }
+
+    public void ShowShopSell()
+    {
+        shopSell.SetActive(true);
+        //shopBuy.SetActive(false);
 
     }
 }
