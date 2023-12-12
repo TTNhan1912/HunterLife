@@ -13,6 +13,42 @@ MonoBehaviour:
   m_Name: StockShop
   m_EditorClassIdentifier: 
   inventoryItems:
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 58c4ca1f3c7c3634aa0fe35955c835fe, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 22a3903d30e6e79469dfbe7c0a656ab3, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 4a176bf68979a18448c45c6c04da9f35, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 440b4032ff52ede48aa9dd6dce9d16df, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 0ece811b78d678d46bce27601ae78b3d, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: a988383d0a3e893428456206bf9f812b, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 290c3e323c7008d418264555f5fe3b8b, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 42dc118bd311b124db49f5e05aa986b1, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: f045a253d7d7a474caf2dfe3ca5cb242, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 290c3e323c7008d418264555f5fe3b8b, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 440b4032ff52ede48aa9dd6dce9d16df, type: 2}
+  - quantity: 99
+    price: 0
+    itemSO: {fileID: 11400000, guid: 22a3903d30e6e79469dfbe7c0a656ab3, type: 2}
   - quantity: 0
     price: 0
     itemSO: {fileID: 0}
@@ -37,40 +73,4 @@ MonoBehaviour:
   - quantity: 0
     price: 0
     itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  - quantity: 0
-    price: 0
-    itemSO: {fileID: 0}
-  <Size>k__BackingField: 10
+  <Size>k__BackingField: 20

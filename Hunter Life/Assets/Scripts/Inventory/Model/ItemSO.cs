@@ -20,6 +20,9 @@ namespace Inventory.Model
         public string id { get; set; }
 
         [field: SerializeField]
+        public string idName { get; set; }
+
+        [field: SerializeField]
         public string Name { get; set; }
 
         [field: SerializeField]

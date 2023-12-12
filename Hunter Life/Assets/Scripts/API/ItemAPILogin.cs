@@ -11,6 +11,7 @@ public class ItemAPILogin : MonoBehaviour
     public static List<TestModel> testModel;
     public static List<GetAllItemResponseModel> getAllItemResponse;
     public static ItemAPILogin itemAPI;
+    public static List<ShopItemResponseModel>  shopItemResponseModel;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class ItemAPILogin : MonoBehaviour
     {
         GetAllItem();
         test();
+        GetAllItemShop();
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class ItemAPILogin : MonoBehaviour
         }
     }
 
-
+    // lấy vật phẩm của người chơi
     public void test()
     {
         StartCoroutine(GetDataFromNodeJS());
@@ -99,6 +101,7 @@ public class ItemAPILogin : MonoBehaviour
         request.Dispose();
     }
 
+    // lấy tất cả vật phẩm của game
     public void GetAllItem()
     {
         StartCoroutine(GetAll());
@@ -132,6 +135,7 @@ public class ItemAPILogin : MonoBehaviour
         request.Dispose();
     }
 
+    // thêm vật phẩm vào túi đồ
     public void NewItemInventory(string itemName, int quantity)
     {
         StartCoroutine(ItemInventory(itemName, quantity));
@@ -189,6 +193,7 @@ public class ItemAPILogin : MonoBehaviour
         request.Dispose();
     }
 
+    // xóa vật phẩm trong túi đồ
     public void DeleteItemInventory(string itemName, int quantity)
     {
         StartCoroutine(deleteItemInventory(itemName, quantity));
@@ -246,6 +251,45 @@ public class ItemAPILogin : MonoBehaviour
         request.Dispose();
     }
 
+    // lấy danh sách vật phẩm cửa hàng
+    public void GetAllItemShop()
+    {
+        StartCoroutine(GetAllShop());
+        GetAllShop();
+    }
 
+    IEnumerator GetAllShop()
+    {
+        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/shop", "GET");
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            var jsonString = request.downloadHandler.text.ToString();
+            // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
+            shopItemResponseModel = JsonConvert.DeserializeObject<List<ShopItemResponseModel>>(jsonString);
+
+            //   Debug.Log(test01Model.itemname);
+            foreach (ShopItemResponseModel model in shopItemResponseModel)
+            {
+                Debug.Log($"_id: {model._id}");
+                Debug.Log($"Item Name: _id: {model.itemName._id}," +
+                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
+                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
+                Debug.Log($"Quantity: {model.quantity}");
+            }
+
+
+
+
+        }
+        request.Dispose();
+    }
 
 }

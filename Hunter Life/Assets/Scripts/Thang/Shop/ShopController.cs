@@ -142,6 +142,6 @@ public class ShopController : MonoBehaviour
         ItemSO item = inventoryItem.itemSO;
         //  TestModel model;
 
-        shopUI.UpdateDesciption(itemindex, item.IteamImage, item.name, item.Description, item.price);
+        shopUI.UpdateDesciption(itemindex, item.IteamImage, item.Name, item.Description, item.price);
     }
 }
