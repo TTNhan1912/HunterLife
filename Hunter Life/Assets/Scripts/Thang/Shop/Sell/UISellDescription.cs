@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,7 +51,7 @@ namespace Sell.UI
             title.text = itemname;
             description.text = itemdesciption;
 
-            initialPrice = int.Parse(itemPrice);
+            //   initialPrice = int.Parse(itemPrice);
 
             total.text = itemPrice;
         }

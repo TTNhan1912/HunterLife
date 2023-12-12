@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -27,7 +25,7 @@ public class UIShopItem : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ResetData()
@@ -65,6 +63,8 @@ public class UIShopItem : MonoBehaviour, IPointerClickHandler
         else
         {
             OnItemclick?.Invoke(this);
+            Debug.Log("Click Item Shop");
+
         }
     }
 

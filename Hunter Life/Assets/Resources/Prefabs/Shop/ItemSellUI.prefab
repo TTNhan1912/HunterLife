@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImage: {fileID: 7704238837930421829}
   quantityTxt: {fileID: 780705934812425030}
+  priceTxt: {fileID: 780705934812425030}
   boder: {fileID: 2321068277033964844}
 --- !u!1 &1694436338298626391
 GameObject:
@@ -424,9 +425,9 @@ RectTransform:
   m_Father: {fileID: 3974951314056526028}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 60, y: -55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &5100513417047329362

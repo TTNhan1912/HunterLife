@@ -1,14 +1,13 @@
-﻿using System;
-using Inventory.Model;
+﻿using Inventory.Model;
 using Shop.UI;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
     [SerializeField]
-    private UIShop shopUI;
+    public UIShop shopUI;
 
     [SerializeField]
     public InventorySO inventoryData;
@@ -27,6 +26,7 @@ public class ShopController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shopUI.Hide();
         browseStock = false;
         PrepareUI();
         PrepareInventoryData();
@@ -35,13 +35,14 @@ public class ShopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             PrepareInventoryData();
             if (shopUI.isActiveAndEnabled == false && browseStock == true)
             {
                 shopUI.Show();
+                Debug.Log("show");
                 foreach (var item in inventoryData.GetCurrentInventoryState())
                 {
                     shopUI.UpdateData(item.Key,
@@ -63,6 +64,7 @@ public class ShopController : MonoBehaviour
         if (collision.gameObject.CompareTag("Interact"))
         {
             browseStock = true;
+            Debug.Log(browseStock);
         }
     }
 

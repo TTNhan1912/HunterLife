@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ namespace Sell.UI
         [SerializeField]
         private MouseFollower mouseFollower;
 
-        List<UISellItem> ListOfUIItem = new List<UISellItem>();
+        List<UISellItem> ListOfUIItemm = new List<UISellItem>();
 
         private int currentlyDraggedItemIndex = -1;
 
@@ -44,7 +43,7 @@ namespace Sell.UI
                 UISellItem uiItem = Instantiate(itemPrefabs, Vector3.zero, Quaternion.identity);
 
                 uiItem.transform.SetParent(contenPanel);
-                ListOfUIItem.Add(uiItem);
+                ListOfUIItemm.Add(uiItem);
                 uiItem.OnItemclick += HandleItemSelection;
                 uiItem.OnRightMouseButtonClick += HandleShowItemAction;
 
@@ -54,14 +53,14 @@ namespace Sell.UI
         {
             itemDescription.SetDescription(iteamImage, name, description, price);
             DeselectAllItems();
-            ListOfUIItem[itemindex].Select();
+            ListOfUIItemm[itemindex].Select();
         }
 
         public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
         {
-            if (ListOfUIItem.Count > itemIndex)
+            if (ListOfUIItemm.Count > itemIndex)
             {
-                ListOfUIItem[itemIndex].SetData(itemImage, itemQuantity);
+                ListOfUIItemm[itemIndex].SetData(itemImage, itemQuantity);
             }
         }
 
@@ -72,7 +71,7 @@ namespace Sell.UI
 
         private void HandleItemSelection(UISellItem inventoryItemUI)
         {
-            int index = ListOfUIItem.IndexOf(inventoryItemUI);
+            int index = ListOfUIItemm.IndexOf(inventoryItemUI);
             if (index == -1) return;
             OnDescipttionRequested?.Invoke(index);
 
@@ -93,7 +92,7 @@ namespace Sell.UI
 
         private void DeselectAllItems()
         {
-            foreach (UISellItem item in ListOfUIItem)
+            foreach (UISellItem item in ListOfUIItemm)
             {
                 item.Deselect();
             }
@@ -106,7 +105,7 @@ namespace Sell.UI
 
         internal void ResetAllItem()
         {
-            foreach (var item in ListOfUIItem)
+            foreach (var item in ListOfUIItemm)
             {
                 item.ResetData();
                 item.Deselect();

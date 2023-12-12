@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,7 +23,7 @@ public class UISellItem : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ResetData()
@@ -63,6 +60,8 @@ public class UISellItem : MonoBehaviour, IPointerClickHandler
         else
         {
             OnItemclick?.Invoke(this);
+            Debug.Log("Click Item Sell");
+
         }
     }
 }

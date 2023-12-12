@@ -56,6 +56,8 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler,
         else
         {
             OnItemclick?.Invoke(this);
+            Debug.Log("Click item inven");
+
         }
     }
 
