@@ -12437,7 +12437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1041735184
 Transform:
   m_ObjectHideFlags: 0
@@ -13729,6 +13729,10 @@ PrefabInstance:
     - target: {fileID: 8006745776939272363, guid: 44bbb8600ec10d0449b2b321c334f336, type: 3}
       propertyPath: m_Name
       value: enemies7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006745776939272363, guid: 44bbb8600ec10d0449b2b321c334f336, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44bbb8600ec10d0449b2b321c334f336, type: 3}
@@ -23925,6 +23929,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TreeCut
       objectReference: {fileID: 0}
+    - target: {fileID: 2491761119131302525, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2877988647617132584, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
       propertyPath: m_TagString
       value: TreeCut
@@ -24028,6 +24036,10 @@ PrefabInstance:
     - target: {fileID: 6865969483106429037, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
       propertyPath: m_TagString
       value: teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422355489879676914, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -183.5
       objectReference: {fileID: 0}
     - target: {fileID: 8064038861808069550, guid: d6782ad961e439c4ab26e8f48ed41340, type: 3}
       propertyPath: m_TagString
@@ -25599,7 +25611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &2062579449
 BoxCollider2D:
   m_ObjectHideFlags: 0
