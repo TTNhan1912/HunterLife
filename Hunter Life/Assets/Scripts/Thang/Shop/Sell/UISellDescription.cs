@@ -51,7 +51,7 @@ namespace Sell.UI
             title.text = itemname;
             description.text = itemdesciption;
 
-            //   initialPrice = int.Parse(itemPrice);
+            //  initialPrice = int.Parse(itemPrice);
 
             total.text = itemPrice;
         }

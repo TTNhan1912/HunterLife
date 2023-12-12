@@ -8892,7 +8892,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778924863}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -22012,19 +22012,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6710708472217243521, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7331181466187251652, guid: 39b0f9f2d860a3643b777d6042ac0334, type: 3}
       propertyPath: m_Pivot.x
@@ -25434,7 +25434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752052104271152766, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -610.71094
+      value: -610.7111
       objectReference: {fileID: 0}
     - target: {fileID: 7752052104507679347, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25446,7 +25446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752052104671672620, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -739.2009
+      value: -739.2011
       objectReference: {fileID: 0}
     - target: {fileID: 7752052106028207148, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25519,6 +25519,10 @@ PrefabInstance:
     - target: {fileID: 8586890023951648161, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
       propertyPath: m_Name
       value: ShopStock
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586890023951648161, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8586890023951648162, guid: 6235dfd3bf26e294f8d30b6b92e0582f, type: 3}
       propertyPath: m_Pivot.x
