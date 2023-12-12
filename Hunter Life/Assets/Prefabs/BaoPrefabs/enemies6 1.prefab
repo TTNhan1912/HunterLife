@@ -105,7 +105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7265499154649385175}
   - component: {fileID: 7265499154649385168}
-  - component: {fileID: 7265499154649385169}
   - component: {fileID: 7265499154649385170}
   - component: {fileID: 7265499154649385171}
   - component: {fileID: 7265499154649385164}
@@ -115,6 +114,7 @@ GameObject:
   - component: {fileID: 6728820875613088828}
   - component: {fileID: 5562815046092030669}
   - component: {fileID: 5562815046092030668}
+  - component: {fileID: 844179151037005289}
   m_Layer: 0
   m_Name: enemies6 1
   m_TagString: enemy6
@@ -192,32 +192,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7265499154649385169
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7265499154649385167}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.018163681, y: -0.08476257}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.51713943, y: 0.6745529}
-  m_EdgeRadius: 0
 --- !u!50 &7265499154649385170
 Rigidbody2D:
   serializedVersion: 4
@@ -327,6 +301,11 @@ MonoBehaviour:
   viTriPopUpDame: {fileID: 4423818562545946321}
   PopUpDame: {fileID: 728940613542517131, guid: 8197b47ab0f59d94aaf0d64cd3e36030, type: 3}
   health: {fileID: 5562815046092030668}
+  numKey: 0
+  Key: {fileID: 0}
+  numLifePot: 0
+  LifePot: {fileID: 0}
+  viTri: {fileID: 0}
 --- !u!114 &7499020127159837914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,8 +416,6 @@ MonoBehaviour:
   currentHealth: 10
   maxHealth: 10
   hitAndHeathEnemies: {fileID: 7265499154649385166}
-  PopUpDame: {fileID: 728940613542517131, guid: 8197b47ab0f59d94aaf0d64cd3e36030, type: 3}
-  viTriPopUpDame: {fileID: 4423818562545946321}
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls:
@@ -458,6 +435,49 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+--- !u!60 &844179151037005289
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7265499154649385167}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29999998, y: -0.19}
+      - {x: 0.29999998, y: -0.12}
+      - {x: 0.21, y: -0.08}
+      - {x: 0.28, y: 0.04}
+      - {x: 0.24, y: 0.17}
+      - {x: 0.14999999, y: 0.22999999}
+      - {x: 0.08, y: 0.24}
+      - {x: -0.04, y: 0.24}
+      - {x: -0.12, y: 0.19}
+      - {x: -0.19999999, y: -0.06}
+      - {x: -0.25, y: -0.17999999}
+      - {x: -0.26999998, y: -0.28}
+      - {x: -0.26999998, y: -0.42}
+      - {x: -0.19999999, y: -0.45999998}
+      - {x: -0.14999999, y: -0.45999998}
+      - {x: -0.03, y: -0.35999998}
+      - {x: -0.02, y: -0.41}
+      - {x: 0.099999994, y: -0.42}
 --- !u!1001 &7265499155570819423
 PrefabInstance:
   m_ObjectHideFlags: 0

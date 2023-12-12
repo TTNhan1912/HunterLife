@@ -24,15 +24,39 @@ public class Arrow : MonoBehaviour
     // Kiểm tra nếu mũi tên va chạm vào một vật thể
     if (other.CompareTag("enemy3"))
     {
-        // Gán mũi tên là con của vật thể đó
+      
        transform.parent = other.transform;
           StickToTarget();
-
-        // Tắt Rigidbody để mũi tên không bị ảnh hưởng bởi vật lý
+     
         Destroy(rb);
-
-        // Tắt script điều khiển để mũi tên không di chuyển nữa (nếu cần)
-        // Destroy(GetComponent<Arrow>());
+    }
+      if (other.CompareTag("enemy6"))
+    {
+       
+       transform.parent = other.transform;
+          StickToTarget();
+        Destroy(rb);
+    }
+     if (other.CompareTag("enemy7"))
+    {
+        
+       transform.parent = other.transform;
+          StickToTarget();  
+        Destroy(rb);
+    }
+      if (other.CompareTag("enemy8"))
+    {
+        
+       transform.parent = other.transform;
+          StickToTarget();  
+        Destroy(rb);
+    }
+    if (other.CompareTag("Boss"))
+    {
+        
+       transform.parent = other.transform;
+          StickToTarget();  
+        Destroy(rb);
     }
      if (other.CompareTag("tuong"))
     {
