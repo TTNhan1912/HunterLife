@@ -45,6 +45,8 @@ TagManager:
   - outDungeon
   - farm
   - outtown
+  - CArrow
+  - tuong
   layers:
   - Default
   - TransparentFX
