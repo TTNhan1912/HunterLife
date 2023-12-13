@@ -22,6 +22,8 @@ public class ShopController : MonoBehaviour
 
     private bool browseStock;
 
+    public static string idItemShop;
+    public static int CoinItemShop;
 
     // Start is called before the first frame update
     void Start()
@@ -38,16 +40,19 @@ public class ShopController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            PrepareInventoryData();
+           
             if (shopUI.isActiveAndEnabled == false && browseStock == true)
             {
                 shopUI.Show();
                 Debug.Log("show");
                 foreach (var item in inventoryData.GetCurrentInventoryState())
                 {
+                   
                     shopUI.UpdateData(item.Key,
                       item.Value.itemSO.IteamImage,
                       item.Value.quantity);
+                    
+                    
                 }
             }
             else
@@ -56,6 +61,19 @@ public class ShopController : MonoBehaviour
                 browseStock = false;
                 // Time.timeScale = 1;
             }
+        }
+    }
+
+    public void LoadItemShop()
+    {
+        foreach (var item in inventoryData.GetCurrentInventoryState())
+        {
+
+            shopUI.UpdateData(item.Key,
+              item.Value.itemSO.IteamImage,
+              item.Value.quantity);
+
+
         }
     }
 
@@ -86,6 +104,7 @@ public class ShopController : MonoBehaviour
             };
 
             initalItems.Add(newItem);
+            
         }
 
         foreach (InventoryItem item in initalItems)
@@ -93,6 +112,7 @@ public class ShopController : MonoBehaviour
             if (item.IsEmty)
                 continue;
             inventoryData.AddItem(item);
+           
         }
 
     }
@@ -143,7 +163,9 @@ public class ShopController : MonoBehaviour
 
         ItemSO item = inventoryItem.itemSO;
         //  TestModel model;
-
-        shopUI.UpdateDesciption(itemindex, item.IteamImage, item.Name, item.Description, item.price);
+        idItemShop = item.id;
+        CoinItemShop = item.price;
+        string Description = "Mô tả: " + item.Description +"\n\n" + "Số lượng: " + item.quantity;
+        shopUI.UpdateDesciption(itemindex, item.IteamImage, item.Name, Description, item.price);
     }
 }

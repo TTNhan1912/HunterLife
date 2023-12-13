@@ -41,7 +41,7 @@ namespace Inventory.Model
         public string itemImage { get; set; }
 
         [field: SerializeField]
-        public string price { get; set; }
+        public int price { get; set; }
 
 
     }

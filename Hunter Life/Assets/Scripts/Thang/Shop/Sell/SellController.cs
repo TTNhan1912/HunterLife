@@ -20,7 +20,9 @@ public class SellController : MonoBehaviour
 
     public Login login { get; private set; }
     public ItemSO itemSO;
-
+    public static int quantity;
+    public static int price;
+    public static string idName;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class SellController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PrepareInventoryData();
+        
         foreach (var item in inventoryData.GetCurrentInventoryState())
         {
 
@@ -111,8 +113,11 @@ public class SellController : MonoBehaviour
 
         ItemSO item = inventoryItem.itemSO;
         //  TestModel model;
-
-        inventoryUI.UpdateDesciption(itemindex, item.IteamImage, item.name, item.Description, item.price);
+        quantity = item.quantity;
+        price = item.price;
+        idName = item.idName;
+        UISellDescription.currentTotal = 1;
+        inventoryUI.UpdateDesciption(itemindex, item.IteamImage, item.name, item.Description, item.price, 1);
 
 
 

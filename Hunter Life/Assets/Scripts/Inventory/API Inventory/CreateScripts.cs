@@ -34,12 +34,13 @@ public class CreateScripts : MonoBehaviour
     IEnumerator LoadImageSprite()
     {
         InventoryController inventoryController = FindObjectOfType<InventoryController>();
+        //SellController sellController = FindObjectOfType<SellController>();
         //ItemSO[] scriptableObjects = Resources.LoadAll<ItemSO>("DataItemAPI");
         if (inventoryController != null)
         {
             // xóa dữ liệu túi đồ cũ
             inventoryController.initalItems.Clear();
-           
+            //sellController.initalItems.Clear();           
 
             foreach (TestModel model in ItemAPILogin.testModel)
             {
@@ -59,7 +60,7 @@ public class CreateScripts : MonoBehaviour
 
                         // Gán sprite trực tiếp vào SpriteRenderer
                         spriteRenderer = sprite;
-                        newScriptableObject.id += model.itemName._id;
+                        newScriptableObject.idName += model.itemName._id;
                         newScriptableObject.Name += model.itemName.itemName;
                         newScriptableObject.Description += model.itemName.description;
                         newScriptableObject.itemImage = model.itemName.image;
@@ -82,18 +83,21 @@ public class CreateScripts : MonoBehaviour
                 AssetDatabase.CreateAsset(newScriptableObject, assetPath);
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
-                //InventoryController inventoryController = FindObjectOfType<InventoryController>();
-                //if (inventoryController != null)
-                //{
+                
+                // đổ item lên túi đồ
                 inventoryController.newScriptableObjectt = newScriptableObject;
                 inventoryController.PrepareInventoryData();
-                //}
+
+                //// đổ item lên bán
+                //sellController.newScriptableObjectt = newScriptableObject;
+                //sellController.PrepareInventoryData();
 
                 // Chọn đối tượng mới tạo trong Project window
                 Selection.activeObject = newScriptableObject;
 
             }
         }
+        inventoryController.LoadItemSell();
         ShowPotion.playerLife.LoadQuantityPotion();
         ShowPotion.playerLife.LoadQuantityKey();
        
@@ -127,7 +131,7 @@ public class CreateScripts : MonoBehaviour
 
                     // Gán sprite trực tiếp vào SpriteRenderer
                     spriteRenderer = sprite;
-                    newScriptableObject.id += model._id;
+                    newScriptableObject.idName += model._id;
                     newScriptableObject.Name += model.itemName;
                     newScriptableObject.Description += model.description;
                     newScriptableObject.itemImage = model.image;
@@ -229,6 +233,7 @@ public class CreateScripts : MonoBehaviour
 
             }
         }
+        shopController.LoadItemShop();
 
     }
 

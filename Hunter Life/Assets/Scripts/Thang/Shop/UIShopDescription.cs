@@ -37,7 +37,7 @@ namespace Shop.UI
             description.text = "";  
             total.text = "";
         }
-        public void SetDescription(Sprite sprite, string itemname, string itemdesciption, string itemPrice)
+        public void SetDescription(Sprite sprite, string itemname, string itemdesciption, int itemPrice)
         {
             itemImage.gameObject.SetActive(true);
             itemImage.sprite = sprite;
@@ -45,9 +45,9 @@ namespace Shop.UI
             description.text = itemdesciption;
 
            
-            initialPrice = int.Parse(itemPrice);
+            initialPrice = itemPrice;
     
-            total.text = itemPrice;
+            total.text = itemPrice + "";
        
 
         }
@@ -59,10 +59,10 @@ namespace Shop.UI
             
             Debug.Log(initialPrice);
             
-            total.text = currentTotal.ToString();
+            total.text = currentTotal + "";
 
        
-            SetDescription(itemImage.sprite, title.text, description.text, currentTotal.ToString());
+            SetDescription(itemImage.sprite, title.text, description.text, currentTotal);
     
         }
 
@@ -73,10 +73,10 @@ namespace Shop.UI
 
             Debug.Log(initialPrice);
 
-            total.text = currentTotal.ToString();
+            total.text = currentTotal + "";
 
 
-            SetDescription(itemImage.sprite, title.text, description.text, currentTotal.ToString());
+            SetDescription(itemImage.sprite, title.text, description.text, currentTotal);
 
         }
 

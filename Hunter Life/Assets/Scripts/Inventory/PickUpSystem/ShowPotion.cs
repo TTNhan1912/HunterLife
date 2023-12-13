@@ -51,10 +51,10 @@ public class ShowPotion : MonoBehaviour
         foreach (var item in inventoryData.GetCurrentInventoryState())
         {             
             
-            if ("651ff3786d1b88d6eb0d18e4" == item.Value.itemSO.id)
+            if ("651ff3786d1b88d6eb0d18e4" == item.Value.itemSO.idName)
             {
                 LifePot = item.Value.itemSO.quantity;
-
+                
                 if (isActiveInHierarchy)
                 {
                     TextLifePot1.text = LifePot + "";
@@ -89,10 +89,10 @@ public class ShowPotion : MonoBehaviour
         foreach (var item in inventoryData.GetCurrentInventoryState())
         {
            
-            if ("6574bc92db53a20b56ab4326" == item.Value.itemSO.id)
+            if ("6574bc92db53a20b56ab4326" == item.Value.itemSO.idName)
             {
                 Key = item.Value.itemSO.quantity;
-
+                
                 if (isActiveInHierarchy)
                 {
                     TextLifeKey1.text = Key + "";

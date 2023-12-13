@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Sell.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,8 @@ public class ItemAPILogin : MonoBehaviour
     public static List<GetAllItemResponseModel> getAllItemResponse;
     public static ItemAPILogin itemAPI;
     public static List<ShopItemResponseModel>  shopItemResponseModel;
+
+    public GameObject ErrorCoin;
 
 
     // Start is called before the first frame update
@@ -275,21 +278,94 @@ public class ItemAPILogin : MonoBehaviour
             // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
             shopItemResponseModel = JsonConvert.DeserializeObject<List<ShopItemResponseModel>>(jsonString);
 
-            //   Debug.Log(test01Model.itemname);
-            foreach (ShopItemResponseModel model in shopItemResponseModel)
-            {
-                Debug.Log($"_id: {model._id}");
-                Debug.Log($"Item Name: _id: {model.itemName._id}," +
-                    $" ItemName: {model.itemName.itemName}, Description: {model.itemName.description}, " +
-                    $"Consumable: {model.itemName.consumable}, Image: {model.itemName.image}");
-                Debug.Log($"Quantity: {model.quantity}");
-            }
-
-
+            CreateScripts.createScriptsIntance.CreateMyScriptableObjectAllItemShop();
 
 
         }
         request.Dispose();
     }
 
+    //mua vật phẩm từ cửa hàng
+    
+    public void BoughtShop()
+    {
+        var id = ShopController.idItemShop; 
+        Debug.Log("IDItemShop" +  id);
+        if(SavePositionCoin.coinn >= ShopController.CoinItemShop)
+        {
+            SavePositionCoin.coinn = SavePositionCoin.coinn - ShopController.CoinItemShop;
+            Debug.Log("Đã bán");
+            StartCoroutine(BoughtItems(id));
+            BoughtItems(id);
+        }
+        else
+        {
+            ErrorCoin.SetActive(true);
+        }
+
+    }
+
+    IEnumerator BoughtItems(string id)
+    {
+        var userName = "654507e7644da551c636056c";
+
+        //if (Login.loginResponse != null)
+        //{
+        //    id = Login.loginResponse.id;
+        //    Debug.Log("id1" + id);
+        //    Debug.Log("Login");
+        //}
+
+        //if (Register.registerResponseMoel != null)
+        //{
+        //    id = Register.registerResponseMoel.id;
+        //    Debug.Log("Register" + id);
+        //}
+        Debug.Log("Login"+ userName + "id"+ id);
+        BoughtShopModel userModel = new BoughtShopModel(id, userName);
+
+        string jsonStringRequest = JsonConvert.SerializeObject(userModel);
+        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/updatebought", "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonStringRequest);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            var jsonString = request.downloadHandler.text.ToString();
+            // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
+            NewItemsInventoryResponesModel newItemsInventoryRespones = JsonConvert.DeserializeObject<NewItemsInventoryResponesModel>(jsonString);
+
+            if (newItemsInventoryRespones.status)
+            {
+                GetAllItemShop();
+                test();
+                Debug.Log("Add thành công");
+            }
+            else
+            {
+                Debug.Log("Add thất bại");
+            }
+
+
+        }
+        request.Dispose();
+    }
+
+    // Bán vật phẩm trong túi đồ
+    public void SellItem()
+    {
+      
+        SavePositionCoin.coinn += UISellDescription.priceItem;
+        DeleteItemInventory(SellController.idName, UISellDescription.currentTotal);
+       
+
+
+    }
 }

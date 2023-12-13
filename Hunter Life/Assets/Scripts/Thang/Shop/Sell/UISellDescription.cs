@@ -15,10 +15,14 @@ namespace Sell.UI
         [SerializeField]
         private TMP_Text description;
 
-        private int currentTotal = 0;
-        private int initialPrice;
+        public static int currentTotal;
+        private int initialquantity;
+        private int sumPrice;
+        public  int price;
+        public static int priceItem;
 
         [SerializeField] private TMP_Text total;
+        [SerializeField] private TMP_Text quantity;
         [SerializeField] private TMP_Text btnIncrease;
         [SerializeField] private TMP_Text btnDecrease;
         [SerializeField] private TMP_Text btnPurchase;
@@ -42,45 +46,64 @@ namespace Sell.UI
             title.text = "";
             description.text = "";
             total.text = "";
+            quantity.text = "";
         }
 
-        public void SetDescription(Sprite sprite, string itemname, string itemdesciption, string itemPrice)
+        public void SetDescription(Sprite sprite, string itemname, string itemdesciption, int itemPrice, int itemquatity)
         {
             itemImage.gameObject.SetActive(true);
             itemImage.sprite = sprite;
             title.text = itemname;
             description.text = itemdesciption;
-
-            //  initialPrice = int.Parse(itemPrice);
-
-            total.text = itemPrice;
+            quantity.text = currentTotal + "";
+           
+            initialquantity = SellController.quantity;
+            price = SellController.price;
+            total.text = itemPrice + "";
         }
 
         public void increase()
         {
 
-            currentTotal += initialPrice;
+          //  currentTotal += initialquantity;
 
-            Debug.Log(initialPrice);
+           // Debug.Log(initialquantity);
+            if(currentTotal < initialquantity)
+            {
+                currentTotal += 1;
+                price = price * currentTotal;
+                quantity.text = currentTotal + "";
+                priceItem = price;
+                
+                SetDescription(itemImage.sprite, title.text, description.text, price, currentTotal);
+            }
+            
 
-            total.text = currentTotal.ToString();
 
 
-            SetDescription(itemImage.sprite, title.text, description.text, currentTotal.ToString());
+            
 
         }
 
         public void decrease()
         {
 
-            currentTotal -= initialPrice;
+            // currentTotal -= initialquantity;
 
-            Debug.Log(initialPrice);
+           
+            if (currentTotal > 1 )
+            {
+                currentTotal -= 1;
+                price = price * currentTotal;
+                quantity.text = currentTotal + "";
+                priceItem = price;
+                
+                SetDescription(itemImage.sprite, title.text, description.text,price, currentTotal);
+            }
+           
 
-            total.text = currentTotal.ToString();
 
-
-            SetDescription(itemImage.sprite, title.text, description.text, currentTotal.ToString());
+           
 
         }
     }

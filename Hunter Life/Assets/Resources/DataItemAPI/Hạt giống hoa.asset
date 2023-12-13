@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 883db3b07e4463a40be31b62205d0637, type: 3}
-  m_Name: Boom
+  m_Name: "H\u1EA1t gi\u1ED1ng hoa"
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
   <id>k__BackingField: 
-  <idName>k__BackingField: 651ff3606d1b88d6eb0d18e2
-  <Name>k__BackingField: Boom
-  <quantity>k__BackingField: 0
-  <Description>k__BackingField: "D\xF9ng \u0111\u1EC3 \u0111\xE1nh qu\xE1i v\u1EADt"
+  <idName>k__BackingField: 651ff3086d1b88d6eb0d18de
+  <Name>k__BackingField: "H\u1EA1t gi\u1ED1ng hoa"
+  <quantity>k__BackingField: 19
+  <Description>k__BackingField: "Tr\u1ED3ng n\xEAn nh\u1EEFng th\u1EE9 tuy\u1EC7t
+    v\u1EDDi"
   <IteamImage>k__BackingField: {fileID: 0}
-  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1701356509125-828771849bomb_f0.png?alt=media&token=11c62bf2-0943-4137-b897-f4db41535568
+  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1701357074997-409884015items%20free.png?alt=media&token=46f82415-a7af-465f-ae4b-e8318ece4ac7
   <price>k__BackingField: 0

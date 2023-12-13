@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 883db3b07e4463a40be31b62205d0637, type: 3}
-  m_Name: 651ff5d66d1b88d6eb0d1953
+  m_Name: 6579841399bd0619f9347f58
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <id>k__BackingField: 651ff5d66d1b88d6eb0d1953
+  <id>k__BackingField: 6579841399bd0619f9347f58
   <idName>k__BackingField: 651ff3086d1b88d6eb0d18de
   <Name>k__BackingField: "H\u1EA1t gi\u1ED1ng hoa"
-  <quantity>k__BackingField: 12
+  <quantity>k__BackingField: 2
   <Description>k__BackingField: "Tr\u1ED3ng n\xEAn nh\u1EEFng th\u1EE9 tuy\u1EC7t
     v\u1EDDi"
   <IteamImage>k__BackingField: {fileID: 0}

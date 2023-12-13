@@ -9,11 +9,25 @@ public class SavePositionCoin : MonoBehaviour
 {
     public GameObject savePosition, saveCoin;
     public Text coin;
-    private float coinn;
+    public static int coinn;
+    int i;
     // Start is called before the first frame update
     void Start()
     {
+        if (Login.loginResponse != null)
+        {
+            coinn = Login.loginResponse.coin;
+           
+            Debug.Log("Login");
+        }
+        else
+        {
+            coinn = 0 ;
+        }
 
+        
+        
+        
     }
 
     // Update is called once per frame
@@ -37,6 +51,13 @@ public class SavePositionCoin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T) && coinn > 0)
         {
             coinn -= 10;
+        }
+
+        
+        if(coinn != i)
+        {
+            SaveCoin();
+            i = coinn;
         }
 
         coin.text = coinn + "";
@@ -134,7 +155,7 @@ public class SavePositionCoin : MonoBehaviour
     IEnumerator saveConi()
     {
         //…
-        var id = "";
+        var id = "654507e7644da551c636056c";
 
         if (Login.loginResponse != null)
         {
@@ -177,7 +198,7 @@ public class SavePositionCoin : MonoBehaviour
             if (savePosCoinRespModel.status)
             {
                 saveCoin.SetActive(false);
-                Debug.Log("Lưu thành công");
+                Debug.Log("Lưu coin thành công");
             }
             else
             {

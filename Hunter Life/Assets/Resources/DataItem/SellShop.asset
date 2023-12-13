@@ -12,5 +12,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67c28cbe26fd924f9e69e43f0ac24fb, type: 3}
   m_Name: SellShop
   m_EditorClassIdentifier: 
-  inventoryItems: []
-  <Size>k__BackingField: 10
+  inventoryItems:
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  <Size>k__BackingField: 20

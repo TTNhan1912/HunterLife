@@ -1802,7 +1802,9 @@ MonoBehaviour:
   itemImage: {fileID: 6764771148282022088}
   title: {fileID: 6435947316823752716}
   description: {fileID: 403451780737395144}
+  price: 0
   total: {fileID: 8959892380572688020}
+  quantity: {fileID: 0}
   btnIncrease: {fileID: 7342036422741477517}
   btnDecrease: {fileID: 5899010508292475558}
   btnPurchase: {fileID: 7154926386771058474}
@@ -2440,7 +2442,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4264055026567147840}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5510,7 +5512,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8586890022872006758}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
