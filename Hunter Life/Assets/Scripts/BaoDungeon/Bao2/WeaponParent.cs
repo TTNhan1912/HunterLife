@@ -42,6 +42,8 @@ public class WeaponParent : MonoBehaviour
     public GameObject ArrowPrefab;
     public Transform Arrowfire;
     private int W;
+      public float shootDelay = 1f; // Thời gian chờ giữa mỗi lần bắn
+       private float lastShootTime;
 
     void Start()
     {
@@ -114,10 +116,13 @@ public class WeaponParent : MonoBehaviour
     {
         if (attackBlocked)
             return;
-        if (W == 3)
+        if (W == 3) 
         {
+            if( Time.time > lastShootTime + shootDelay){
             ShootArrow();
-            animator.SetTrigger("Attack");
+             lastShootTime = Time.time;
+            animator.SetTrigger("Attackbow");}
+
 
         }
         else

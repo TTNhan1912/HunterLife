@@ -16,16 +16,17 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
     public float transitionTime = 0.5f;
 
     public GameObject cam;
+     public GameObject pannettuto;
 
-    private Vector3 Map, map1, map2, map3, map4, map5, map5A, map6, map7, map8, map9, map10, map3A;// =  new Vector3(x, y, -9);
+    private Vector3 Map, map1,maptuto, map2, map3, map4, map5, map5A, map6, map7, map8, map9, map10, map3A;// =  new Vector3(x, y, -9);
    //  [Header("Item")]
-    public GameObject itemman1, itemman2, itemman3, itemman4, itemman5, itemman3A, itemman6, itemman5A, itemman7, itemman8;
+    public GameObject itemman1,itemmantuto, itemman2, itemman3, itemman4, itemman5, itemman3A, itemman6, itemman5A, itemman7, itemman8;
   //  [Header("Monter")]
      public GameObject MonterMan1,MonterMan2,MonterMan3,MonterMan4,MonterMan5,MonterMan6,MonterMan7;
 
     // UI ánh xạ mini map theo từng màn
     public RawImage miniMap;
-    public Texture texture1, texture2, texture3, texture3a, texture4, texture5, texture5a, texture6, texture7, textureboss;
+    public Texture texture1,texturetuto, texture2, texture3, texture3a, texture4, texture5, texture5a, texture6, texture7, textureboss;
 
     [SerializeField] private GameObject Loader;
     public string key_Man = "man_save";
@@ -48,6 +49,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
     {
         Map = new Vector3(184.5f, 81.5f, -9f);
         map1 = new Vector3(184.5f, 81.5f, -9f);
+        maptuto = new Vector3(184.5f, 64.36f, -9f);
         map2 = new Vector3(209f, 81.5f, -9f);
         map3 = new Vector3(233f, 81.5f, -9);
         map3A = new Vector3(258f, 81.5f, -9);
@@ -118,6 +120,32 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+         if (collision.gameObject.CompareTag("Sidemantuto"))
+        {
+            Map = map1;
+               
+                 itemmantuto.SetActive(false);
+                 itemman1.SetActive(true);
+                 pannettuto.SetActive(false);
+              
+                //thay mini map
+                miniMap.texture = texture1;
+
+
+        }
+         if (collision.gameObject.CompareTag("Sideman1"))
+        {
+            Map = maptuto;
+               
+                 itemmantuto.SetActive(true);
+                 itemman1.SetActive(false);
+                 pannettuto.SetActive(true);
+              
+                //thay mini map
+                miniMap.texture = texturetuto;
+
+
+        }
         if (collision.gameObject.CompareTag("teleporter"))
         {
             currentTeleporter = collision.gameObject;
@@ -344,6 +372,20 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
         if (collision.gameObject.CompareTag("teleporter"))
         {
             currentTeleporter = null;
+        }
+          if (collision.gameObject.CompareTag("Sidemantuto"))
+        {
+           
+                 currentTeleporter = null;
+
+
+        }
+         if (collision.gameObject.CompareTag("Sideman1"))
+        {
+           
+                 currentTeleporter = null;
+
+
         }
     }
 

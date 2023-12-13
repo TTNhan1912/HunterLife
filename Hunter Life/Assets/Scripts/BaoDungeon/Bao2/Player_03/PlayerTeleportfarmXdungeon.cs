@@ -13,8 +13,9 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
     public GameObject Canvan;
     [Header("Camera")]
     public GameObject CameraDungeon;
-    public Camera CameraDungeonCanvas;
+    // public Camera CameraDungeonCanvas;
     public GameObject Camera;
+    public GameObject pannettuto;
 
     private Item itemAPI;
 
@@ -68,25 +69,28 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
             if (otherLayer == LayerMask.NameToLayer("EnterDungeon"))
             {
 
-
+                CameraDungeon.SetActive(true);
                 Canvan.SetActive(false);
                 Camera.SetActive(false);
+                pannettuto.SetActive(true);
 
                 //  Canvas canvas = GetComponent<Canvas>();
                 //  canvas.worldCamera = CameraDungeonCanvas;
 
                 transform.position += new Vector3(0, -2, 0);
-                PlayerFarm.SetActive(false);
-                CanvanDungeon.SetActive(true);
-                CameraDungeon.SetActive(true);
-                PlayerDungeon.SetActive(true);
 
-                CreateScripts.createScriptsIntance.CreateMyScriptableObject();
+                CanvanDungeon.SetActive(true);
+
+                PlayerDungeon.SetActive(true);
+                PlayerFarm.SetActive(false);
+
+                //  CreateScripts.createScriptsIntance.CreateMyScriptableObject();
                 //thay mini map
 
             }
             else if (otherLayer == LayerMask.NameToLayer("OutDungeon"))
             {
+                pannettuto.SetActive(false);
 
 
                 CanvanDungeon.SetActive(false);
