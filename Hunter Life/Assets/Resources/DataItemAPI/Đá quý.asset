@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 883db3b07e4463a40be31b62205d0637, type: 3}
-  m_Name: "B\xECnh m\xE1u"
+  m_Name: "\u0110\xE1 qu\xFD"
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <id>k__BackingField: 651ff3786d1b88d6eb0d18e4
-  <Name>k__BackingField: "B\xECnh m\xE1u"
-  <quantity>k__BackingField: 80
-  <Description>k__BackingField: "Gi\xFAp h\u1ED3i l\u1EA1i l\u01B0\u1EE3ng m\xE1u
-    \u0111\xE3 m\u1EA5t"
+  <id>k__BackingField: 651ff39c6d1b88d6eb0d18e6
+  <Name>k__BackingField: "\u0110\xE1 qu\xFD"
+  <quantity>k__BackingField: 2
+  <Description>k__BackingField: "C\xF3 th\u1EC3 d\xF9ng \u0111\u1EC3 gia c\xF4ng
+    n\xE2ng c\u1EA5p v\u0169 kh\xED"
   <IteamImage>k__BackingField: {fileID: 0}
-  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1702128151240-156838665LifePot.png?alt=media&token=5dbe7c1b-d003-4071-899b-cb87cd2eacf9
+  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1701356683761-531842774Item3.png?alt=media&token=c94f8dfe-d5cf-4327-93e8-8df28d954ce3
   <price>k__BackingField: 0
