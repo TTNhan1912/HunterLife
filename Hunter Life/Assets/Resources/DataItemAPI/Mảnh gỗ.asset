@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <id>k__BackingField: 651ff3bb6d1b88d6eb0d18e8
+  <id>k__BackingField: 
+  <idName>k__BackingField: 651ff3bb6d1b88d6eb0d18e8
   <Name>k__BackingField: "M\u1EA3nh g\u1ED7"
-  <quantity>k__BackingField: 13
+  <quantity>k__BackingField: 15
   <Description>k__BackingField: "D\xF9ng \u0111\u1EC3 x\xE2y nh\xE0 v\xE0 b\xE1n"
   <IteamImage>k__BackingField: {fileID: 0}
-  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1701788309095-762777600Item2.png?alt=media&token=1ef0c0a6-f865-4f42-94e5-9967d2786f06
+  <itemImage>k__BackingField: https://firebasestorage.googleapis.com/v0/b/hunterlief-459aa.appspot.com/o/items%2F1702568899057-99210568Wood.png?alt=media&token=f918d0bf-62f7-461b-836f-630168bebb70
   <price>k__BackingField: 40

@@ -214,6 +214,7 @@ namespace Inventory.Model
     public struct InventoryAPI
     {
         public int quantityAPI;
+        public int priceAPI;
         public ItemSOAPI itemSOAPI;
 
 
@@ -225,6 +226,7 @@ namespace Inventory.Model
         {
             itemSOAPI = null,
             quantityAPI = 0,
+            priceAPI = 0,
         };
 
 
@@ -236,6 +238,7 @@ namespace Inventory.Model
     public struct InventoryItem
     {
         public int quantity;
+        public int price;
         public ItemSO itemSO;
 
         public bool IsEmty => itemSO == null;

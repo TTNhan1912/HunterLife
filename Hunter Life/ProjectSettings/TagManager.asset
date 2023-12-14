@@ -53,6 +53,7 @@ TagManager:
   - Sideman5A
   - Startman3A
   - Endman3
+  - Interact
   layers:
   - Default
   - TransparentFX

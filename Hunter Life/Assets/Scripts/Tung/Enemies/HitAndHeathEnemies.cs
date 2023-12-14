@@ -73,10 +73,6 @@ public class HitAndHeathEnemies : MonoBehaviour
         {
             BeingAttacked(0.25f);
         }
-          if (collision.gameObject.CompareTag("CArrow"))
-        {
-            BeingAttacked(0.15f);
-        }
         if (collision.gameObject.CompareTag("axe"))
         {
             //  BeingAttacked(0.2f);

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <id>k__BackingField: 651ff3606d1b88d6eb0d18e2
+  <id>k__BackingField: 
+  <idName>k__BackingField: 651ff3606d1b88d6eb0d18e2
   <Name>k__BackingField: Boom
   <quantity>k__BackingField: 0
   <Description>k__BackingField: "D\xF9ng \u0111\u1EC3 \u0111\xE1nh qu\xE1i v\u1EADt"

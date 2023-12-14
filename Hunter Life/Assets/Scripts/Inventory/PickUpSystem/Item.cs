@@ -21,7 +21,7 @@ public class Item : MonoBehaviour
     {
         StartCoroutine(LoadImage());
 
-        //  Debug.Log("acb");
+        Debug.Log("acb");
 
     }
 

@@ -174,6 +174,18 @@ namespace Inventory
 
         }
 
+        public void LoadItemSell()
+        {
+            foreach (var item in inventoryData.GetCurrentInventoryState())
+            {
+
+                inventoryUI.UpdateData(item.Key,
+                  item.Value.itemSO.IteamImage,
+                  item.Value.quantity);
+
+            }
+        }
+
 
 
 

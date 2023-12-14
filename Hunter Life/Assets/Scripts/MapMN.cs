@@ -11,7 +11,7 @@ public class MapMN : MonoBehaviour
 
     private void Start()
     {
-        SetActiveObjects(false, myFarm, roadToMyFarm, beach, town, dungeon);
+        SetActiveObjects(false, roadToMyFarm, beach, town, dungeon);
     }
 
     private void Update()

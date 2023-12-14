@@ -11,6 +11,7 @@ public class NewItemsInventoryModel
         this.quantity = quantity;
     }
 
+   
     public string userName {  get; set; }
     public string itemName { get; set; }
     public int quantity { get; set; }
