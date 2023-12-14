@@ -6,7 +6,9 @@ public class Arrow : MonoBehaviour
 {
      private Rigidbody2D rb;
     public float speed = 5f; // Tốc độ của viên đạn
-    public float forceMagnitude = 10f; // Lực của viên đạn
+    public float forceMagnitude = 10f;
+    public int BoA =1;
+     // Lực của viên đạn
 
     void Start()
     {
@@ -21,6 +23,7 @@ public class Arrow : MonoBehaviour
     // }
     void OnTriggerEnter2D(Collider2D other)
 {      
+    if( BoA==1){
     // Kiểm tra nếu mũi tên va chạm vào một vật thể
     if (other.CompareTag("enemy3"))
     {
@@ -69,6 +72,37 @@ public class Arrow : MonoBehaviour
 
         // Tắt script điều khiển để mũi tên không di chuyển nữa (nếu cần)
         // Destroy(GetComponent<Arrow>());
+    }
+    }
+     if( BoA==2){
+    // Kiểm tra nếu mũi tên va chạm vào một vật thể
+    if (other.CompareTag("enemy3"))
+    {
+        Destroy(gameObject);
+    }
+      if (other.CompareTag("enemy6"))
+    {
+       Destroy(gameObject);
+    }
+     if (other.CompareTag("enemy7"))
+    {
+       Destroy(gameObject);
+    }
+      if (other.CompareTag("enemy8"))
+    {
+        Destroy(gameObject);
+    }
+    if (other.CompareTag("Boss"))
+    {
+        Destroy(gameObject);
+    }
+     if (other.CompareTag("tuong"))
+    {
+     Destroy(gameObject);
+
+        // Tắt script điều khiển để mũi tên không di chuyển nữa (nếu cần)
+        // Destroy(GetComponent<Arrow>());
+    }
     }
 }
 void StickToTarget()

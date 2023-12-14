@@ -32,6 +32,17 @@ public class WeaponParent : MonoBehaviour
     public Animator animator3;
     //  public Transform circleOrigin3;
     public GameObject Weapon3;
+     public GameObject ArrowPrefab;
+    public Transform Arrowfire;
+     public float shootDelay = 1f; // Thời gian chờ giữa mỗi lần bắn
+     [Header("Weapon4(GunVIP)")]
+    public SpriteRenderer weaponRenderer4;
+    public Animator animator4;
+    //  public Transform circleOrigin3;
+    public GameObject Weapon4;
+     public GameObject BulletPrefab;
+    public Transform Bulletfire;
+     public float shootDelayGun = 0.25f; // Thời gian chờ giữa mỗi lần bắn
 
 
     //
@@ -39,10 +50,9 @@ public class WeaponParent : MonoBehaviour
     private Animator animator;
     private Transform circleOrigin;
     //
-    public GameObject ArrowPrefab;
-    public Transform Arrowfire;
+   
     private int W;
-      public float shootDelay = 1f; // Thời gian chờ giữa mỗi lần bắn
+     
        private float lastShootTime;
 
     void Start()
@@ -75,6 +85,12 @@ public class WeaponParent : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             setWeapon3();
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            setWeapon4();
 
 
         }
@@ -124,7 +140,15 @@ public class WeaponParent : MonoBehaviour
             animator.SetTrigger("Attackbow");}
 
 
-        }
+        }else{
+             if(W==4){
+                    if( Time.time > lastShootTime + shootDelayGun){
+            ShootBullet();
+             lastShootTime = Time.time;
+            animator.SetTrigger("Attackgun");}
+
+             }
+
         else
         {
             animator.SetTrigger("Attack");
@@ -132,6 +156,8 @@ public class WeaponParent : MonoBehaviour
             attackBlocked = true;
             StartCoroutine(DelayAttack());
         }
+        }
+       
 
     }
 
@@ -153,11 +179,20 @@ public class WeaponParent : MonoBehaviour
 
         GameObject Arroww = Instantiate(ArrowPrefab, Arrowfire.position, rotation);
         //   Arroww.GetComponent<Arrow>().SetDirection(direction);
+    }
+     public void ShootBullet()
+    {
+
+        Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
 
 
 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Vector3 rotationEulerAngles = new Vector3(0, 0, angle);
+        Quaternion rotation = Quaternion.Euler(rotationEulerAngles);
 
-
+        GameObject Bullett = Instantiate(BulletPrefab, Bulletfire.position, rotation);
+        //   Arroww.GetComponent<Arrow>().SetDirection(direction);
     }
 
     private void OnDrawGizmosSelected()
@@ -175,6 +210,7 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(true);
         Weapon2.SetActive(false);
         Weapon3.SetActive(false);
+          Weapon4.SetActive(false);
 
 
     }
@@ -187,6 +223,7 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(false);
         Weapon2.SetActive(true);
         Weapon3.SetActive(false);
+          Weapon4.SetActive(false);
 
     }
     public void setWeapon3()
@@ -198,6 +235,20 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(false);
         Weapon2.SetActive(false);
         Weapon3.SetActive(true);
+          Weapon4.SetActive(false);
+
+
+    }
+     public void setWeapon4()
+    {
+        W = 4;
+        weaponRenderer = weaponRenderer4;
+        animator = animator4;
+        //  circleOrigin = circleOrigin3;
+        Weapon1.SetActive(false);
+        Weapon2.SetActive(false);
+        Weapon3.SetActive(false);
+         Weapon4.SetActive(true);
 
 
     }
