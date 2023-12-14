@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2770861468056527259}
+  - component: {fileID: 1472451238034673646}
   - component: {fileID: 2770861468056527258}
   - component: {fileID: 2770861468056527257}
   - component: {fileID: 2770861468056527256}
   - component: {fileID: 2770861468056527263}
-  - component: {fileID: 2770861468056527262}
-  - component: {fileID: 2770861468056527261}
   m_Layer: 0
   m_Name: bird_blue
   m_TagString: bird
@@ -37,6 +36,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472451238034673646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770861468056527260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866237f7b842e804fa8f8d02c5747332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &2770861468056527258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -156,49 +167,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2770861468056527262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2770861468056527260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
---- !u!114 &2770861468056527261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2770861468056527260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae05f225abf5dde4c8d55def00f1a982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSR: {fileID: 2770861468056527258}
-  seeker: {fileID: 2770861468056527262}
-  target: {fileID: 0}
-  positionEnemies: {fileID: 2770861468056527259}
-  chaseRadius: 5
-  chuviSize: 5
