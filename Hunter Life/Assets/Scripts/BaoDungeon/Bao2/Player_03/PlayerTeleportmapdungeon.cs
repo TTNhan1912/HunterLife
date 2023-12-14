@@ -146,6 +146,51 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
 
 
         }
+         if (collision.gameObject.CompareTag("Sideman5.2"))
+        {
+           Map = map5A;
+                itemman5.SetActive(false);
+                itemman5A.SetActive(true);
+                //thay mini map
+                miniMap.texture = texture5a;
+
+
+        }
+         if (collision.gameObject.CompareTag("Sideman5A"))
+        {
+         Map = map5;
+                itemman5.SetActive(true);
+                itemman5A.SetActive(false);
+                //thay mini map
+                miniMap.texture = texture5;
+
+
+        }
+         if (collision.gameObject.CompareTag("Endman3"))
+        {
+            Map = map3A;
+               
+                itemman3A.SetActive(true);
+                itemman3.SetActive(false);
+               
+                //thay mini map
+                miniMap.texture = texture3a;
+
+
+        }
+         if (collision.gameObject.CompareTag("Startman3A"))
+        {
+          Map = map3;
+                 
+                itemman3A.SetActive(false);
+                itemman3.SetActive(true);
+                
+                //thay mini map
+               // Debug.Log("Quay về map 3");
+                miniMap.texture = texture3;
+
+
+        }
         if (collision.gameObject.CompareTag("teleporter"))
         {
             currentTeleporter = collision.gameObject;
