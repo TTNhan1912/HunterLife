@@ -22,9 +22,9 @@ public class MissionController : MonoBehaviour
     public GameObject PanelGeward;
     public TMP_Text contentBonus;
     // 
-    private float getCoinsByMission = 0f;
+    private int getCoinsByMission;
 
-    public float GetCoins()
+    public int GetCoins()
     {
         //Debug.Log("Lấy coin:" + getCoinsByMission);
         return getCoinsByMission;
@@ -37,7 +37,7 @@ public class MissionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetCoins();
+        //GetCoins();
         //Debug.Log("Giá trị bên mission: " + getCoinsByMission);
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -228,7 +228,8 @@ public class MissionController : MonoBehaviour
         PanelGeward.SetActive(true);
         contentBonus.text = "" + value;
         // cộng coins từ nhiệm vụ
-        getCoinsByMission += value;
+        //getCoinsByMission += value;
+        SavePositionCoin.coinn += value;
     }
 
 

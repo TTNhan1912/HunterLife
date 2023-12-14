@@ -10,7 +10,7 @@ public class SavePositionCoin : MonoBehaviour
     public GameObject savePosition, saveCoin;
     public TMP_Text coin;
     public static int coinn;
-    int i;
+    public int i;
     // Start is called before the first frame update
     void Start()
     {
