@@ -30,6 +30,8 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
 
     [SerializeField] private GameObject Loader;
     public string key_Man = "man_save";
+     public GameObject panelboss;
+      private Animator bossss;
     //
     //
     //
@@ -59,6 +61,9 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
         map6 = new Vector3(260f, 50.5f, -9);
         map7 = new Vector3(288, 50.5f, -9);
         map8 = new Vector3(312, 50.5f, -9);
+        
+        bossss = panelboss.GetComponent<Animator>();
+      
 
 
     }
@@ -380,6 +385,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
                 Map = map8;
               
                 itemman8.SetActive(true);
+                 bossss.SetTrigger("Play");
               
               
                 //thay mini map
