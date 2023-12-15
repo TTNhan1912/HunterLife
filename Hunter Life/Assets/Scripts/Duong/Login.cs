@@ -100,6 +100,7 @@ public class Login : MonoBehaviour
             loginResponse = JsonConvert.DeserializeObject<LoginResponseMoel>(jsonString);
             if (loginResponse.status)
             {
+                 Debug.Log(">>>>>>>>>>"+ loginResponse.chestmap);
                 SceneManager.LoadScene(1);
             }
             else

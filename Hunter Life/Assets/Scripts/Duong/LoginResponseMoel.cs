@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoginResponseMoel 
 {
-    public LoginResponseMoel(bool status, string message, string id, int coin, string positionX, string positionY, string positionZ, int donemap)
+    public LoginResponseMoel(bool status, string message, string id, int coin, string positionX, string positionY, string positionZ, int donemap,int[] chestmap)
     {
         this.status = status;
         this.message = message;
@@ -14,6 +14,7 @@ public class LoginResponseMoel
         this.positionY = positionY;
         this.positionZ = positionZ;
         this.donemap = donemap;
+        this.chestmap = chestmap;
     }
 
     public bool status { get; set; }
@@ -24,4 +25,5 @@ public class LoginResponseMoel
     public string positionY { get; set; }
     public string positionZ { get; set; }
     public int donemap {get; set;}
+    public int[] chestmap {get;set;}
 }

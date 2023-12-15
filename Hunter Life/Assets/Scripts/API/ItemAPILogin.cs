@@ -427,6 +427,62 @@ public class ItemAPILogin : MonoBehaviour
         request.Dispose();
     }
 
-    
+    // luu trang thai ruong
+     public void SaveChest(int index, int indexchestMap)
+    {
+        StartCoroutine(savechest(index,indexchestMap));
+        savechest(index,indexchestMap);
+    }
+
+    IEnumerator savechest(int index , int indexchestMap)
+    {
+        var id = "654507e7644da551c636056c";
+
+        //if (Login.loginResponse != null)
+        //{
+        //    id = Login.loginResponse.id;
+        //    Debug.Log("id1" + id);
+        //    Debug.Log("Login");
+        //}
+
+        //if (Register.registerResponseMoel != null)
+        //{
+        //    id = Register.registerResponseMoel.id;
+        //    Debug.Log("Register" + id);
+        //}
+        SaveChestModel userModel = new SaveChestModel(id, index,indexchestMap);
+
+        string jsonStringRequest = JsonConvert.SerializeObject(userModel);
+        var request = new UnityWebRequest("https://hunterlife-253b1afa0da4.herokuapp.com/api/users/statusChest", "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonStringRequest);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            var jsonString = request.downloadHandler.text.ToString();
+            // Đây là cách giải mã mảng JSON thành một danh sách đối tượng TestModel
+            NewItemsInventoryResponesModel newItemsInventoryRespones = JsonConvert.DeserializeObject<NewItemsInventoryResponesModel>(jsonString);
+
+            if (newItemsInventoryRespones.status)
+            {
+               
+                Debug.Log("Add chest thành công");
+            }
+            else
+            {
+                Debug.Log("Add thất bại");
+            }
+
+
+        }
+        request.Dispose();
+    }
 
 }
