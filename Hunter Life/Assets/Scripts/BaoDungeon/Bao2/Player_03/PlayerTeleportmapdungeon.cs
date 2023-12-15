@@ -70,8 +70,8 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
 
 
     {
-
-        int CurrentMappp = PlayerPrefs.GetInt(key_Man,-1);
+        if(Login.loginResponse != null){
+            int CurrentMappp = Login.loginResponse.donemap;
         if (CurrentMappp >=0)
         {
             Destroy(MonterMan1);
@@ -104,6 +104,8 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
         {
            // Destroy(itemman8);
         }
+        }
+         
 
 
 
