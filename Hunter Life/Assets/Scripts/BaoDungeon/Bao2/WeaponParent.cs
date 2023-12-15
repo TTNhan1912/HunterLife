@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponParent : MonoBehaviour
@@ -32,17 +30,17 @@ public class WeaponParent : MonoBehaviour
     public Animator animator3;
     //  public Transform circleOrigin3;
     public GameObject Weapon3;
-     public GameObject ArrowPrefab;
+    public GameObject ArrowPrefab;
     public Transform Arrowfire;
-     public float shootDelay = 1f; // Thời gian chờ giữa mỗi lần bắn
-     [Header("Weapon4(GunVIP)")]
+    public float shootDelay = 1f; // Thời gian chờ giữa mỗi lần bắn
+    [Header("Weapon4(GunVIP)")]
     public SpriteRenderer weaponRenderer4;
     public Animator animator4;
     //  public Transform circleOrigin3;
     public GameObject Weapon4;
-     public GameObject BulletPrefab;
+    public GameObject BulletPrefab;
     public Transform Bulletfire;
-     public float shootDelayGun = 0.25f; // Thời gian chờ giữa mỗi lần bắn
+    public float shootDelayGun = 0.25f; // Thời gian chờ giữa mỗi lần bắn
 
 
     //
@@ -50,10 +48,12 @@ public class WeaponParent : MonoBehaviour
     private Animator animator;
     private Transform circleOrigin;
     //
-   
+
     private int W;
-     
-       private float lastShootTime;
+
+    private float lastShootTime;
+
+    public MissionController mission;
 
     void Start()
     {
@@ -88,7 +88,7 @@ public class WeaponParent : MonoBehaviour
 
 
         }
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && mission.isGun == true)
         {
             setWeapon4();
 
@@ -132,32 +132,39 @@ public class WeaponParent : MonoBehaviour
     {
         if (attackBlocked)
             return;
-        if (W == 3) 
+        if (W == 3)
         {
-            if( Time.time > lastShootTime + shootDelay){
-            ShootArrow();
-             lastShootTime = Time.time;
-            animator.SetTrigger("Attackbow");}
+            if (Time.time > lastShootTime + shootDelay)
+            {
+                ShootArrow();
+                lastShootTime = Time.time;
+                animator.SetTrigger("Attackbow");
+            }
 
 
-        }else{
-             if(W==4){
-                    if( Time.time > lastShootTime + shootDelayGun){
-            ShootBullet();
-             lastShootTime = Time.time;
-            animator.SetTrigger("Attackgun");}
-
-             }
-
+        }
         else
         {
-            animator.SetTrigger("Attack");
-            IsAttacking = true;
-            attackBlocked = true;
-            StartCoroutine(DelayAttack());
+            if (W == 4)
+            {
+                if (Time.time > lastShootTime + shootDelayGun)
+                {
+                    ShootBullet();
+                    lastShootTime = Time.time;
+                    animator.SetTrigger("Attackgun");
+                }
+
+            }
+
+            else
+            {
+                animator.SetTrigger("Attack");
+                IsAttacking = true;
+                attackBlocked = true;
+                StartCoroutine(DelayAttack());
+            }
         }
-        }
-       
+
 
     }
 
@@ -180,7 +187,7 @@ public class WeaponParent : MonoBehaviour
         GameObject Arroww = Instantiate(ArrowPrefab, Arrowfire.position, rotation);
         //   Arroww.GetComponent<Arrow>().SetDirection(direction);
     }
-     public void ShootBullet()
+    public void ShootBullet()
     {
 
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
@@ -210,7 +217,7 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(true);
         Weapon2.SetActive(false);
         Weapon3.SetActive(false);
-          Weapon4.SetActive(false);
+        Weapon4.SetActive(false);
 
 
     }
@@ -223,7 +230,7 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(false);
         Weapon2.SetActive(true);
         Weapon3.SetActive(false);
-          Weapon4.SetActive(false);
+        Weapon4.SetActive(false);
 
     }
     public void setWeapon3()
@@ -235,11 +242,11 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(false);
         Weapon2.SetActive(false);
         Weapon3.SetActive(true);
-          Weapon4.SetActive(false);
+        Weapon4.SetActive(false);
 
 
     }
-     public void setWeapon4()
+    public void setWeapon4()
     {
         W = 4;
         weaponRenderer = weaponRenderer4;
@@ -248,7 +255,7 @@ public class WeaponParent : MonoBehaviour
         Weapon1.SetActive(false);
         Weapon2.SetActive(false);
         Weapon3.SetActive(false);
-         Weapon4.SetActive(true);
+        Weapon4.SetActive(true);
 
 
     }

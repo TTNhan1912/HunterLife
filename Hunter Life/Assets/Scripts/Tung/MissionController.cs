@@ -24,6 +24,8 @@ public class MissionController : MonoBehaviour
     // 
     private int getCoinsByMission;
 
+    public bool isGun = false;
+
     public int GetCoins()
     {
         //Debug.Log("Lấy coin:" + getCoinsByMission);
@@ -221,6 +223,7 @@ public class MissionController : MonoBehaviour
     {
         showGeward(80);
         btn7Text.text = "Đã nhận thưởng";
+        isGun = true;
     }
 
     private void showGeward(int value)
