@@ -77,6 +77,10 @@ public class HitAndHeathEnemies : MonoBehaviour
         {
             //  BeingAttacked(0.2f);
         }
+         if (collision.gameObject.CompareTag("CArrow"))
+        {
+             BeingAttacked(0.15f);
+        }
     }
 
     public void BeingAttacked(float dame)

@@ -30,22 +30,22 @@ public class HitAndHeathBoss : MonoBehaviour
         var name = collision.gameObject.tag;
 
         //khi bị tấn công
-     //   if (collision.gameObject.CompareTag("boom"))
-      //  {
+        if (collision.gameObject.CompareTag("CArrow"))
+        {
             // if (bom.isActive)
             // {
             //     //return;
             // }
             // else {                
-            // if (isEndGreen)
-            // {
-            //     BeingAttackedRed();
-            // }
-            // else
-            // {
-            //     BeingAttackedGreen();
-            // }
-            //  }
+            if (isEndGreen)
+            {
+                BeingAttackedRed();
+             }
+             else
+            {
+                 BeingAttackedGreen();
+             }
+             }
 
       //  }
     }
