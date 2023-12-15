@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static Pathfinding.RaycastModifier;
 
 public class ShowPotion : MonoBehaviour
 {
@@ -17,17 +18,52 @@ public class ShowPotion : MonoBehaviour
     public TextMeshProUGUI TextLifeKey2;
 
     public int LifePot;
-    public int Key ;
+    public int Key;
+
+    private int intPot;
+    private int intKey;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(LifePot != intPot)
+        {
+            bool isActiveInHierarchy = canvans.activeInHierarchy;
+            if (isActiveInHierarchy)
+            {
+                TextLifePot1.text = LifePot + "";
+                intPot = LifePot;
+               
+            }
+            else
+            {
+                TextLifePot2.text = LifePot + "";
+                intPot = LifePot;
+               
+            }
+        }
+
+        if(Key != intKey)
+        {
+            bool isActiveInHierarchy = canvans.activeInHierarchy;
+            
+            if (isActiveInHierarchy)
+            {
+                TextLifeKey1.text = Key + "";
+               intKey = Key;
+            }
+            else
+            {
+                TextLifeKey2.text = Key + "";
+                intKey = Key;
+            }
+        }
+   
     }
 
 
@@ -42,85 +78,66 @@ public class ShowPotion : MonoBehaviour
             Debug.Log("Nulllll");
         }
     }
-    public void LoadQuantityPotion()
-    { 
-        bool isActiveInHierarchy = canvans.activeInHierarchy;
-        // Load danh sách ScriptableObject từ thư mục Resources
-        ItemSO[] scriptableObjects = Resources.LoadAll<ItemSO>("DataItemAPI");
 
-        foreach (var item in inventoryData.GetCurrentInventoryState())
-        {             
-            
-            if ("651ff3786d1b88d6eb0d18e4" == item.Value.itemSO.idName)
-            {
-                LifePot = item.Value.itemSO.quantity;
-                
-                if (isActiveInHierarchy)
-                {
-                    TextLifePot1.text = LifePot + "";
-                    return;
-                }
-                else
-                {
-                    TextLifePot2.text = LifePot + "";
-                    return;
-                }            
-            }
-        }
-
-        if (isActiveInHierarchy)
-        {
-            TextLifePot1.text = 0 + "";
-            return;
-        }
-        else
-        {
-            TextLifePot2.text = 0 + "";
-            return;
-        }
-    }
-
-    public void LoadQuantityKey()
+    public void ShowPot()
     {
         bool isActiveInHierarchy = canvans.activeInHierarchy;
-          // Load danh sách ScriptableObject từ thư mục Resources
-        ItemSO[] scriptableObjects = Resources.LoadAll<ItemSO>("DataItemAPI");
-
-        foreach (var item in inventoryData.GetCurrentInventoryState())
+        if (isActiveInHierarchy)
         {
-           
-            if ("6574bc92db53a20b56ab4326" == item.Value.itemSO.idName)
-            {
-                Key = item.Value.itemSO.quantity;
-                
-                if (isActiveInHierarchy)
-                {
-                    TextLifeKey1.text = Key + "";
-                    return;
-                }
-                else
-                {
-
-                    TextLifeKey2.text = Key + "";
-                    return;
-                }
-
-
-            }
+            TextLifePot1.text = LifePot + "";
         }
+        else
+        {
+            TextLifePot2.text = LifePot + "";
+           
+        }
+    }
+
+    public void ShowKey()
+    {
+        bool isActiveInHierarchy = canvans.activeInHierarchy;
 
         if (isActiveInHierarchy)
         {
-            TextLifeKey1.text = 0 + "";
+            TextLifeKey1.text = Key + "";
+            
+        }
+        else
+        {
+            TextLifeKey2.text = Key + "";
+        }
+    }
+    public void LoadQuantityPotion(int quantity)
+    {
+        bool isActiveInHierarchy = canvans.activeInHierarchy;      
+       
+        LifePot += quantity;
+        if (isActiveInHierarchy)
+        {
+            TextLifePot1.text = LifePot + "";
             return;
         }
         else
         {
-
-            TextLifeKey2.text = 0 + "";
+            TextLifePot2.text = LifePot + "";
             return;
         }
+    } 
 
-
-    }
+public void LoadQuantityKey(int quantity)
+    {
+        bool isActiveInHierarchy = canvans.activeInHierarchy;
+        Key += quantity;
+        if (isActiveInHierarchy)
+        {
+            TextLifeKey1.text = Key + "";
+            return;
+        }
+        else
+        {
+            TextLifeKey2.text = Key + "";
+            return;
+        }             
+        }
+    
 }

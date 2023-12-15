@@ -153,7 +153,7 @@ namespace Inventory
                 {
 
                     inventoryUI.Show();
-                    foreach (var item in inventoryData.GetCurrentInventoryState())
+                    foreach (var item in inventoryData.GetCurrentInventoryState()) 
                     {
 
                         inventoryUI.UpdateData(item.Key,
@@ -182,6 +182,26 @@ namespace Inventory
                 inventoryUI.UpdateData(item.Key,
                   item.Value.itemSO.IteamImage,
                   item.Value.quantity);
+               
+
+            }
+        }
+
+        public void LoadQuantity()
+        {
+            foreach (var item in inventoryData.GetCurrentInventoryState())
+            {
+              
+                if (item.Value.itemSO.idName == "651ff3786d1b88d6eb0d18e4")
+                {
+                    ShowPotion.playerLife.LoadQuantityPotion(item.Value.quantity);
+                   
+                }
+
+                if (item.Value.itemSO.idName == "6574bc92db53a20b56ab4326")
+                {                   
+                    ShowPotion.playerLife.LoadQuantityKey(item.Value.quantity);
+                }
 
             }
         }

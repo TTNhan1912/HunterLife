@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883db3b07e4463a40be31b62205d0637, type: 3}
   m_Name: 6535f0466736b95e6f92761b
   m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 0
-  <MaxStackSize>k__BackingField: 1
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
   <id>k__BackingField: 6535f0466736b95e6f92761b
   <idName>k__BackingField: 651ff39c6d1b88d6eb0d18e6
   <Name>k__BackingField: "\u0110\xE1 qu\xFD"

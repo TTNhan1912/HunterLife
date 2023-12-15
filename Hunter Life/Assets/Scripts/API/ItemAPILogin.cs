@@ -64,18 +64,18 @@ public class ItemAPILogin : MonoBehaviour
     {
         var id = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            id = Login.loginResponse.id;
+            Debug.Log("id1" + id);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
+        if (Register.registerResponseMoel != null)
+        {
+            id = Register.registerResponseMoel.id;
+            Debug.Log("Register" + id);
+        }
         TestResponseModel userModel = new TestResponseModel(id);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -149,18 +149,18 @@ public class ItemAPILogin : MonoBehaviour
     {
         var userName = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            userName = Login.loginResponse.id;
+            Debug.Log("id1" + userName);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
+        if (Register.registerResponseMoel != null)
+        {
+            userName = Register.registerResponseMoel.id;
+            Debug.Log("Register" + userName);
+        }
         NewItemsInventoryModel userModel = new NewItemsInventoryModel(userName, itemName, quantity);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -182,8 +182,7 @@ public class ItemAPILogin : MonoBehaviour
             NewItemsInventoryResponesModel newItemsInventoryRespones = JsonConvert.DeserializeObject<NewItemsInventoryResponesModel>(jsonString);
 
             if (newItemsInventoryRespones.status)
-            {
-                test();
+            {              
                 Debug.Log("Add thành công");
             }
             else
@@ -207,18 +206,18 @@ public class ItemAPILogin : MonoBehaviour
     {
         var userName = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            userName = Login.loginResponse.id;
+            Debug.Log("id1" + userName);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
+        if (Register.registerResponseMoel != null)
+        {
+            userName = Register.registerResponseMoel.id;
+            Debug.Log("Register" + userName);
+        }
         NewItemsInventoryModel userModel = new NewItemsInventoryModel(userName, itemName, quantity);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -309,19 +308,19 @@ public class ItemAPILogin : MonoBehaviour
     {
         var userName = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            userName = Login.loginResponse.id;
+            Debug.Log("id1" + userName);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
-        Debug.Log("Login"+ userName + "id"+ id);
+        if (Register.registerResponseMoel != null)
+        {
+            userName = Register.registerResponseMoel.id;
+            Debug.Log("Register" + userName);
+        }
+        Debug.Log("Login"+ userName + "id"+ userName);
         BoughtShopModel userModel = new BoughtShopModel(id, userName);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -380,18 +379,18 @@ public class ItemAPILogin : MonoBehaviour
     {
         var id = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            id = Login.loginResponse.id;
+            Debug.Log("id1" + id);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
+        if (Register.registerResponseMoel != null)
+        {
+            id = Register.registerResponseMoel.id;
+            Debug.Log("Register" + id);
+        }
         SaveMapModel userModel = new SaveMapModel(id, mapindex);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);
@@ -438,18 +437,18 @@ public class ItemAPILogin : MonoBehaviour
     {
         var id = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            id = Login.loginResponse.id;
+            Debug.Log("id1" + id);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
+        if (Register.registerResponseMoel != null)
+        {
+            id = Register.registerResponseMoel.id;
+            Debug.Log("Register" + id);
+        }
         SaveChestModel userModel = new SaveChestModel(id, index,indexchestMap);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);

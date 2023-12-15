@@ -124,7 +124,7 @@ namespace Inventory.Model
             {
                 if (inventoryItems[i].IsEmty)
                     continue;
-                if (inventoryItems[i].itemSO.ID == itemSO.ID)
+                if (inventoryItems[i].itemSO.idName == itemSO.idName)
                 {
                     int amountPossibleTotake =
                         inventoryItems[i].itemSO.MaxStackSize - inventoryItems[i].quantity;

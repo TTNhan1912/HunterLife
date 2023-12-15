@@ -1,3 +1,4 @@
+using Inventory;
 using System.Collections;
 using UnityEngine;
 
@@ -83,8 +84,8 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
 
                 PlayerDungeon.SetActive(true);
                 PlayerFarm.SetActive(false);
-
-                //  CreateScripts.createScriptsIntance.CreateMyScriptableObject();
+                ShowPotion.playerLife.ShowPot();
+                ShowPotion.playerLife.ShowKey();
                 //thay mini map
 
             }

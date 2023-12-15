@@ -44,11 +44,11 @@ public class PlayerLife : MonoBehaviour
             if (ShowPotion.playerLife.LifePot > 0 && CharLife < CharLifeMax)
             {
                 CharLife = CharLife + 1;
-                TongLifePot(-1);
+                //TongLifePot(-1);
                 ItemAPILogin.itemAPI.DeleteItemInventory("651ff3786d1b88d6eb0d18e4", 1);
-                //  ani.Play("Char_Attack_LR");
+                ani.Play("Char_Attack_LR");
                 GameObject heal2 = Instantiate(heal, viTriheal.position, viTriheal.rotation);
-
+                ShowPotion.playerLife.LifePot -= 1;
             }
 
         }

@@ -67,6 +67,8 @@ public class CreateScripts : MonoBehaviour
                         newScriptableObject.IteamImage = spriteRenderer;
                         newScriptableObject.quantity += model.quantity;
                         newScriptableObject.price += model.itemName.price;
+                        newScriptableObject.IsStackable = true;
+                        newScriptableObject.MaxStackSize = 99;
 
 
                         // Hoặc gán sprite trực tiếp vào một Sprite khác (không thông qua SpriteRenderer)
@@ -97,10 +99,7 @@ public class CreateScripts : MonoBehaviour
 
             }
         }
-        inventoryController.LoadItemSell();
-        ShowPotion.playerLife.LoadQuantityPotion();
-        ShowPotion.playerLife.LoadQuantityKey();
-       
+        inventoryController.LoadItemSell();                     
     }
 
     //load tất cả vật phẩm
@@ -137,7 +136,8 @@ public class CreateScripts : MonoBehaviour
                     newScriptableObject.itemImage = model.image;
                     newScriptableObject.IteamImage = spriteRenderer;
                     newScriptableObject.price += model.price;
-
+                    newScriptableObject.IsStackable = true;
+                    newScriptableObject.MaxStackSize = 99;
 
                     // Hoặc gán sprite trực tiếp vào một Sprite khác (không thông qua SpriteRenderer)
                     // this.GetComponent<SpriteRenderer>().sprite = sprite;
@@ -160,6 +160,12 @@ public class CreateScripts : MonoBehaviour
             // Chọn đối tượng mới tạo trong Project window
             Selection.activeObject = newScriptableObject;
 
+        }
+
+        InventoryController inventoryController = FindObjectOfType<InventoryController>();
+        if (inventoryController != null)
+        {
+            inventoryController.LoadQuantity();
         }
 
     }
@@ -207,7 +213,8 @@ public class CreateScripts : MonoBehaviour
                         newScriptableObject.IteamImage = spriteRenderer;
                         newScriptableObject.price += model.price;
                         newScriptableObject.quantity += model.quantity;
-
+                        newScriptableObject.IsStackable = true;
+                        newScriptableObject.MaxStackSize = 99;
 
                         // Hoặc gán sprite trực tiếp vào một Sprite khác (không thông qua SpriteRenderer)
                         // this.GetComponent<SpriteRenderer>().sprite = sprite;
