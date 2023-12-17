@@ -70,25 +70,25 @@ public class WeaponParent : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
             setWeapon1();
 
         }
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
             setWeapon2();
 
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             setWeapon3();
 
 
         }
-        if (Input.GetKeyDown(KeyCode.V) && mission.isGun == true)
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             setWeapon4();
 
@@ -138,6 +138,7 @@ public class WeaponParent : MonoBehaviour
             {
                 ShootArrow();
                 lastShootTime = Time.time;
+                AudioManager.instance.PlaySfx("Bow");
                 animator.SetTrigger("Attackbow");
             }
 
@@ -151,6 +152,8 @@ public class WeaponParent : MonoBehaviour
                 {
                     ShootBullet();
                     lastShootTime = Time.time;
+                    AudioManager.instance.PlaySfx("Gun");
+
                     animator.SetTrigger("Attackgun");
                 }
 
@@ -161,6 +164,7 @@ public class WeaponParent : MonoBehaviour
                 animator.SetTrigger("Attack");
                 IsAttacking = true;
                 attackBlocked = true;
+                AudioManager.instance.PlaySfx("Bua");
                 StartCoroutine(DelayAttack());
             }
         }
@@ -199,6 +203,7 @@ public class WeaponParent : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(rotationEulerAngles);
 
         GameObject Bullett = Instantiate(BulletPrefab, Bulletfire.position, rotation);
+
         //   Arroww.GetComponent<Arrow>().SetDirection(direction);
     }
 

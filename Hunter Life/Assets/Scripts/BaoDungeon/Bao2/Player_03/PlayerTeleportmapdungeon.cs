@@ -380,7 +380,7 @@ public class PlayerTeleportmapdungeon : MonoBehaviour
             else if (otherLayer == LayerMask.NameToLayer("Endman7"))
             {
                 Map = map8;
-
+                AudioManager.instance.PlaySfx("Boss");
                 itemman8.SetActive(true);
                 bossss.SetTrigger("Play");
 

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -32,7 +31,8 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
             }
         }
         //chạy nhạc buổi sáng khi 6h sáng
-        if(m == 6 && s == 0)
+        if (m == 6 && s == 0)
         {
             if (isNight)
             {
@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour
                 rotatingImage.transform.Rotate(new Vector3(0, 0, 140f));
             }
         }
-        if ( m ==  7 && s == 0)
+        if (m == 7 && s == 0)
         {
             rotatingImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             rotatingImage.transform.Rotate(new Vector3(0, 0, 132.5f));
@@ -207,14 +207,38 @@ public class AudioManager : MonoBehaviour
     // chạy nhạc buổi tối
     private void PlayNightMusic()
     {
-       PlayMusic("Night");
+        PlayMusic("Night");
     }
 
     // chạy nhạc buổi sáng
     private void PlayDayMusic()
     {
-       PlayMusic("Farm");
+        PlayMusic("Farm");
     }
+
+
+
+    public void StopMusic(string name)
+    {
+        // Tìm đối tượng Sound tương ứng với tên nhạc
+        Sound s = Array.Find(musicSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Không có sound với tên " + name);
+        }
+        else
+        {
+            // Nếu tìm thấy, kiểm tra xem có đang phát không
+            if (musicSource.clip == s.clip && musicSource.isPlaying)
+            {
+                // Dừng phát nhạc nền
+                musicSource.Stop();
+            }
+        }
+    }
+
+
 
     // nhạc nền
     public void PlayMusic(string name)

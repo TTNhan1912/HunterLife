@@ -1,9 +1,7 @@
-﻿using Inventory;
-using Inventory.Model;
+﻿using Inventory.Model;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.Progress;
 
 public class PickUpSystem : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class PickUpSystem : MonoBehaviour
         Item item = collision.GetComponent<Item>();
         if (item != null)
         {
-           StartCoroutine(LoadImage(item));
+            StartCoroutine(LoadImage(item));
 
         }
 
@@ -36,7 +34,7 @@ public class PickUpSystem : MonoBehaviour
                 // Gán sprite               
                 item.InventoryItem.IteamImage = sprite;
                 ItemAPILogin.itemAPI.NewItemInventory(item.InventoryItem.idName, item.Quantity);
-                if(item.InventoryItem.idName == "651ff3786d1b88d6eb0d18e4")
+                if (item.InventoryItem.idName == "651ff3786d1b88d6eb0d18e4")
                 {
                     ShowPotion.playerLife.LifePot += 1;
                 }
@@ -55,6 +53,7 @@ public class PickUpSystem : MonoBehaviour
                 if (reminder == 0)
                 {
                     item.DestroyItem();
+                    AudioManager.instance.PlaySfx("Coin");
                 }
                 else
                 {

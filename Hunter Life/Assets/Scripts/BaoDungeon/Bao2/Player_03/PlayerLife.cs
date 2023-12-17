@@ -1,7 +1,5 @@
 ﻿using Inventory;
-using Inventory.Model;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,15 +14,15 @@ public class PlayerLife : MonoBehaviour
     //public TextMeshProUGUI TextLifePot;
     public TextMeshProUGUI TextKey;
     //int LifePot = 2;
-    public int Key ;
-    public int tongmeat =2;
+    public int Key;
+    public int tongmeat = 2;
 
 
     public int CharLife = 10;
     public int CharLifeMax = 10;
     [SerializeField] private SimpleFlash flashEffect;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +33,7 @@ public class PlayerLife : MonoBehaviour
 
     }
 
-  
+
 
     // Update is called once per frame
     void Update()
@@ -47,12 +45,12 @@ public class PlayerLife : MonoBehaviour
             {
                 CharLife = CharLife + 1;
                 TongLifePot(-1);
-               
+                AudioManager.instance.PlaySfx("Heal");
                 ani.Play("Char_Attack_LR");
                 GameObject heal2 = Instantiate(heal, viTriheal.position, viTriheal.rotation);
                 ShowPotion.playerLife.LifePot -= 1;
                 InventoryController inventoryController = FindObjectOfType<InventoryController>();
-                if(inventoryController != null )
+                if (inventoryController != null)
                 {
                     inventoryController.removeItem("651ff3786d1b88d6eb0d18e4", 1);
                 }
@@ -100,16 +98,16 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("rawmeat"))
         {
 
-           Destroy(collision.gameObject);
-           //TongLifePot(1);
+            Destroy(collision.gameObject);
+            //TongLifePot(1);
 
 
         }
         if (collision.gameObject.CompareTag("meat"))
         {
-           //Tongmeat(1);
-           //Destroy(collision.gameObject);
-          // TongKey(1);
+            //Tongmeat(1);
+            //Destroy(collision.gameObject);
+            // TongKey(1);
 
 
         }
@@ -119,9 +117,9 @@ public class PlayerLife : MonoBehaviour
         ShowPotion.playerLife.LifePot += Pot;
         //TextLifePot.text = "X " + LifePot;
     }
-     public void Tongmeat(int meat)
+    public void Tongmeat(int meat)
     {
-        tongmeat +=meat;
+        tongmeat += meat;
         //TextLifePot.text = "X " + LifePot;
     }
     public void TongKey(int K)
@@ -136,7 +134,7 @@ public class PlayerLife : MonoBehaviour
 
         //    Instantiate(PopUpDame,originPosotion,Quaternion.identity
         //    );
-
+        PlayHitSound();
         StartCoroutine(ShakeOnce(0.16f, 0.012f));
         CharLife = CharLife - dame;
 
@@ -163,8 +161,12 @@ public class PlayerLife : MonoBehaviour
 
     }
 
+    public void PlayHitSound()
+    {
+        AudioManager.instance.PlaySfx("Hit");
+    }
 
-   
+
 
 }
 

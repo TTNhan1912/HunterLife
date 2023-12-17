@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreasureChest : MonoBehaviour
@@ -36,26 +34,26 @@ public class TreasureChest : MonoBehaviour
                     Debug.Log("///1" + B);
                     Debug.Log("///A" + Login.loginResponse.chestmap[a]);
 
-                     if (B == 1)
-                        {
-                            Debug.Log("///2" + B);
-                           
-                        }
-                        if (B == 0)
+                    if (B == 1)
+                    {
+                        Debug.Log("///2" + B);
 
-                        {
-                            Opench = false;
-                            TreasureChestOpen.SetActive(true);
-                            TreasureChestClose.SetActive(false);
-                            Debug.Log("///3" + B);
+                    }
+                    if (B == 0)
 
-                        }
+                    {
+                        Opench = false;
+                        TreasureChestOpen.SetActive(true);
+                        TreasureChestClose.SetActive(false);
+                        Debug.Log("///3" + B);
+
+                    }
                     return;
 
                 }
             }
 
-           
+
         }
 
 
@@ -110,6 +108,7 @@ public class TreasureChest : MonoBehaviour
         ItemAPILogin.itemAPI.DeleteItemInventory("6574bc92db53a20b56ab4326", 1);
         Opench = false;
         TreasureChestOpen.SetActive(true);
+        AudioManager.instance.PlaySfx("MoRuong");
         TreasureChestClose.SetActive(false);
         GameObject Open2 = Instantiate(open, viTri.position, viTri.rotation);
         for (int i = 0; i < numKey; i++)

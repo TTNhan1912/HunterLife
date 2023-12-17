@@ -11,7 +11,7 @@ public class MapMN : MonoBehaviour
 
     private void Start()
     {
-        SetActiveObjects(false, myFarm, roadToMyFarm, town, beach, dungeon);
+        SetActiveObjects(false, myFarm, roadToMyFarm, beach, dungeon);
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class MapMN : MonoBehaviour
         else if (collision.gameObject.CompareTag("dungeon"))
         {
             dungeon.SetActive(true);
-            Debug.Log("dang dung");
+            AudioManager.instance.PlaySfx("Dungeon");
         }
         else if (collision.gameObject.CompareTag("outDungeon"))
         {

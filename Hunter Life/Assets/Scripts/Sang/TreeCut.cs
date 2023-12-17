@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeCut : MonoBehaviour
@@ -9,7 +8,7 @@ public class TreeCut : MonoBehaviour
 
     [SerializeField] private Transform viTriwood;
 
-    
+
 
     private void Update()
     {
@@ -30,6 +29,7 @@ public class TreeCut : MonoBehaviour
             {
                 GetComponent<Collider2D>().isTrigger = true;
                 StartCoroutine(RotateMe(Vector3.back * 70, 0.9f));
+                AudioManager.instance.PlaySfx("Tree");
                 Destroy(gameObject, 1f);
                 TreeToWood();
                 lifeTree_Snow = 5;

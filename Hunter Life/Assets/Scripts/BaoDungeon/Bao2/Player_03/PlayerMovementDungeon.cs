@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovementDungeon : MonoBehaviour
 {
@@ -24,7 +22,7 @@ public class PlayerMovementDungeon : MonoBehaviour
         movement.Normalize();
         ani.SetFloat("Horizontal", movement.x);
         ani.SetFloat("Vertical", movement.y);
-        ani.SetFloat("Speed", movement.sqrMagnitude );
+        ani.SetFloat("Speed", movement.sqrMagnitude);
 
         DatBoom();
 
@@ -57,10 +55,10 @@ public class PlayerMovementDungeon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time - timer > time)
         {
-            GameObject quaboom = Instantiate(boom,viTriDatBoom.position, viTriDatBoom.rotation);
+            GameObject quaboom = Instantiate(boom, viTriDatBoom.position, viTriDatBoom.rotation);
         }
     }
-    
+
 
 
 

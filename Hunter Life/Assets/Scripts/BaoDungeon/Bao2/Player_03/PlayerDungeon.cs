@@ -1,20 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerDungeon : MonoBehaviour
 {
-    
-  
+
+
 
     [SerializeField]
     private InputActionReference movement, attack, pointerPosition;
 
     private Vector2 pointerInput, movementInput;
 
-   private WeaponParent weaponParent;
+    private WeaponParent weaponParent;
 
     private void OnEnable()
     {
@@ -28,21 +25,21 @@ public class PlayerDungeon : MonoBehaviour
 
     private void PerformAttack(InputAction.CallbackContext obj)
     {
-       weaponParent.Attack();
+        weaponParent.Attack();
     }
 
     private void Awake()
     {
-       
-       weaponParent = GetComponentInChildren<WeaponParent>();
-      
+
+        weaponParent = GetComponentInChildren<WeaponParent>();
+
     }
 
     private void AnimateCharacter()
     {
         Vector2 lookDirection = pointerInput - (Vector2)transform.position;
-       // agentAnimations.RotateToPointer(lookDirection);
-    
+        // agentAnimations.RotateToPointer(lookDirection);
+
     }
 
     private void Update()
@@ -51,7 +48,7 @@ public class PlayerDungeon : MonoBehaviour
         weaponParent.PointerPosition = pointerInput;
         movementInput = movement.action.ReadValue<Vector2>().normalized;
 
-       
+
         AnimateCharacter();
     }
 
