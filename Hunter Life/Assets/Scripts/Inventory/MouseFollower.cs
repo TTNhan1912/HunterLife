@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseFollower : MonoBehaviour
@@ -15,7 +13,7 @@ public class MouseFollower : MonoBehaviour
         canvas = transform.root.GetComponent<Canvas>();
         item = GetComponentInChildren<UIInventoryItem>();
 
-        
+
 
     }
 
@@ -38,8 +36,7 @@ public class MouseFollower : MonoBehaviour
 
     public void Toggle(bool val)
     {
-        Debug.Log($"Item toggle : { val }");
-        gameObject.SetActive( val );
+        gameObject.SetActive(val);
 
     }
 
