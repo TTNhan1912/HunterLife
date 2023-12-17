@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Inventory;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,9 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private float timer;
     private float time = 2f;
 
+    private InventoryController inventoryController;
     void Start()
     {
-      
+        inventoryController = FindObjectOfType<InventoryController>();
     }
 
     // Update is called once per frame
@@ -57,9 +59,20 @@ public class PlayerMovement : MonoBehaviour
     // Hàm đặt boom
     public void DatBoom()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time - timer > time)
+        if (inventoryController != null)
         {
-            GameObject quaboom = Instantiate(boom, viTriDatBoom.position, viTriDatBoom.rotation);
+            foreach (var item in inventoryController.inventoryData.GetCurrentInventoryState())
+            {
+                if (item.Value.itemSO.idName == "651ff3606d1b88d6eb0d18e2")
+                {
+                    if (item.Value.quantity >= 0)
+                        if (Input.GetKeyDown(KeyCode.Space) && Time.time - timer > time)
+                        {
+                            GameObject quaboom = Instantiate(boom, viTriDatBoom.position, viTriDatBoom.rotation);
+                            inventoryController.removeItem("651ff3606d1b88d6eb0d18e2", 1);
+                        }
+                }
+            }
         }
     }
 

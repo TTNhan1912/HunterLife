@@ -102,6 +102,8 @@ public class CreateScripts : MonoBehaviour
         inventoryController.LoadItemSell();                     
     }
 
+
+
     //load tất cả vật phẩm
 
     public void CreateMyScriptableObjectAllItem()
@@ -258,7 +260,7 @@ public class CreateScripts : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.B))
         {
             CreateMyScriptableObject();
         }

@@ -9,7 +9,7 @@ namespace Inventory
     public class InventoryController : MonoBehaviour
     {
         [SerializeField]
-        private UIInventory inventoryUI;
+        public UIInventory inventoryUI;
 
         [SerializeField]
         public InventorySO inventoryData;
@@ -61,7 +61,7 @@ namespace Inventory
 
         }
 
-        private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
+        public void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
         {
             inventoryUI.ResetAllItem();
             foreach (var item in inventoryState)
@@ -134,7 +134,7 @@ namespace Inventory
 
         }
 
-
+      
 
         public void Update()
         {
@@ -159,6 +159,7 @@ namespace Inventory
                         inventoryUI.UpdateData(item.Key,
                           item.Value.itemSO.IteamImage,
                           item.Value.quantity);
+                       
 
                     }
 
@@ -172,6 +173,12 @@ namespace Inventory
                 }
             }
 
+        }
+
+        // xóa item
+        public void removeItem(string idName, int quantity)
+        {
+            inventoryData.RemoveItem(idName, quantity);           
         }
 
         public void LoadItemSell()
@@ -201,6 +208,11 @@ namespace Inventory
                 if (item.Value.itemSO.idName == "6574bc92db53a20b56ab4326")
                 {                   
                     ShowPotion.playerLife.LoadQuantityKey(item.Value.quantity);
+                }
+
+                if (item.Value.itemSO.idName == "657ee6149ffb7c266c17f886")
+                {
+                    ShowPotion.playerLife.LoadQuantityMeat(item.Value.quantity);
                 }
 
             }

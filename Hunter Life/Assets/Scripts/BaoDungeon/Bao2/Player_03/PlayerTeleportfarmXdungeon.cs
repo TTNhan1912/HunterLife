@@ -86,6 +86,7 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
                 PlayerFarm.SetActive(false);
                 ShowPotion.playerLife.ShowPot();
                 ShowPotion.playerLife.ShowKey();
+                ShowPotion.playerLife.ShowMeat();
                 //thay mini map
 
             }
@@ -101,7 +102,9 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
                 Canvan.SetActive(true);
                 Camera.SetActive(true);
                 PlayerFarm.SetActive(true);
-
+                ShowPotion.playerLife.ShowPot();
+                ShowPotion.playerLife.ShowKey();
+                ShowPotion.playerLife.ShowMeat();
                 //thay mini map
 
             }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Pathfinding.RaycastModifier;
+using static UnityEditor.Progress;
 
 namespace Inventory.Model
 {
@@ -158,8 +160,7 @@ namespace Inventory.Model
             AddItem(item.itemSO, item.quantity);
             //  Debug.Log(item.itemSO.Name);
         }
-
-
+      
         //new
         public void AddItemAPI(ItemSO item, int quantity)
         {
@@ -168,7 +169,41 @@ namespace Inventory.Model
         }
 
 
+        // xóa vật phẩm
+        public void RemoveItem(string idName, int quantityItem)
+        {
+            for (int i = 0; i < inventoryItems.Count; i++)
+            {
+                if ( inventoryItems[i].itemSO != null)
+                {
+                    if (inventoryItems[i].itemSO.idName == idName)
+                    {
+                        if (inventoryItems[i].quantity > 1)
+                        {
+                            inventoryItems[i] = inventoryItems[i].ChangeQuantity(inventoryItems[i].quantity - quantityItem);
+                            ItemAPILogin.itemAPI.DeleteItemInventoryNOLOAD(idName, 1);
+                            InventoryController inventoryController = FindObjectOfType<InventoryController>();
+                            if (inventoryController != null)
+                            {
+                                inventoryController.initalItems.Clear();
+                                inventoryController.inventoryData.OnInventoryUpdated += inventoryController.UpdateInventoryUI;
+                                inventoryController.LoadItemSell();
+                            }
+                        }
+                        else
+                        {
+                            inventoryItems.Remove(inventoryItems[i]);
+                            ItemAPILogin.itemAPI.DeleteItemInventory(idName, 1); 
+                        }
+                        
+                       
+                    }
 
+                }
+
+            }
+
+        }
 
         public Dictionary<int, InventoryItem> GetCurrentInventoryState()
         {

@@ -105,7 +105,9 @@ public class TreasureChest : MonoBehaviour
         B = 0;
         ItemAPILogin.itemAPI.SaveChest(Chestnum, B);
 
-        playerLife.TongKey(-1);
+        //playerLife.TongKey(-1);
+        ShowPotion.playerLife.Key -= 1;
+        ItemAPILogin.itemAPI.DeleteItemInventory("6574bc92db53a20b56ab4326", 1);
         Opench = false;
         TreasureChestOpen.SetActive(true);
         TreasureChestClose.SetActive(false);

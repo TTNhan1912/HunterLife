@@ -46,6 +46,11 @@ public class PickUpSystem : MonoBehaviour
                     ShowPotion.playerLife.Key += 1;
                 }
 
+                if (item.InventoryItem.idName == "657ee6149ffb7c266c17f886")
+                {
+                    ShowPotion.playerLife.Meat += 1;
+                }
+
                 int reminder = inventoryData.AddItem(item.InventoryItem, item.Quantity);
                 if (reminder == 0)
                 {

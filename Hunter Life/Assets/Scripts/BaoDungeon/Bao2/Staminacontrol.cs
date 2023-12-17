@@ -1,3 +1,4 @@
+using Inventory;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,17 +17,21 @@ public class Staminacontrol : MonoBehaviour
     {
         tongmeat2 = playerLife.tongmeat;
         currentStamina = maxStamina;
-          StartCoroutine(DecreaseStaminaOverTime());
+         StartCoroutine(DecreaseStaminaOverTime());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G) && ShowPotion.playerLife.Meat > 0)
         {
             IncreaseStamina(10);
-
-
+            ShowPotion.playerLife.Meat -= 1;
+            InventoryController inventoryController = FindObjectOfType<InventoryController>();
+            if (inventoryController != null)
+            {
+                inventoryController.removeItem("657ee6149ffb7c266c17f886", 1);
+            }
 
         }
         if (currentStamina >= 75 && currentStamina <= 100) { hienthelucfull();}

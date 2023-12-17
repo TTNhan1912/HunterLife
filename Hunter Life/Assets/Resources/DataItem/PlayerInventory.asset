@@ -73,4 +73,16 @@ MonoBehaviour:
   - quantity: 0
     price: 0
     itemSO: {fileID: 0}
-  <Size>k__BackingField: 20
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  - quantity: 0
+    price: 0
+    itemSO: {fileID: 0}
+  <Size>k__BackingField: 24

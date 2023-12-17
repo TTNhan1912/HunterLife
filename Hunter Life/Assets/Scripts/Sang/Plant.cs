@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -41,6 +42,8 @@ public class Plant : MonoBehaviour
     // hướng ban đầu
     private int initialFacingDirection = 1;
 
+    private InventoryController inventoryController;
+
     private void Start()
     {
         // tạo 1 mảng lấy vị trí của ô đất đã đào và ô đã trồng cây
@@ -57,7 +60,7 @@ public class Plant : MonoBehaviour
 
         initialFacingDirection = (int)Mathf.Sign(transform.localScale.x);
 
-
+        inventoryController = FindObjectOfType<InventoryController>();
         // ngày đêm
         //StartCoroutine(StartDayNightCycle());
     }
@@ -74,34 +77,51 @@ public class Plant : MonoBehaviour
             }
         }
 
-        // trồng cây
-        if (Input.GetKeyDown(KeyCode.Z) && canPlant && canDig && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        
+        if (inventoryController != null)
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
-
-            if (tilemap.GetTile(cellPosition) == newTile)
+            foreach (var item in inventoryController.inventoryData.GetCurrentInventoryState())
             {
-                if (!IsTilePlanted(cellPosition) && !CanDigAtMousePosition())
+                if(item.Value.itemSO.idName == "651ff3086d1b88d6eb0d18de")
                 {
-                    PlantFL();
+                    if(item.Value.quantity >= 0)
+                    {
+                        // trồng cây
+                        if (Input.GetKeyDown(KeyCode.Z) && canPlant && canDig && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+                        {
+                            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
+
+                            if (tilemap.GetTile(cellPosition) == newTile)
+                            {
+                                if (!IsTilePlanted(cellPosition) && !CanDigAtMousePosition())
+                                {
+                                    PlantFL();
+                                    
+                                }
+                            }
+                        }
+
+                        if (Input.GetKey(KeyCode.Z) && canPlant && canDig && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+                        {
+                            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
+
+                            if (tilemap.GetTile(cellPosition) == newTile)
+                            {
+                                if (!IsTilePlanted(cellPosition))
+                                {
+                                    PlantFL();
+                                                                   
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        if(Input.GetKey(KeyCode.Z) && canPlant && canDig && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
-        {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
-
-            if (tilemap.GetTile(cellPosition) == newTile)
-            {
-                if (!IsTilePlanted(cellPosition))
-                {
-                    PlantFL();
-                }
-            }
-        }
+        
 
 
     }
@@ -231,11 +251,14 @@ public class Plant : MonoBehaviour
                     if (!IsTilePlanted(cellPosition) && !TreeExistsAtCell(cellPosition))
                     {
                         UpdateFacingDirection(cellPosition);
+                        inventoryController.removeItem("651ff3086d1b88d6eb0d18de", 1);
+                        
                         // Trồng cây tại ô đã đào
                         Instantiate(treePrefab, tilemap.GetCellCenterWorld(cellPosition), Quaternion.identity);
                         animation.Play("Player_Plant");
                         AudioManager.instance.PlaySfx("Plant");
                         StartCoroutine(Wait());
+
                     }
                 }
             }

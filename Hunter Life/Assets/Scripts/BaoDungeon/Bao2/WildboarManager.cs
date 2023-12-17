@@ -19,7 +19,7 @@ public class WildboarManager : MonoBehaviour
              
             if (Boar[i].activeSelf)
         {
-            Debug.Log("GameObject đang ở trạng thái active.");
+            //Debug.Log("GameObject đang ở trạng thái active.");
         }
         else
         {

@@ -17,11 +17,16 @@ public class ShowPotion : MonoBehaviour
     public TextMeshProUGUI TextLifeKey1;
     public TextMeshProUGUI TextLifeKey2;
 
+    public TextMeshProUGUI TextMeat1;
+    public TextMeshProUGUI TextMeat2;
+
     public int LifePot;
     public int Key;
+    public int Meat;
 
     private int intPot;
     private int intKey;
+    private int intMeat;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +60,7 @@ public class ShowPotion : MonoBehaviour
             if (isActiveInHierarchy)
             {
                 TextLifeKey1.text = Key + "";
-               intKey = Key;
+                intKey = Key;
             }
             else
             {
@@ -63,7 +68,23 @@ public class ShowPotion : MonoBehaviour
                 intKey = Key;
             }
         }
-   
+
+        if (Meat != intMeat)
+        {
+            bool isActiveInHierarchy = canvans.activeInHierarchy;
+
+            if (isActiveInHierarchy)
+            {
+                TextMeat1.text = Meat + "";
+                intMeat = Meat;
+            }
+            else
+            {
+                TextMeat2.text = Meat + "";
+                intMeat = Meat;
+            }
+        }
+
     }
 
 
@@ -107,6 +128,22 @@ public class ShowPotion : MonoBehaviour
             TextLifeKey2.text = Key + "";
         }
     }
+
+    public void ShowMeat()
+    {
+        bool isActiveInHierarchy = canvans.activeInHierarchy;
+
+        if (isActiveInHierarchy)
+        {
+            TextMeat1.text = Meat + "";
+            intMeat = Meat;
+        }
+        else
+        {
+            TextMeat2.text = Meat + "";
+            intMeat = Meat;
+        }
+    }
     public void LoadQuantityPotion(int quantity)
     {
         bool isActiveInHierarchy = canvans.activeInHierarchy;      
@@ -124,7 +161,7 @@ public class ShowPotion : MonoBehaviour
         }
     } 
 
-public void LoadQuantityKey(int quantity)
+    public void LoadQuantityKey(int quantity)
     {
         bool isActiveInHierarchy = canvans.activeInHierarchy;
         Key += quantity;
@@ -138,6 +175,22 @@ public void LoadQuantityKey(int quantity)
             TextLifeKey2.text = Key + "";
             return;
         }             
+    }
+
+    public void LoadQuantityMeat(int quantity)
+    {
+        bool isActiveInHierarchy = canvans.activeInHierarchy;
+        Meat += quantity;
+        if (isActiveInHierarchy)
+        {
+            TextMeat1.text = Meat + "";
+            return;
         }
-    
+        else
+        {
+            TextMeat2.text = Meat + "";
+            return;
+        }
+    }
+
 }
