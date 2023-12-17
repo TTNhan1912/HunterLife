@@ -31,14 +31,13 @@ public class PlayerTeleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X))
-        {
+      
             if (currentTeleporter != null)
             {
                 LoadingTransition();
                 LoadSelectedMiniMap();
             }
-        }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

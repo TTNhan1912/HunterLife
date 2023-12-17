@@ -40,7 +40,7 @@ public class WeaponParent : MonoBehaviour
     public GameObject Weapon4;
     public GameObject BulletPrefab;
     public Transform Bulletfire;
-    public float shootDelayGun = 0.25f; // Thời gian chờ giữa mỗi lần bắn
+    public float shootDelayGun = 0.15f; // Thời gian chờ giữa mỗi lần bắn
 
 
     //

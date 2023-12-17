@@ -8,6 +8,7 @@ public class Arrow : MonoBehaviour
     public float speed = 5f; // Tốc độ của viên đạn
     public float forceMagnitude = 10f;
     public int BoA =1;
+     private GameObject parent;
      // Lực của viên đạn
 
     void Start()
@@ -21,6 +22,10 @@ public class Arrow : MonoBehaviour
     // {
     //     direction = newDirection;
     // }
+      public void SetParent(GameObject newParent)
+    {
+        parent = newParent;
+    }
     void OnTriggerEnter2D(Collider2D other)
 {      
     if( BoA==1){
@@ -55,6 +60,13 @@ public class Arrow : MonoBehaviour
         Destroy(rb);
     }
     if (other.CompareTag("Boss"))
+    {
+        
+       transform.parent = other.transform;
+          StickToTarget();  
+        Destroy(rb);
+    }
+     if (other.CompareTag("boar"))
     {
         
        transform.parent = other.transform;
@@ -96,6 +108,10 @@ public class Arrow : MonoBehaviour
     {
         Destroy(gameObject);
     }
+      if (other.CompareTag("boar"))
+    {      
+        Destroy(gameObject);
+    }
      if (other.CompareTag("tuong"))
     {
      Destroy(gameObject);
@@ -106,8 +122,12 @@ public class Arrow : MonoBehaviour
     }
 }
 void StickToTarget()
-{
-    Vector2 averagePosition = (transform.position + transform.parent.position) / 2f;
-    transform.position = averagePosition;
+    {
+        Vector2 averagePosition = (transform.position + transform.parent.position) / 2f;
+        transform.position = averagePosition;
+        GetComponent<Collider2D>().enabled = false;
+
+        // Kiểm tra xem parent có tồn tại hay không trước khi sử dụng
+       
 }
 }

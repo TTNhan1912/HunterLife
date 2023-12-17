@@ -54,6 +54,10 @@ TagManager:
   - Startman3A
   - Endman3
   - Interact
+  - RainParticleSystem
+  - boar
+  - rawmeat
+  - meat
   layers:
   - Default
   - TransparentFX

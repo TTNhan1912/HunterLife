@@ -16,6 +16,7 @@ public class PlayerLife : MonoBehaviour
     public TextMeshProUGUI TextKey;
     //int LifePot = 2;
     public int Key ;
+    public int tongmeat =2;
 
 
     public int CharLife = 10;
@@ -90,26 +91,31 @@ public class PlayerLife : MonoBehaviour
         }
 
 
-        //if (collision.gameObject.CompareTag("LifePot"))
-        //{
+        if (collision.gameObject.CompareTag("rawmeat"))
+        {
 
-        //    Destroy(collision.gameObject);
-        //    TongLifePot(1);
-
-
-        //}
-        //if (collision.gameObject.CompareTag("Key"))
-        //{
-
-        //    Destroy(collision.gameObject);
-        //    TongKey(1);
+           Destroy(collision.gameObject);
+           //TongLifePot(1);
 
 
-        //}
+        }
+        if (collision.gameObject.CompareTag("meat"))
+        {
+  Tongmeat(1);
+           Destroy(collision.gameObject);
+          // TongKey(1);
+
+
+        }
     }
     public void TongLifePot(int Pot)
     {
         ShowPotion.playerLife.LifePot += Pot;
+        //TextLifePot.text = "X " + LifePot;
+    }
+     public void Tongmeat(int meat)
+    {
+        tongmeat +=meat;
         //TextLifePot.text = "X " + LifePot;
     }
     public void TongKey(int K)

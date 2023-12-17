@@ -25,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
              savePosition.SetActive(true);
          }*/
     }
+    
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
         string Objectname = collision.attachedRigidbody.gameObject.name;
