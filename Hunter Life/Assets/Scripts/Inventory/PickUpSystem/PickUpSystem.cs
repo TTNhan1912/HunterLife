@@ -49,6 +49,17 @@ public class PickUpSystem : MonoBehaviour
                     ShowPotion.playerLife.Meat += 1;
                 }
 
+                if (item.InventoryItem.idName == "6571532ea3a65dd019bd9b8a")
+                {
+                    MissionController.MissionControllinstance.Mission4Controller(item.Quantity);
+                }
+
+                if (item.InventoryItem.idName == "651ff3bb6d1b88d6eb0d18e8")
+                {
+                    Debug.Log("Nhatqj");
+                    MissionController.MissionControllinstance.Mission5Controller();
+                }
+
                 int reminder = inventoryData.AddItem(item.InventoryItem, item.Quantity);
                 if (reminder == 0)
                 {

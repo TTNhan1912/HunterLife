@@ -83,21 +83,28 @@ namespace Inventory.Model
             return quantity;
         }
 
-        //new API
-        public int AddItemAPI(ItemSOAPI itemSOAPI, int quantityAPI)
+        public int AddItemShop(ItemSO itemSO, int quantity)
         {
 
-            for (int i = 0; i < inventoryItems.Count; i++)
+            if (itemSO.IsStackable == false)
             {
+                for (int i = 0; i < inventoryItems.Count; i++)
+                {
 
-                InformAboutChange();
-                return quantityAPI;
+                    while (quantity > 0 && IsInventoryFull() == false)
+                    {
+                        quantity -= AddItemToFirstFreeSlot(itemSO, quantity);
+                    }
+                    InformAboutChange();
+                    return quantity;
+
+                }
             }
-
+            quantity = AddStackAbleItemShop(itemSO, quantity);
             InformAboutChange();
-            return quantityAPI;
+            return quantity;
         }
-
+          
         private int AddItemToFirstFreeSlot(ItemSO itemSO, int quantity)
         {
             InventoryItem newItem = new InventoryItem
@@ -155,12 +162,53 @@ namespace Inventory.Model
             return quantity;
         }
 
+        private int AddStackAbleItemShop(ItemSO itemSO, int quantity)
+        {
+            for (int i = 0; i < inventoryItems.Count; i++)
+            {
+                if (inventoryItems[i].IsEmty)
+                    continue;
+                if (inventoryItems[i].itemSO.id == itemSO.id)
+                {
+                    int amountPossibleTotake =
+                        inventoryItems[i].itemSO.MaxStackSize - inventoryItems[i].quantity;
+
+                    if (quantity > amountPossibleTotake)
+                    {
+                        inventoryItems[i] = inventoryItems[i]
+                            .ChangeQuantity(inventoryItems[i].itemSO.MaxStackSize);
+                        quantity -= amountPossibleTotake;
+                    }
+                    else
+                    {
+                        inventoryItems[i] = inventoryItems[i]
+                            .ChangeQuantity(inventoryItems[i].quantity + quantity);
+                        InformAboutChange();
+                        return 0;
+                    }
+                }
+            }
+            while (quantity > 0 && IsInventoryFull() == false)
+            {
+                int newQuantity = Mathf.Clamp(quantity, 0, itemSO.MaxStackSize);
+                quantity -= newQuantity;
+                AddItemToFirstFreeSlot(itemSO, newQuantity);
+            }
+            return quantity;
+        }
+
         public void AddItem(InventoryItem item)
         {
             AddItem(item.itemSO, item.quantity);
             //  Debug.Log(item.itemSO.Name);
         }
-      
+
+        public void AddItemShop(InventoryItem item)
+        {
+            AddItemShop(item.itemSO, item.quantity);
+            //  Debug.Log(item.itemSO.Name);
+        }
+
         //new
         public void AddItemAPI(ItemSO item, int quantity)
         {

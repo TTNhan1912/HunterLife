@@ -26,6 +26,8 @@ public class MissionController : MonoBehaviour
 
     public bool isGun = false;
 
+    public static MissionController MissionControllinstance;
+
     public int GetCoins()
     {
         //Debug.Log("Lấy coin:" + getCoinsByMission);
@@ -52,6 +54,18 @@ public class MissionController : MonoBehaviour
                 listMission.SetActive(false);
             }
             isActive = !isActive;
+        }
+    }
+
+    private void Awake()
+    {
+        if (MissionControllinstance == null)
+        {
+            MissionControllinstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -97,13 +111,13 @@ public class MissionController : MonoBehaviour
         }
     }
 
-    public void Mission3Controller()
+    public void Mission3Controller(int quantity)
     {
         if (progress3 >= 10)
         {
             return;
         }
-        progress3++;
+        progress3 += quantity;
         missionProgress3.text = "(" + progress3 + "/10)";
         if (progress3 == 10)
         {
@@ -114,13 +128,13 @@ public class MissionController : MonoBehaviour
         }
     }
 
-    public void Mission4Controller()
+    public void Mission4Controller(int quantiy)
     {
         if (progress4 >= 150)
         {
             return;
         }
-        progress4++;
+        progress4 += quantiy;
         missionProgress4.text = "(" + progress4 + "/150)";
         if (progress4 == 150)
         {
@@ -133,12 +147,14 @@ public class MissionController : MonoBehaviour
 
     public void Mission5Controller()
     {
+       
         if (progress5 >= 75)
         {
             return;
         }
         progress5++;
-        missionProgress1.text = "(" + progress5 + "/75)";
+       
+        missionProgress5.text = "(" + progress5 + "/75)";
         if (progress5 == 75)
         {
             missionName5.color = Color.blue;

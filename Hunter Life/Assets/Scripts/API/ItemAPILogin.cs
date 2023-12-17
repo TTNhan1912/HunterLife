@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using static UnityEditor.Progress;
 
 public class ItemAPILogin : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class ItemAPILogin : MonoBehaviour
             // Debug.Log("id item name la :" + ItemName);
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             GetAllItem();
             // Debug.Log("id item name la :" + ItemName);
@@ -253,7 +254,7 @@ public class ItemAPILogin : MonoBehaviour
         request.Dispose();
     }
 
-    // xóa vật phẩm trong túi đồ
+    // xóa vật phẩm trong túi đồ không load lại
     public void DeleteItemInventoryNOLOAD(string itemName, int quantity)
     {
         StartCoroutine(deleteItemInventoryNoload(itemName, quantity));
@@ -347,11 +348,15 @@ public class ItemAPILogin : MonoBehaviour
     public void BoughtShop()
     {
         var id = ShopController.idItemShop; 
-        Debug.Log("IDItemShop" +  id);
+       
         if(SavePositionCoin.coinn >= ShopController.CoinItemShop)
         {
             SavePositionCoin.coinn = SavePositionCoin.coinn - ShopController.CoinItemShop;
             Debug.Log("Đã bán");
+            if(ShopController.idItem == "651ff3786d1b88d6eb0d18e4")
+            {
+                MissionController.MissionControllinstance.Mission3Controller(ShopController.quantityItem);
+            }
             StartCoroutine(BoughtItems(id));
             BoughtItems(id);
         }
@@ -420,6 +425,7 @@ public class ItemAPILogin : MonoBehaviour
     {
       
         SavePositionCoin.coinn += UISellDescription.priceItem;
+        MissionController.MissionControllinstance.Mission6Controller();
         DeleteItemInventory(SellController.idName, UISellDescription.currentTotal);
        
 

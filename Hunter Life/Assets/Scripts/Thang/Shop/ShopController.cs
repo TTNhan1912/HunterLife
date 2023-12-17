@@ -24,7 +24,8 @@ public class ShopController : MonoBehaviour
 
     public static string idItemShop;
     public static int CoinItemShop;
-
+    public static string idItem;
+    public static int quantityItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -111,7 +112,7 @@ public class ShopController : MonoBehaviour
         {
             if (item.IsEmty)
                 continue;
-            inventoryData.AddItem(item);
+            inventoryData.AddItemShop(item);
            
         }
 
@@ -165,6 +166,8 @@ public class ShopController : MonoBehaviour
         //  TestModel model;
         idItemShop = item.id;
         CoinItemShop = item.price;
+        idItem = item.idName;
+        quantityItem = item.quantity;
         string Description = "Mô tả: " + item.Description +"\n\n" + "Số lượng: " + item.quantity;
         shopUI.UpdateDesciption(itemindex, item.IteamImage, item.Name, Description, item.price);
     }
