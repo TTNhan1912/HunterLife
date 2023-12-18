@@ -22,7 +22,7 @@ public class Login : MonoBehaviour
     public string ItemNameID;
     public string ItemNameDescription;
     public int ItemNameQuantity;
-
+    public GameObject ErrorPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +105,7 @@ public class Login : MonoBehaviour
             }
             else
             {
+                ErrorPanel.SetActive(true);
                 txtError.text = loginResponse.message;
             }
         }

@@ -15,7 +15,7 @@ public class ForgotPassword : MonoBehaviour
     public Selectable fisrt;
     private EventSystem eventSystem;
 
-    public GameObject forgotPassword, login;
+    public GameObject forgotPassword, login,ErrorPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +86,7 @@ public class ForgotPassword : MonoBehaviour
                     }
                     else
                     {
+                        ErrorPanel.SetActive(true);
                         txtError.text = forgotPasswordResponseMoel.message;
                     }
                 }
@@ -93,6 +94,7 @@ public class ForgotPassword : MonoBehaviour
         }
         else
         {
+            ErrorPanel.SetActive(true);
             txtError.text = "Mật khẩu không khớp";
         }
 

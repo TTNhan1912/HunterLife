@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7397873703423415405}
   - component: {fileID: 7397873703423415394}
   - component: {fileID: 7397873703423415407}
+  - component: {fileID: 5020847665665876886}
   - component: {fileID: 7397873703423415404}
-  - component: {fileID: 7397873703423415406}
   m_Layer: 0
   m_Name: VillageChief
   m_TagString: Untagged
@@ -113,6 +113,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.29}
   m_EdgeRadius: 0
+--- !u!114 &5020847665665876886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397873703423415395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41282ca74efeed84cb9b0608bedbc85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 0}
+  contentLabel: {fileID: 0}
+  content: []
+  button: {fileID: 0}
+  wordSpeed: 0
+  player: {fileID: 0}
+  NotNear: {fileID: 0}
+  Near: {fileID: 0}
+  charAvatar: {fileID: 0}
+  npcAvatar: {fileID: 0}
+  nameC: {fileID: 0}
 --- !u!95 &7397873703423415404
 Animator:
   serializedVersion: 5
@@ -133,39 +156,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &7397873703423415406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7397873703423415395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59c8b7781578594295994102856f8c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
-  contentLabel: {fileID: 0}
-  content:
-  - "Tr\u01B0\u1EDFng l\xE0ng: Ch\xE0o hi\u1EC7p s\u0129, b\u1EA1n \u0111\u1EBFn
-    r\u1EA5t \u0111\xFAng l\xFAc. Ch\xFAng ta kh\xF4ng c\xF2n nhi\u1EC1u th\u1EDDi
-    gian.  "
-  - "B\u1EA1n: \xD4ng \u0111\u1EE9ng \u0111\xE2y nh\u01B0 th\u1EC3 \u0111\xE3 bi\u1EBFt
-    tr\u01B0\u1EDBc r\u1EB1ng t\xF4i \u0111\xE3 \u0111\u1EBFn \u0111\xE2y sao ? "
-  - "Tr\u01B0\u1EDFng l\xE0ng: T\xF4i kh\xF4ng c\xF3 \u0111\u1EE7 quy\u1EC1n n\u0103ng
-    nh\u01B0 th\u1EBF \u0111\xE2u (haha). "
-  - "Tr\u01B0\u1EDFng l\xE0ng: Nh\u01B0ng t\xF4i v\u1EABn c\xF3 1 ni\u1EC1m tin r\u1EB1ng
-    s\u1EBD c\xF3 1 v\u1ECB anh h\xF9ng \u0111\u1EBFn \u0111\xE2y v\xE0 gi\u1EA3i
-    c\u1EE9u d\xE2n l\xE0ng c\u1EE7a t\xF4i c\u0169ng  nh\u01B0 ng\xF4i l\xE0ng n\xE0y."
-  - "B\u1EA1n: Chuy\u1EC7n g\xEC \u0111\xE3 x\u1EA3y ra v\u1EDBi ng\xF4i l\xE0ng
-    n\xE0y th\u1EBF ?"
-  - "Tr\u01B0\u1EDFng l\xE0ng: B\u1ECDn qu\xE1i v\u1EADt \u0111ang l\xE0m h\u1EE7y
-    ho\u1EA1i t\u1EA5t c\u1EA3 m\u1ECDi th\u1EE9. Ch\xFAng t\xF4i c\u1EA7n b\u1EA1n
-    gi\xFAp \u0111\u1EE1 \u0111\u1EC3 \u0111\xE1nh lui b\u1ECDn qu\xE1i v\u1EADt
-    man r\u1EE3 kia v\xE0 mang l\u1EA1i h\xF2a b\xECnh cho l\xE0ng."
-  - "Tr\u01B0\u1EDFng l\xE0ng: Tuy nhi\xEAn h\xE0nh tr\xECnh c\xF3 th\u1EC3 s\u1EBD
-    kh\xF3 kh\u0103n, tr\u01B0\u1EDBc ti\xEAn h\xE3y ti\u1EBFn v\xE0o l\xE0ng."
-  - "B\u1EA1n: \u0110\u01B0\u1EE3c r\u1ED3i, \u0111i th\xF4i"
-  button: {fileID: 0}
-  wordSpeed: 0.01

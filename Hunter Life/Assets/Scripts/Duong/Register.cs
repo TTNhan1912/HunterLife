@@ -17,6 +17,7 @@ public class Register : MonoBehaviour
     
     public GameObject nameUser, register;
     public static RegisterResponseMoel registerResponseMoel;
+    public GameObject ErrorPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,7 +87,9 @@ public class Register : MonoBehaviour
                 }
                 else
                 {
+                    ErrorPanel.SetActive(true);
                     txtError.text = registerResponseMoel.message;
+
                 }
             }
             request.Dispose();

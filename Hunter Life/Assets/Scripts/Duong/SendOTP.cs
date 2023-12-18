@@ -10,7 +10,7 @@ public class SendOTP : MonoBehaviour
 {
     public TMP_InputField edtEmail;
     public TMP_Text txtError;
-    public GameObject forgotPassword, sendOTP;
+    public GameObject forgotPassword, sendOTP,ErrorPanel;
     public static SendOTPResponseMoel sendOTPResponseMoel;
     // Start is called before the first frame update
     void Start()
@@ -60,6 +60,7 @@ public class SendOTP : MonoBehaviour
             }
             else
             {
+                ErrorPanel.SetActive(true);
                 txtError.text = sendOTPResponseMoel.message;
             }
         }

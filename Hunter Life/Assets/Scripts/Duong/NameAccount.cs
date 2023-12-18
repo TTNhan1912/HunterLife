@@ -14,6 +14,7 @@ public class NameAccount : MonoBehaviour
     public TMP_InputField edtName;
     public TMP_Text txtError;
     public Selectable fisrt;
+    public GameObject ErrorPanel;
     
     // Start is called before the first frame update
     void Start()
@@ -66,6 +67,7 @@ public class NameAccount : MonoBehaviour
             }
             else
             {
+                ErrorPanel.SetActive(true);
                 txtError.text = nameAccountResponseMoel.message;
             }
         }

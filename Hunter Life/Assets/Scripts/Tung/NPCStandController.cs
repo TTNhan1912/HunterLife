@@ -30,6 +30,13 @@ namespace CharAndNPC
         // được nhấn F hay không
         private bool isPanelActive = false;
 
+        //private string charContent = "Bạn:";
+        //public GameObject charAvatar;
+        //public GameObject npcAvatar;
+        //public TMP_Text nameC;
+        private bool isTyping = false;
+        private bool isShow = false;
+
         private void Start()
         {
             npcBox = GetComponent<BoxCollider2D>();
@@ -46,7 +53,7 @@ namespace CharAndNPC
 
         private void Update()
         {
-            button.SetActive(false);
+           // button.SetActive(false);
 
             
             if (contentLabel.text == content[index])
@@ -76,19 +83,49 @@ namespace CharAndNPC
                     playerSpeed.setSpeedRun(0f);
                 }
             }
+
+            //if(contentLabel.text.StartsWith(charContent))
+            //{
+            //    //Debug.Log("Thoại nhân vật");
+            //    charAvatar.SetActive(true);
+            //    npcAvatar.SetActive(false);
+            //    nameC.text = "Bạn";
+            //}
+            //else
+            //{
+            //    charAvatar.SetActive(false);
+            //    npcAvatar.SetActive(true);
+            //    nameC.text = "Trưởng làng";
+            //}
         }
 
         IEnumerator Typing()
         {
+
+            contentLabel.text = "";
+            button.SetActive(true);
+            
             foreach (char letter in content[index].ToCharArray())
             {
-                contentLabel.text += letter;
-                yield return new WaitForSeconds(wordSpeed);
+                isTyping = true;
+                if (isShow)
+                {
+                    contentLabel.text = content[index];
+                }
+                else
+                {
+                    contentLabel.text += letter;
+                    yield return new WaitForSeconds(wordSpeed);
+                }
+                
+                
             }
+            isTyping = false;
         }
 
         public void NextLine()
         {
+            StopAllCoroutines();
             button.SetActive(false);
             if (index < content.Length - 1)
             {
@@ -114,15 +151,19 @@ namespace CharAndNPC
 
         public void checkClick()
         {
+            Debug.Log("đang click");
             checkBtnClick2Time++;
+
             Debug.Log("lần nhân thứ: " + checkBtnClick2Time);
             // muốn nhập bao nhiêu text cũng được, không cần if từ 1 tới n...
-            for (int i = 0; i < content.Length; i++)
+            if(isTyping)
             {
-                if (checkBtnClick2Time == i)
-                {
-                    NextLine();
-                }
+                isShow = true;
+            }
+            else
+            {
+                isShow = false;
+                NextLine();
             }
             if (checkBtnClick2Time == content.Length)
             {
