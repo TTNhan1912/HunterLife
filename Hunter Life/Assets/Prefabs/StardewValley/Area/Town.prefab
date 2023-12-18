@@ -79653,6 +79653,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1682895920605275494}
     m_Modifications:
+    - target: {fileID: 2132976979409216460, guid: 8ad87f80f61386240aa19fa7b73cb151, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7422355491036508364, guid: 8ad87f80f61386240aa19fa7b73cb151, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -79721,11 +79725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7422355491036508364, guid: 8ad87f80f61386240aa19fa7b73cb151, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 256.04
+      value: 255.95
       objectReference: {fileID: 0}
     - target: {fileID: 7422355491036508364, guid: 8ad87f80f61386240aa19fa7b73cb151, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.61
+      value: -7.08
       objectReference: {fileID: 0}
     - target: {fileID: 7422355491036508364, guid: 8ad87f80f61386240aa19fa7b73cb151, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80638,6 +80642,10 @@ PrefabInstance:
     - target: {fileID: 2861241934070329486, guid: 7151236fe68f80b47a44e5d612b879b1, type: 3}
       propertyPath: m_Name
       value: Pine (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411047512242087151, guid: 7151236fe68f80b47a44e5d612b879b1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7151236fe68f80b47a44e5d612b879b1, type: 3}
