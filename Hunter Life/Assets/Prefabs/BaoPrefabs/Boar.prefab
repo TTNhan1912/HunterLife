@@ -184,6 +184,6 @@ MonoBehaviour:
   chaseRadius: 5
   chuviSize: 5
   characterSR: {fileID: 4373793074443281145}
-  meat: {fileID: 8278971394361548701, guid: 5c214fe568517b3459cff1e5416b93e4, type: 3}
+  meat: {fileID: 4605446022411855594, guid: d221daee6bced20428eccca33fc19a39, type: 3}
+  maumax: 5
   mau: 5
-  wildboarManager: {fileID: 0}

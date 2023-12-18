@@ -1,6 +1,5 @@
 using Inventory;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Staminacontrol : MonoBehaviour
@@ -8,16 +7,17 @@ public class Staminacontrol : MonoBehaviour
     // Start is called before the first frame update
     public GameObject thelucfull, theluc34, theluc12, theluc14, theluchet;
     public PlayerLife playerLife;
+    public PlayerMovement playerMovement;
     int tongmeat2;
     public int currentStamina = 100;
     public int maxStamina = 100;
-     public float decreaseInterval = 1f; // Thời gian giảm Stamina mỗi lần
+    public float decreaseInterval = 1f; // Thời gian giảm Stamina mỗi lần
     public int decreaseAmount = 5; // Lượng Stamina giảm mỗi lần
     void Start()
     {
         tongmeat2 = playerLife.tongmeat;
         currentStamina = maxStamina;
-         StartCoroutine(DecreaseStaminaOverTime());
+        StartCoroutine(DecreaseStaminaOverTime());
     }
 
     // Update is called once per frame
@@ -34,12 +34,12 @@ public class Staminacontrol : MonoBehaviour
             }
 
         }
-        if (currentStamina >= 75 && currentStamina <= 100) { hienthelucfull();}
-        if (currentStamina >=50 && currentStamina <75) { hientheluc34();}
-        if (currentStamina >=25 && currentStamina <50) { hientheluc12();}
+        if (currentStamina >= 75 && currentStamina <= 100) { hienthelucfull(); }
+        if (currentStamina >= 50 && currentStamina < 75) { hientheluc34(); }
+        if (currentStamina >= 25 && currentStamina < 50) { hientheluc12(); }
 
-        if (currentStamina >0 && currentStamina <25) { hientheluc14();}
-        if (currentStamina <= 0) { hientheluchet();}
+        if (currentStamina > 0 && currentStamina < 25) { hientheluc14(); }
+        if (currentStamina <= 0) { hientheluchet(); }
 
     }
     public void hienthelucfull()
@@ -49,6 +49,8 @@ public class Staminacontrol : MonoBehaviour
         theluc12.SetActive(false);
         theluc14.SetActive(false);
         theluchet.SetActive(false);
+        playerMovement.setSpeedRun(6);
+
 
     }
     public void hientheluc14()
@@ -58,6 +60,7 @@ public class Staminacontrol : MonoBehaviour
         theluc12.SetActive(false);
         theluc14.SetActive(true);
         theluchet.SetActive(false);
+        playerMovement.setSpeedRun(3);
 
     }
     public void hientheluc12()
@@ -67,6 +70,7 @@ public class Staminacontrol : MonoBehaviour
         theluc12.SetActive(true);
         theluc14.SetActive(false);
         theluchet.SetActive(false);
+        playerMovement.setSpeedRun(4);
 
     }
     public void hientheluc34()
@@ -76,6 +80,7 @@ public class Staminacontrol : MonoBehaviour
         theluc12.SetActive(false);
         theluc14.SetActive(false);
         theluchet.SetActive(false);
+        playerMovement.setSpeedRun(5);
 
     }
     public void hientheluchet()
@@ -85,9 +90,10 @@ public class Staminacontrol : MonoBehaviour
         theluc12.SetActive(false);
         theluc14.SetActive(false);
         theluchet.SetActive(true);
+        playerMovement.setSpeedRun(1);
 
     }
-     IEnumerator DecreaseStaminaOverTime()
+    IEnumerator DecreaseStaminaOverTime()
     {
         while (currentStamina > 0)
         {
@@ -99,13 +105,13 @@ public class Staminacontrol : MonoBehaviour
     void DecreaseStamina(int amount)
     {
         currentStamina = Mathf.Clamp(currentStamina - amount, 0, maxStamina);
-      //  Debug.Log("Current Stamina: " + currentStamina);
+        //  Debug.Log("Current Stamina: " + currentStamina);
     }
 
     public void IncreaseStamina(int amount)
     {
         currentStamina = Mathf.Clamp(currentStamina + amount, 0, maxStamina);
-       // Debug.Log("Stamina Increased! Current Stamina: " + currentStamina);
+        // Debug.Log("Stamina Increased! Current Stamina: " + currentStamina);
     }
 
     public int GetStamina()
