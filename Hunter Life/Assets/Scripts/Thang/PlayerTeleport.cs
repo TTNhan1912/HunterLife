@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
-    private GameObject currentTeleporter; 
+    private GameObject currentTeleporter;
     private GameObject transition;
 
-    public GameObject map1; 
+    public GameObject map1;
     public GameObject map2;
     public GameObject map3;
     public GameObject map4;
@@ -31,13 +30,13 @@ public class PlayerTeleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-            if (currentTeleporter != null)
-            {
-                LoadingTransition();
-                LoadSelectedMiniMap();
-            }
-       
+
+        if (currentTeleporter != null)
+        {
+            LoadingTransition();
+            LoadSelectedMiniMap();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,7 +53,7 @@ public class PlayerTeleport : MonoBehaviour
 
                 changeMap = 1;
             }
-            else if(otherLayer == LayerMask.NameToLayer("Map1-4"))
+            else if (otherLayer == LayerMask.NameToLayer("Map1-4"))
             {
 
                 changeMap = 4;
@@ -111,10 +110,10 @@ public class PlayerTeleport : MonoBehaviour
 
     void LoadSelectedMiniMap()
     {
-        switch(changeMap)
+        switch (changeMap)
         {
             case 0:
-                Debug.Log("Chưa tới vùng chuyển map");
+                //  Debug.Log("Chưa tới vùng chuyển map");
                 break;
             case 1:
                 showMap1();

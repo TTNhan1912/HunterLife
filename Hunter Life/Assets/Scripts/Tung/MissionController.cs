@@ -18,6 +18,8 @@ public class MissionController : MonoBehaviour
     // khai báo chữ của btn
     public Text btn1Text, btn2Text, btn3Text, btn4Text, btn5Text, btn6Text, btn7Text;
 
+    //check nhan thuong
+    private int check1, check2, check3, check4, check5, check6, check7 = 0;
     //Nhận thưởng
     public GameObject PanelGeward;
     public TMP_Text contentBonus;
@@ -147,13 +149,13 @@ public class MissionController : MonoBehaviour
 
     public void Mission5Controller()
     {
-       
+
         if (progress5 >= 75)
         {
             return;
         }
         progress5++;
-       
+
         missionProgress5.text = "(" + progress5 + "/75)";
         if (progress5 == 75)
         {
@@ -201,45 +203,80 @@ public class MissionController : MonoBehaviour
 
     public void RewardMission1()
     {
+        if (check1 > 0)
+        {
+            return;
+        }
         showGeward(10);
         btn1Text.text = "Đã nhận thưởng";
+        check1++;
     }
 
     public void RewardMission2()
     {
+        if (check2 > 0)
+        {
+            return;
+        }
         showGeward(10);
         btn2Text.text = "Đã nhận thưởng";
+        check2++;
     }
 
     public void RewardMission3()
     {
+        if (check3 > 0)
+        {
+            return;
+        }
         showGeward(20);
         btn3Text.text = "Đã nhận thưởng";
+        check3++;
     }
 
     public void RewardMission4()
     {
+        if (check4 > 0)
+        {
+            return;
+        }
         showGeward(75);
         btn4Text.text = "Đã nhận thưởng";
+        check4++;
     }
 
     public void RewardMission5()
     {
+        if (check5 > 0)
+        {
+            return;
+        }
         showGeward(30);
         btn5Text.text = "Đã nhận thưởng";
+        check5++;
     }
 
     public void RewardMission6()
     {
+        if (check6 > 0)
+        {
+            return;
+        }
         showGeward(50);
         btn6Text.text = "Đã nhận thưởng";
+        check6++;
     }
 
     public void RewardMission7()
     {
+        if (check7 > 0)
+        {
+            return;
+        }
         showGeward(80);
         btn7Text.text = "Đã nhận thưởng";
         isGun = true;
+        check7++;
     }
 
     private void showGeward(int value)

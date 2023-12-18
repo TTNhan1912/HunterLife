@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using Unity.VisualScripting;
 
 public class HitAndHeathBoss : MonoBehaviour
 {
@@ -12,7 +9,7 @@ public class HitAndHeathBoss : MonoBehaviour
     public float hitRed = 0;
     private Animator animator;
     private bool isEndGreen = false;
-  //  Boom bom = new Boom();
+    //  Boom bom = new Boom();
     public bool isDie = false;
     // Start is called before the first frame update
     void Start()
@@ -40,14 +37,14 @@ public class HitAndHeathBoss : MonoBehaviour
             if (isEndGreen)
             {
                 BeingAttackedRed();
-             }
-             else
+            }
+            else
             {
-                 BeingAttackedGreen();
-             }
-             }
+                BeingAttackedGreen();
+            }
+        }
 
-      //  }
+        //  }
     }
     public void BeingAttacked()
     {
@@ -82,6 +79,7 @@ public class HitAndHeathBoss : MonoBehaviour
 
     private void BeingAttackedRed()
     {
+        bloodGreen.gameObject.SetActive(false);
         float oneTouch = 1f / hitRed;
         bloodRed.fillAmount = bloodRed.fillAmount - oneTouch;
         bloodRed.fillAmount = bloodRed.fillAmount;

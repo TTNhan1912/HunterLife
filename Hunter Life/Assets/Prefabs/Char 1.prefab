@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3218420242481765893}
   - component: {fileID: 3218420242481765891}
   - component: {fileID: 3218420242481765889}
+  - component: {fileID: 3311444963189972358}
   - component: {fileID: 3218420242481765888}
   - component: {fileID: 3218420242481765918}
   - component: {fileID: 3218420242481765919}
@@ -464,6 +465,7 @@ MonoBehaviour:
   viTriheal: {fileID: 3218420242481766386}
   TextKey: {fileID: 0}
   Key: 2
+  tongmeat: 2
   CharLife: 10
   CharLifeMax: 10
   flashEffect: {fileID: 3218420242481765893}
@@ -537,6 +539,22 @@ MonoBehaviour:
   PanelGeward: {fileID: 0}
   contentBonus: {fileID: 0}
   isGun: 0
+--- !u!114 &3311444963189972358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218420242481766390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff6482f963d4044ea82ba9abceb348f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniMap1: {fileID: 0}
+  miniMap2: {fileID: 0}
+  miniMap3: {fileID: 0}
+  miniMap4: {fileID: 0}
 --- !u!114 &3218420242481765888
 MonoBehaviour:
   m_ObjectHideFlags: 0
