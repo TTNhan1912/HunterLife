@@ -148,7 +148,7 @@ public class ShowPotion : MonoBehaviour
     {
         bool isActiveInHierarchy = canvans.activeInHierarchy;      
        
-        LifePot += quantity;
+        LifePot = quantity;
         if (isActiveInHierarchy)
         {
             TextLifePot1.text = LifePot + "";
@@ -164,7 +164,7 @@ public class ShowPotion : MonoBehaviour
     public void LoadQuantityKey(int quantity)
     {
         bool isActiveInHierarchy = canvans.activeInHierarchy;
-        Key += quantity;
+        Key = quantity;
         if (isActiveInHierarchy)
         {
             TextLifeKey1.text = Key + "";
@@ -180,7 +180,7 @@ public class ShowPotion : MonoBehaviour
     public void LoadQuantityMeat(int quantity)
     {
         bool isActiveInHierarchy = canvans.activeInHierarchy;
-        Meat += quantity;
+        Meat = quantity;
         if (isActiveInHierarchy)
         {
             TextMeat1.text = Meat + "";

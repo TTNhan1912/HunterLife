@@ -44,7 +44,7 @@ public class PlayerLife : MonoBehaviour
             if (ShowPotion.playerLife.LifePot > 0 && CharLife < CharLifeMax)
             {
                 CharLife = CharLife + 1;
-                TongLifePot(-1);
+                //TongLifePot(-1);
                 AudioManager.instance.PlaySfx("Heal");
                 ani.Play("Char_Attack_LR");
                 GameObject heal2 = Instantiate(heal, viTriheal.position, viTriheal.rotation);

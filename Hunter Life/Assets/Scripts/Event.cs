@@ -23,18 +23,18 @@ public class Event : MonoBehaviour
     {
         var id = "654507e7644da551c636056c";
 
-        //if (Login.loginResponse != null)
-        //{
-        //    id = Login.loginResponse.id;
-        //    Debug.Log("id1" + id);
-        //    Debug.Log("Login");
-        //}
+        if (Login.loginResponse != null)
+        {
+            id = Login.loginResponse.id;
+            Debug.Log("id1" + id);
+            Debug.Log("Login");
+        }
 
-        //if (Register.registerResponseMoel != null)
-        //{
-        //    id = Register.registerResponseMoel.id;
-        //    Debug.Log("Register" + id);
-        //}
+        if (Register.registerResponseMoel != null)
+        {
+            id = Register.registerResponseMoel.id;
+            Debug.Log("Register" + id);
+        }
         TestResponseModel userModel = new TestResponseModel(id);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userModel);

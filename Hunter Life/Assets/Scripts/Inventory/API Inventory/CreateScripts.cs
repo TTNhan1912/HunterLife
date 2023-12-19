@@ -99,7 +99,8 @@ public class CreateScripts : MonoBehaviour
 
             }
         }
-        inventoryController.LoadItemSell();                     
+        inventoryController.LoadItemSell();
+        inventoryController.LoadQuantity();
     }
 
 
@@ -243,7 +244,11 @@ public class CreateScripts : MonoBehaviour
             }
         }
         shopController.LoadItemShop();
-
+        InventoryController inventoryController = FindObjectOfType<InventoryController>();
+        if (inventoryController != null)
+        {
+            inventoryController.LoadQuantity();
+        }
     }
 
     private void Awake()

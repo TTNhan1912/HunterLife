@@ -84,6 +84,13 @@ public class PlayerTeleportfarmXdungeon : MonoBehaviour
 
                 PlayerDungeon.SetActive(true);
                 PlayerFarm.SetActive(false);
+
+                //InventoryController inventoryController = FindObjectOfType<InventoryController>();
+                //if (inventoryController != null)
+                //{
+                //    inventoryController.LoadItemSell();
+                //}
+                CreateScripts.createScriptsIntance.CreateMyScriptableObject();
                 ShowPotion.playerLife.ShowPot();
                 ShowPotion.playerLife.ShowKey();
                 ShowPotion.playerLife.ShowMeat();
